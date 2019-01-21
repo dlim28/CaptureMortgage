@@ -60,5 +60,16 @@ function findMortgage(paramID) {
 // GETTERS
 
 // SETTERS
+{
+    function setClientName(paramCustomerName, obj) {
+            obj.customerName = paramCustomerName;
+            // Save to database
+    }
 
+    function setStatus(paramStatusID, obj) {
+        obj.status = paramStatusID;
+    }
+
+    function 
+}
 // SETTERS
