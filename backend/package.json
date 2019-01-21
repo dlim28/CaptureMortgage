@@ -4,7 +4,7 @@
   "description": "The backend to CaptureMortgagePlus",
   "main": "api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Team 4",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "axios": "^0.18.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "jest": "^23.6.0",
     "mongoose": "^5.4.5",
     "nodemon": "^1.18.9"
   }
