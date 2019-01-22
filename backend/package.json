@@ -4,7 +4,8 @@
   "description": "The backend to CaptureMortgagePlus",
   "main": "api.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon api.js"
   },
   "author": "Team 4",
   "license": "ISC",
