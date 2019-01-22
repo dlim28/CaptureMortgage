@@ -20,6 +20,6 @@ mongoose.connection.on('error', () => {
   });
 
 app.use(cors())
-app.use(require('./controllers'));
+// app.use(require('./controllers'));
 
 app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
