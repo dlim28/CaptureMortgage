@@ -2,31 +2,118 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.form{
+  text-align: left;
+  font-size: 20px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: flex-end; */
+  color: grey;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.button{
+  align-items: right;
+
+}
+.savebutton{
+  margin-left: 20px;
+  background-color: rgb(18, 77, 136);
+  padding: 6px 60px;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.savebutton:hover {
+  background-color: rgb(13, 114, 13); /* Green */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.cancelbutton{
+  background-color: rgb(18, 77, 136);
+  padding: 6px 50px;
+  color:white;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.cancelbutton:hover {
+  background-color: rgb(145, 37, 37); /* Green */
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input {
+  max-width: 500px;
 }
+
+.inputbox{
+  display: flex;
+  /* padding-left: 100px; */
+  width:500px;
+  height: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.customerdetailsheading{
+  margin-top: 50px;
+ font-size: 42px;
+ color: grey;
+ margin-left: 140px;
+ text-align: center;
+}
+
+.statusblue{
+  color: dodgerblue;
+
+}
+
+.inLine h4{
+  margin: 0px;
+
+}
+
+.flex-form{
+  display: flex;
+  align-content: center;
+  
+}
+
+.flexformtitles{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  height: 500px;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.flexformcontent{
+  display:flex;
+  flex-direction: column;
+  margin: 20px;
+  height:500px;
+  justify-content: space-around;
+}
+
+.buttonflex{
+  display:flex;
+  justify-content: center;
+}
+.emptybox{
+  display:flex;
+  width: 270px;
+}
+
+.emptyboxone{
+  display:flex;
+  width: 300px;
+}
+
+.alignbuttons{
+  display:flex;
+  justify-content: center;
+  width:500px;
+
+}
+
