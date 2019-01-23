@@ -2,14 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 // GET root
-router.use('/', require(''));
+// router.use('/', require(''));
 
 //  GET mortgages
-router.use('/leads', require('./mortgage'));
+router.use('/leads', require('./mortgage.js'));
 
 // GET particular mortgage
-router.use('/leads/:id', require('./leads/new'))
-
+// router.use('/leads/:id', require('./leads/new'))
 
 //Get navbar dashboard data
 

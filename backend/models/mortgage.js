@@ -14,6 +14,6 @@ const mortgageSchema = new mongoose.Schema({
     isActive: Boolean,
     amount: Number,
     employee: Number
-  });
+  }, {collection: 'mortgageCollection'});
   
-  module.exports = mongoose.model('mortgage-collection', mortgageSchema);
+  module.exports = mongoose.model('mortgage', mortgageSchema);

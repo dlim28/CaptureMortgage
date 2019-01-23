@@ -1,17 +1,33 @@
 const express = require('express');
-const mongoose = require('mongoose')
+const router = express.Router();
+const mortgage = require('../models/mortgage');
 
-const mortgage = mongoose.connect('mongodb://localhost:27017/mortgage-collection'); //Connection to mongoDB 
+// const mortgageConnect = mongoose.connect('mongodb://localhost:27017/mortgage-collection'); //Connection to mongoDB 
 
-let currentState = findMortgage(); // This variable will be the object that the changes will be applied to
+// let currentState = mortgage.find({}) // This variable will be the object that the changes will be applied to
 
-const previousState = currentState; //This variable will hold all the previous data of the object
+// const previousState = currentState; //This variable will hold all the previous data of the object
+
+router.get('/', (req, res) => {
+    mortgage.find({})
+    .then((resp) => {
+    res.send(resp);
+  })
+})
 
 function findMortgage(paramID) {
     //finds a particular mortgage from the database
     //paramID is the ID that is from the webpage
     const mortgageObj = mortgage.findOne({id: paramID});
 
+    return mortgageObj;
+}
+
+function findAllMortgage() {
+    //finds a particular mortgage from the database
+    //paramID is the ID that is from the webpage
+    const mortgageObj = mortgage.find({});
+    // console.log(mortgageObj);
     return mortgageObj;
 }
 
@@ -123,4 +139,5 @@ function setHistory() {
     currentState.save();
 }
 
-module.export = mortgage;
+// module.exports = mortgage;
+module.exports = router;
