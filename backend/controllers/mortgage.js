@@ -121,6 +121,7 @@ function setHistory() {
 
     currentState.history.push(historyChanges); //Push the history into the array
     currentState.save();
+
 }
 
 module.export = mortgage;
