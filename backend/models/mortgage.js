@@ -9,12 +9,11 @@ const mortgageSchema = new mongoose.Schema({
     source: Number,
     category: Number,
     lender: Number,
-    history: Object,
+    history: [Object],
     dateOfLead: Date,
     isActive: Boolean,
     amount: Number,
     employee: Number
-
   });
   
   module.exports = mongoose.model('mortgage-collection', mortgageSchema);

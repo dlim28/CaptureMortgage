@@ -15,21 +15,11 @@ mongoose.connection.on('connected', () => {
     console.log('Connected to mongod');
   });
   
-  mongoose.connection.on('error', () => {
+mongoose.connection.on('error', () => {
     console.log('Failed to connect to mongod');
   });
 
-//Get navbar dashboard data
+app.use(cors())
+// app.use(require('./controllers'));
 
-//Get Leads Data
-
-//Get Lodgement Data
-
-//Get Approval Data
-
-//Get Settlement Data
-
-//Get ONE user
-
-//Get all users
-
+app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
