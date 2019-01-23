@@ -69,7 +69,5 @@ function findMortgage(paramID) {
     function setStatus(paramStatusID, obj) {
         obj.status = paramStatusID;
     }
-
-    function 
 }
 // SETTERS
