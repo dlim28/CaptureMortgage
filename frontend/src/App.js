@@ -4,6 +4,7 @@ import LeadsTable from './tables/LeadsTable'
 import LodgementsTable from './tables/LodgementsTable'
 import ApprovalsTable from './tables/ApprovalsTable'
 import SettlementsTable from './tables/SettlementsTable'
+import CRM from './tables/crmTable'
 
 class mainPage extends Component {
   render() {
@@ -13,6 +14,7 @@ class mainPage extends Component {
         <LodgementsTable />
         <ApprovalsTable />
         <SettlementsTable />
+        <CRM />
       </div>
     );
   }

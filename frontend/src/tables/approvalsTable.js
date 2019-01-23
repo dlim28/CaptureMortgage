@@ -11,11 +11,12 @@ class ApprovalsTable extends Component {
         <table id="myTable">
           <tr class="table_header_approvals">
             <th>ID</th>
-            <th>Entered as Lead</th>
+            <th>Moved to Approvals</th>
             <th>Customer Name</th>
             <th>Category</th>
             <th>Amount</th>
-            <th>Referrer</th>
+            <th>WIP</th>
+            <th>Lender</th>
             <th>Employee</th>
           </tr>
           <tr>
@@ -24,6 +25,7 @@ class ApprovalsTable extends Component {
             <td>Craig David</td>
             <td>Home Loan</td>
             <td>$200,000</td>
+            <td>2 Days</td>
             <td>LP Staff</td>
             <td>Sarah Smith</td>
           </tr>
@@ -33,6 +35,7 @@ class ApprovalsTable extends Component {
             <td>James Dean</td>
             <td>Home Loan</td>
             <td>$40,000</td>
+            <td>4 Days</td>
             <td>LP Staff</td>
             <td>Louise Lilly</td>
           </tr>
@@ -42,6 +45,7 @@ class ApprovalsTable extends Component {
             <td>Billy Joel</td>
             <td>Home Loan</td>
             <td>$475,000</td>
+            <td>6 Days</td>
             <td>LP Staff</td>
             <td>Katherine Kale</td>
           </tr>

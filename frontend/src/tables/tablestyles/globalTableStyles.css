@@ -14,7 +14,7 @@ body tr:nth-child(even){
   }
   
   #myTable th, #myTable td {
-    text-align: left; /* Left-align text */
+    text-align: center; /* Left-align text */
     padding: 5px; /* Add padding */
   }
   

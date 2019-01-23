@@ -10,12 +10,12 @@ class SettlementsTable extends Component {
         <h3 class="CMP_settlements">CaptureMortgage+ Settlements Board *insert js*</h3>
         <table id="myTable">
           <tr class="table_header_settlements">
-            <th>ID</th>
-            <th>Entered as Lead</th>
+            <th>No.</th>
+            <th>Moved to Settlements</th>
             <th>Customer Name</th>
             <th>Category</th>
             <th>Amount</th>
-            <th>Referrer</th>
+            <th>Lender</th>
             <th>Employee</th>
           </tr>
           <tr>

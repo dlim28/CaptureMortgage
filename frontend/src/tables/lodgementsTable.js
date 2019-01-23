@@ -11,11 +11,11 @@ class LodgementsTable extends Component {
         <table id="myTable">
           <tr class="table_header_lodgements">
             <th>ID</th>
-            <th>Entered as Lead</th>
+            <th>Moved to Lodgements</th>
             <th>Customer Name</th>
             <th>Category</th>
             <th>Amount</th>
-            <th>Referrer</th>
+            <th>WIP</th>
             <th>Employee</th>
           </tr>
           <tr>
@@ -24,7 +24,7 @@ class LodgementsTable extends Component {
             <td>Craig David</td>
             <td>Home Loan</td>
             <td>$200,000</td>
-            <td>LP Staff</td>
+            <td>3 Days</td>
             <td>Sarah Smith</td>
           </tr>
             <tr>
@@ -33,7 +33,7 @@ class LodgementsTable extends Component {
             <td>James Dean</td>
             <td>Home Loan</td>
             <td>$40,000</td>
-            <td>LP Staff</td>
+            <td>7 Days</td>
             <td>Louise Lilly</td>
           </tr>
             <tr>
@@ -42,7 +42,7 @@ class LodgementsTable extends Component {
             <td>Billy Joel</td>
             <td>Home Loan</td>
             <td>$475,000</td>
-            <td>LP Staff</td>
+            <td>1 Day</td>
             <td>Katherine Kale</td>
           </tr>
         </table>
