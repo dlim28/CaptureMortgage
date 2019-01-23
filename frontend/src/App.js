@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LeadsTable from './tables/LeadsTable'
+import LodgementsTable from './tables/LodgementsTable'
+import ApprovalsTable from './tables/ApprovalsTable'
+import SettlementsTable from './tables/SettlementsTable'
+import CRM from './tables/crmTable'
+import Form from './Form'
 
-class App extends Component {
+
+class mainPage extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+
+        <LeadsTable />
+        <LodgementsTable />
+        <ApprovalsTable />
+        <SettlementsTable />
+        <CRM />
+
+      <Form/>
+
       </div>
     );
   }
 }
 
-export default App;
+export default mainPage;
