@@ -9,7 +9,7 @@ const mortgageSchema = new mongoose.Schema({
     source: Number,
     category: Number,
     lender: Number,
-    history: Object,
+    history: [Object],
     dateOfLead: Date,
     isActive: Boolean,
     amount: Number,
