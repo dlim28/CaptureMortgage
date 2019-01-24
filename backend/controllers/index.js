@@ -7,10 +7,8 @@ const router = express.Router();
 //  GET mortgages
 router.use('/leads', require('./mortgage.js'));
 
-// GET particular mortgage
-// router.use('/leads/:id', require('./leads/new'))
-
 //Get navbar dashboard data
+router.use('/navbar', require('./navbar'))
 
 //Get Leads Data
 
