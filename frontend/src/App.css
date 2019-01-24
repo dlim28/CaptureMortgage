@@ -1,126 +1,33 @@
 html {
+  background: white;
+  display: flex;
+}
+
+
+.nav-ver1 {
+  list-style: none;
+  float: left;
+  top: 0%;
+  background: rgb(11, 92, 150);
+  padding: 50px;
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin: 150px;
-  /* text-align: center; */
+  margin: 0%;
 }
 
-
-.form{
-  text-align: left;
-  font-size: 20px;
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-end; */
-  color: grey;
-
+li {
+  float: left;
+  margin: 30px;
+  margin-top: 0px;
 }
 
-.button{
-  align-items: right;
-
-}
-.savebutton{
-  margin-left: 20px;
-  background-color: rgb(18, 77, 136);
-  padding: 6px 60px;
-  color: white;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-.savebutton:hover {
-  background-color: #009900;
-  /* background-color: rgb(13, 114, 13); Green */
-  color: white;
-  cursor: pointer;
-}
-
-.cancelbutton{
-  background-color: rgb(18, 77, 136);
-  padding: 6px 50px;
-  color:white;
-  font-size: 20px;
-  border-radius: 10px;
-}
-.cancelbutton:hover {
-  background-color: #FF0000;
-  /* background-color: rgb(145, 37, 37); */
-  color: white;
-  cursor: pointer;
-}
-
-input {
-  max-width: 500px;
-}
-
-.inputbox{
-  display: flex;
-  /* padding-left: 100px; */
-  width:500px;
-  height: 20px;
-  font-size: 16px;
+li a {
+  display: block;
   text-align: center;
+  text-decoration: none;
+  color: white;
 }
 
-.customerdetailsheading{
-  margin-top: 50px;
- font-size: 42px;
- color: grey;
- margin-left: 140px;
- text-align: center;
-}
-
-.statusblue{
-  color: dodgerblue;
-
-}
-
-.inLine h4{
-  margin: 0px;
-
-}
-
-.flex-form{
-  display: flex;
-  align-content: center;
-  
-}
-
-.flexformtitles{
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  height: 500px;
-  justify-content: space-around;
-  text-align: left;
-}
-
-.flexformcontent{
-  display:flex;
-  flex-direction: column;
-  margin: 20px;
-  height:500px;
-  justify-content: space-around;
-}
-
-.buttonflex{
-  display:flex;
-  justify-content: center;
-}
-.emptybox{
-  display:flex;
-  width: 270px;
-}
-
-.emptyboxone{
-  display:flex;
-  width: 300px;
-}
-
-.alignbuttons{
-  display:flex;
-  justify-content: center;
-  width:500px;
-
-}
-
+li a:hover {
+  text-decoration: underline;
+  color: rgba(255, 153, 0, 1);
+} 
