@@ -24,7 +24,7 @@ const Navbar = () => {
                     <a href="#approvals">APPROVALS</a>
                     <a href="#settlements">SETTLEMENTS</a>
                     <a href="#crm">CRM</a>
-                    <a href="#logout">LOGOUT</a>
+                    <a href="#logout">LOGOUT</a> 
                 </div> 
             </nav>
         </div>
