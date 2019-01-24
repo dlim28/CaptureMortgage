@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 
 const mortgageSchema = new mongoose.Schema({
-    id: Number,
+    id: String,
     createdAt: Date,
     customerName: String,
-    status: Number,
-    referrer: Number,
-    source: Number,
-    category: Number,
-    lender: Number,
+    status: String,
+    referrer: String,
+    source: String,
+    category: String,
+    lender: String,
     history: [Object],
     dateOfLead: Date,
     isActive: Boolean,
     amount: Number,
-    employee: Number
+    employee: String
   }, {collection: 'mortgageCollection'});
   
   module.exports = mongoose.model('mortgage', mortgageSchema);

@@ -2,17 +2,21 @@ const express = require('express');
 const router = express.Router();
 const mortgage = require('../models/mortgage');
 
-// const mortgageConnect = mongoose.connect('mongodb://localhost:27017/mortgage-collection'); //Connection to mongoDB 
-
-// let currentState = mortgage.find({}) // This variable will be the object that the changes will be applied to
-
-// const previousState = currentState; //This variable will hold all the previous data of the object
-
+//Get all mortgages
 router.get('/', (req, res) => {
     mortgage.find({})
     .then((resp) => {
     res.send(resp);
-  })
+    })
+})
+
+//Get one mortgage based on parameter
+router.get('/:id', (req, res) => {
+    const { id } = req.params;
+    mortgage.findOne({ id })
+    .then((resp) => {
+        res.send(resp)
+    })
 })
 
 function findMortgage(paramID) {
