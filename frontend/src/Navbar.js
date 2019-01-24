@@ -4,30 +4,29 @@ import './NavbarCM.scss';
 const Navbar = () => {
     return (
         <div class="nav-container">
-            <nav>
-            <ul id="main-nav">
-                <li><a href="#">DASHBOARD</a></li>
-                <li><a href="#">LEADS</a>
-                    <ul class="dropdown">
-                        <div>
-                        <li><a href="#">New Leads</a></li>
-                        <li><a href="#">Employee Leader Board</a></li>
-                        <li><a href="#">Referrer Leader Board</a></li>
+            <nav class="navbar">
+                    <div class="logo-box">
+                        <a href="#left" class="logo">LEFTY</a>
+                    </div>
+                    <div class="nav-box">
+                    <a href="#dashboard">DASHBOARD</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">LEADS 
+                        <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                        <a href="#">New Lead</a>
+                        <a href="#">Employee Leader Board</a>
+                        <a href="#">Referrer Leader Board</a>
                         </div>
-                    </ul>
-                </li>
-                <li><a href="#">LODGEMENT</a></li>
-                <li><a href="#">APPROVALS</a></li>
-                <li><a href="#">SETTLEMENTS</a></li>
-                <li><a href="#">CRM</a></li>
-                <li><a href="#">LOGOUT</a></li>
-                <div id="marker"></div>
-            </ul>
+                    </div>
+                    <a href="#lodgements">LODGEMENTS</a>
+                    <a href="#approvals">APPROVALS</a>
+                    <a href="#settlements">SETTLEMENTS</a>
+                    <a href="#crm">CRM</a>
+                    <a href="#logout">LOGOUT</a>
+                </div> 
             </nav>
-
-
-
-
         </div>
     );
   }
