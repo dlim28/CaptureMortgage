@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Navbar from './Navbar'
 import Leaderboard from './tables/LeaderboardTable';
 import LeadsTable from './tables/LeadsTable'
 import LodgementsTable from './tables/LodgementsTable'
@@ -14,36 +15,25 @@ class mainPage extends Component {
     return (
       <div>
 
-        <div class="temp-nav">
-        <ul class="nav-ver1">
-          <li><a href="#">Leaderboard</a></li>
-          <li><a href="#">Leads Table</a></li>
-          <li><a href="#">Lodgements Table</a></li>
-          <li><a href="#">Approvals Table</a></li>
-          <li><a href="#">Settlements Table</a></li>
-          <li><a href="#">CRM</a></li>
-        </ul>
-        </div>
-
+        <Navbar />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <div class="all-tables">
-
           <Leaderboard />
           <LeadsTable />
           <LodgementsTable />
           <ApprovalsTable />
           <SettlementsTable />
           <CRM />
-          <Form/>
-
         </div>
+
+        <Form/>
 
       </div>
     );
   }
 }
 
-<<<<<<< HEAD
 export default mainPage;
-=======
-export default mainPage;
->>>>>>> 26c379b1bf49ad0f2c7475a67551ce46ba2d5a28
