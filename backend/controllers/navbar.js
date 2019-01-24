@@ -6,16 +6,20 @@ router.get('/total/:status', (req, res) => {
     //Get the total amount of lead for the current month
     const { status } = req.params;
 
-    const queriedRecords = getTotalMortgages(status); //The returned response will be an array of objects (queried records)
+    const queriedRecords = getTotalMortgages(status); 
+    //The returned response will be an array of objects (queried records)
 
     const totalAmount = getTotalAmount(queriedRecords);
 
+    const queriedRecordsYTD = getTotalMortgagesYTD(status);
+    const totalAmountYTD = getTotalAmountYTD(queriedRecordsYTD);
+
     return [
         {totalRecords:queriedRecords.length()},
-        {totalMoney:totalAmount}
+        {totalMoney:totalAmount},
+        {totalRecordsYTD:queriedRecordsYTD},
+        {totalMoneyYTD:totalAmountYTD}
     ]
-        
-    
 })
 
 function getTotalMortgages(status) {
@@ -49,36 +53,46 @@ function getTotalAmount(recordsQueriedArray) {
         for (const key in queriedObject) {
             if (queriedObject.hasOwnProperty(key)) {
                 if (key === "amount") {
-                    const parsedAmt = queriedObject[key].parseInt();
-                    totalAmount += parsedAmt;
+                    const parsedAmount = queriedObject[key].parseInt();
+                    totalAmount += parsedAmount;
                 }
-                
             }
         }
     });
-
     return totalAmount;
-    
 }
 
 function getTotalMortgagesYTD(status) {
     //30th June EOFY
     const currrentDate = new Date();
-    const currentMonth = currentDate.getMonth(); //Month starts at 0 - January
-    const currentYear = currentDate.getFullYear();
+    // const currentMonth = currentDate.getMonth(); 
+    const currentYear = currentDate.getFullYear(); //Month starts at 0 - January
 
     mortgage.find({
-        "dateOfLead":{"$gte": new Date(currentYear, 5, 30), "$lte": new Date((currentYear + 1), 5, 30)}
-
+        "dateOfLead":{"$gte": new Date(currentYear, 5, 30), "$lte": new Date((currentYear + 1), 5, 30)},
+        "status":status
+    })
+    .then(resp => {
+        return resp;
     })
 }
 
 function getTotalAmountYTD(recordsQueriedArray) {
 
+    let totalAmount = 0;
+
+    recordsQueriedArray.forEach(queriedObject => {
+        for (const key in queriedObject) {
+            if (queriedObject.hasOwnProperty(key)) {
+                if (key === "amount") {
+                    const parsedAmount = queriedObject[key].parseInt();
+                    totalAmount += parsedAmount
+                }
+                
+            }
+        }
+    });
+    return totalAmount;
 }
-
-
-
-
 
 module.exports = router;
