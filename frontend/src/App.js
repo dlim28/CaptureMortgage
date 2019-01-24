@@ -42,4 +42,8 @@ class mainPage extends Component {
   }
 }
 
+<<<<<<< HEAD
 export default mainPage;
+=======
+export default mainPage;
+>>>>>>> 26c379b1bf49ad0f2c7475a67551ce46ba2d5a28
