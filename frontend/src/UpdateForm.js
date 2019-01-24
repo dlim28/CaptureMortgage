@@ -7,7 +7,7 @@ const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", 
 class Form extends Component {
   render() {
     return (
-    
+
 <div className='form' >
 
 
@@ -114,11 +114,33 @@ class Form extends Component {
 </button>
 
 <button className='savebutton'>
-        SAVE
+        UPDATE STATUS
 </button>
         </div>
     </div>
+
+
+<div newClasss="wrapper">
+        <ul>
+            <li>
+                <a href="https://farm7.static.flickr.com/6130/5935338876_47b61c93a5.jpg" class="lightbox_trigger">
+                Picture 1
+                </a>
+            </li>
+            <li>
+                <a href="https://farm7.static.flickr.com/6020/5924329054_4bdc419c3a_o.jpg" class="lightbox_trigger">
+                Picture 2
+                </a>
+            </li>
+            <li>
+                <a href="https://farm7.static.flickr.com/6020/5931933181_ddb737e528.jpg" class="lightbox_trigger">
+                Picture 3
+                </a>
+            </li> 
+        </ul>
 </div>
+</div>
+
     );
   }
 }
