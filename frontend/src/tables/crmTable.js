@@ -7,7 +7,16 @@ class CRM extends Component {
     return (
       <div>
         <h1 class="header_crm header">CRM</h1>
-        <input type="search" class="light-table-filter" data-table="order-table" placeholder="Search"></input>
+          <select class='input-box' name="Category" id="username">          
+            <option value="0">--select activity status--</option>
+            <option value="1">Active Customers</option> 
+            <option value="2">In-Active Customers</option>
+            <option value="3">All Customers</option>
+          </select> 
+                <br></br>
+          <input type="search" class="crm-search" data-table="order-table" placeholder="Search Name"></input>
+                <br></br>
+              <button className='search-button'>Search</button>
         <table id="myTable">
           <tr class="table_header_crm">
             <th>NO.</th>

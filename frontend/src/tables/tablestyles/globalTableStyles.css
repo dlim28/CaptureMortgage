@@ -16,6 +16,7 @@ body tr:nth-child(even){
   #myTable th, #myTable td {
     text-align: center; /* Left-align text */
     padding: 5px; /* Add padding */
+    border-left: solid 1px #ddd;
   }
   
   #myTable tr {
@@ -28,4 +29,10 @@ body tr:nth-child(even){
     margin-top: 100px;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
+
+  /* th {
+    border-left: solid 1px #ddd;
+  } */
+
+
   

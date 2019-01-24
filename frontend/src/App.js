@@ -18,8 +18,7 @@ class mainPage extends Component {
         <ApprovalsTable />
         <SettlementsTable />
         <CRM />
-
-      <Form/>
+        <Form/>
 
       </div>
     );
