@@ -1,7 +1,7 @@
 html {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 150px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 
@@ -29,8 +29,10 @@ html {
 }
 
 .savebutton:hover {
-  background-color: rgb(13, 114, 13); /* Green */
+  background-color: #009900;
+  /* background-color: rgb(13, 114, 13); Green */
   color: white;
+  cursor: pointer;
 }
 
 .cancelbutton{
@@ -41,8 +43,10 @@ html {
   border-radius: 10px;
 }
 .cancelbutton:hover {
-  background-color: rgb(145, 37, 37); /* Green */
+  background-color: #FF0000;
+  /* background-color: rgb(145, 37, 37); */
   color: white;
+  cursor: pointer;
 }
 
 input {
