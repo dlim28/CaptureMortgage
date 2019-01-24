@@ -27,19 +27,20 @@ function getTotalMortgages(status) {
     depending on the status query that is passed through*/
 
     const currentDate = new Date();
-    // const currentMonth = currentDate.getMonth() + 1
+    const currentMonth = currentDate.getMonth();
+    const currentYear = cuentDate.getFullYear();
     //0 is january, add 1 as system time starts the month at 1
-    mortgage.find().and(
-        [
-            { status },
-            //date of lead month equals to currentMonth
-            {dateOfLead: 
-                {$lte: currentDate}
-            }
-        ]
-    )
+    mortgage.find({ $and: [
+        {"dateOfLead":{"$gte": new Date(currentYear,currentMonth,1), "$lte": currentDate}},
+        {"status":status}
+    ]})
     .then(resp => {
-        return resp;
+        if (typeof resp === null) {
+            return "No response"
+        } else {
+            return resp;
+        }
+        
     })   
 }
 
@@ -67,13 +68,15 @@ function getTotalMortgagesYTD(status) {
     const currrentDate = new Date();
     // const currentMonth = currentDate.getMonth(); 
     const currentYear = currentDate.getFullYear(); //Month starts at 0 - January
-
-    mortgage.find({
-        "dateOfLead":{"$gte": new Date(currentYear, 5, 30), "$lte": new Date((currentYear + 1), 5, 30)},
-        "status":status
-    })
+    mortgage.find({ $and:[
+        {"dateOfLead":{"$gte": new Date(currentYear, 5, 30), "$lte": new Date((currentYear + 1), 5, 30)}},{"status":status}
+    ]})
     .then(resp => {
-        return resp;
+        if (typeof resp === null) {
+            return "No response"
+        } else {
+            return resp;
+        }
     })
 }
 
