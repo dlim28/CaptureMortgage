@@ -1,6 +1,5 @@
 html {
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: 150px;
     /* text-align: center; */
   }
   
@@ -121,7 +120,6 @@ html {
     display:flex;
     justify-content: center;
     width:500px;
-  
   }
   
   

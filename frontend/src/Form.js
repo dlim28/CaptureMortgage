@@ -109,12 +109,13 @@ class Form extends Component {
     <div className='emptybox'>
 </div>
     <div className='alignbuttons'> 
-<button className='cancelbutton'>
-        CANCEL
-</button>
 
 <button className='savebutton'>
         SAVE
+</button>
+
+<button className='cancelbutton'>
+        CANCEL
 </button>
         </div>
     </div>

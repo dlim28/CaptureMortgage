@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import Leaderboard from './tables/LeaderboardTable';
 import LeadsTable from './tables/LeadsTable'
 import LodgementsTable from './tables/LodgementsTable'
 import ApprovalsTable from './tables/ApprovalsTable'
 import SettlementsTable from './tables/SettlementsTable'
 import CRM from './tables/crmTable'
 import Form from './Form'
-import Leaderboard from './tables/LeaderboardTable';
 
 
 class mainPage extends Component {
@@ -15,14 +15,14 @@ class mainPage extends Component {
       <div>
 
         <div class="temp-nav">
-
-          Leaderboard
-          Leads Table
-          Lodgements Table
-          Approvals Table
-          Settlements Table
-          CRM
-
+        <ul class="nav-ver1">
+          <li><a href="#">Leaderboard</a></li>
+          <li><a href="#">Leads Table</a></li>
+          <li><a href="#">Lodgements Table</a></li>
+          <li><a href="#">Approvals Table</a></li>
+          <li><a href="#">Settlements Table</a></li>
+          <li><a href="#">CRM</a></li>
+        </ul>
         </div>
 
         <div class="all-tables">
