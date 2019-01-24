@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Navbar from './Navbar'
+import Leaderboard from './tables/LeaderboardTable';
 import LeadsTable from './tables/LeadsTable'
 import LodgementsTable from './tables/LodgementsTable'
 import ApprovalsTable from './tables/ApprovalsTable'
@@ -13,13 +15,21 @@ class mainPage extends Component {
     return (
       <div>
 
-        <LeadsTable />
-        <LodgementsTable />
-        <ApprovalsTable />
-        <SettlementsTable />
-        <CRM />
+        <Navbar />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <div class="all-tables">
+          <Leaderboard />
+          <LeadsTable />
+          <LodgementsTable />
+          <ApprovalsTable />
+          <SettlementsTable />
+          <CRM />
+        </div>
 
-      <Form/>
+        <Form/>
 
       </div>
     );
