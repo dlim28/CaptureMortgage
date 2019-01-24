@@ -24,8 +24,8 @@ body tr:nth-child(even){
   }
 
   .header {
-    font-size: 50px;
-    margin-bottom: 10px;
+    font-size: 70px;
+    margin-bottom: -15px;
     margin-top: 100px;
     font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }

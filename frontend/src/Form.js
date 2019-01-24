@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Form.css';
 const Status = "LEAD"
 const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")
 
