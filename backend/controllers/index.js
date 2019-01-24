@@ -8,8 +8,7 @@ router.use('/', require(''));
 router.use('/leads', require('./mortgage'));
 
 // GET particular mortgage
-router.use('/leads/:id', require('./leads/new'))
-
+router.use('/leads/:id', require('./mortgage/:id'))
 
 //Get navbar dashboard data
 
