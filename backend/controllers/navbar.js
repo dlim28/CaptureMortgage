@@ -17,7 +17,7 @@ router.get('/total/:status', (req, res) => {
     return [
         {totalRecords:queriedRecords.length()},
         {totalMoney:totalAmount},
-        {totalRecordsYTD:queriedRecordsYTD},
+        {totalRecordsYTD:queriedRecordsYTD.length()},
         {totalMoneyYTD:totalAmountYTD}
     ]
 })
