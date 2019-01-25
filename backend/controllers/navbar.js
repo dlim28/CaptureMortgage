@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mortgage = require('../models/mortgage');
 
-router.get('/total/:status', (req, res) => {
+router.get('/:status', (req, res) => {
     //Get the total amount of lead for the current month
     const { status } = req.params;
 
