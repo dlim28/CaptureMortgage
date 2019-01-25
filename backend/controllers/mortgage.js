@@ -144,5 +144,4 @@ function setHistory() {
 
 }
 
-// module.exports = mortgage;
 module.exports = router;
