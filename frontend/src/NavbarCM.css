@@ -1,0 +1,147 @@
+/* Navbar Links and Logo CSS */
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+  overflow: hidden;
+  background-color: #0E0E0E;
+  width: 100vw;
+  height: 40vh;
+  font-weight: 600;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar a {
+  text-align: right;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 16px 16px;
+  text-decoration: none;
+} 
+
+.logo-box {
+	display: flex;
+	justify-content: right;
+	float: left;
+}
+
+.logo {
+  display: inline;
+}
+
+.logo .white {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.logo .orange {
+  color: #F37021;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.logo .white-small {
+  font-weight: 300;
+}
+
+.nav-box {
+	display: flex;
+	justify-content: space-between;
+	width: 70vw;
+} 
+
+.dropdown {
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  margin: 0;
+  text-align: center;
+  padding: 16px 16px;
+}
+
+.nav-box a:hover, .dropdown:hover .dropbtn {
+  background-color: #F37021;
+  height: 38px;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Navbar Overview Table CSS */
+.nav-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-container table {
+  color: white;
+  z-index: 30;
+  border-collapse: collapse;
+  width: 60vw;
+  table-layout: fixed;
+}
+
+.nav-container .table-header {
+  background-color: rgba(255,255,255,0.3);
+ }
+
+ .nav-container .table-content {
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.nav-container th {
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.nav-container td {
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}

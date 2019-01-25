@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './Form.css';
 const Status = "LEAD"
 const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")
 
@@ -109,12 +109,13 @@ class Form extends Component {
     <div className='emptybox'>
 </div>
     <div className='alignbuttons'> 
-<button className='cancelbutton'>
-        CANCEL
-</button>
 
 <button className='savebutton'>
         SAVE
+</button>
+
+<button className='cancelbutton'>
+        CANCEL
 </button>
         </div>
     </div>

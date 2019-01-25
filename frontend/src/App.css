@@ -1,7 +1,9 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
+<<<<<<< HEAD
 .form{
   text-align: left;
   font-size: 20px;
@@ -53,69 +55,14 @@ input {
   height: 20px;
   font-size: 16px;
   text-align: left;
+=======
+body {
+  background: white;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+>>>>>>> 619745735d04549ad247386806956701b753bfc2
 }
 
-.customerdetailsheading{
-  margin-top: 50px;
- font-size: 42px;
- color: grey;
- margin-left: 140px;
- text-align: center;
-}
-
-.statusblue{
-  color: dodgerblue;
-
-}
-
-.inLine h4{
-  margin: 0px;
-
-}
-
-.flex-form{
-  display: flex;
-  align-content: center;
-  
-}
-
-.flexformtitles{
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  height: 500px;
-  justify-content: space-around;
-  text-align: left;
-}
-
-.flexformcontent{
-  display:flex;
-  flex-direction: column;
-  margin: 20px;
-  height:500px;
-  justify-content: space-around;
-}
-
-.buttonflex{
-  display:flex;
-  justify-content: center;
-}
-.emptybox{
-  display:flex;
-  width: 270px;
-}
-
-.emptyboxone{
-  display:flex;
-  width: 300px;
-}
-
-.alignbuttons{
-  display:flex;
-  justify-content: center;
-  width:500px;
-
-}
 
 .body {
   margin:0; 

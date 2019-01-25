@@ -7,7 +7,11 @@
     "pagination": "^0.4.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+<<<<<<< HEAD
     "react-modal": "^3.8.1",
+=======
+    "react-router-dom": "^4.3.1",
+>>>>>>> 619745735d04549ad247386806956701b753bfc2
     "react-scripts": "2.1.3"
   },
   "scripts": {
