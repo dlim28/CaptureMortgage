@@ -34,25 +34,54 @@ const Navbar = () => {
                     <a href="#crm">CRM</a>
                     <a href="#logout">LOGOUT</a>  
                 </div> 
+
+                <div class="nav-table">
+                    <table>
+                        <thead class="table-header">
+                            <tr>
+                                <th></th>
+                                <th>Current Month</th>
+                                <th>Current Month $</th>
+                                <th>Total</th>
+                                <th>Total $</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-content">
+                            <tr>
+                                <td>Leads</td>
+                                <td>9</td>
+                                <td>-</td>
+                                <td>11</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Lodgements</td>
+                                <td>18</td>
+                                <td>$5,580,000</td>
+                                <td>25</td>
+                                <td>$7,900,000</td>
+                            </tr>
+                            <tr>
+                                <td>Approvals</td>
+                                <td>7</td>
+                                <td>$1,200,000</td>
+                                <td>9</td>
+                                <td>$1,900,000</td>
+                            </tr>
+                            <tr>
+                                <td>Settlements</td>
+                                <td>12</td>
+                                <td>$900,000</td>
+                                <td>15</td>
+                                <td>$1,250,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </nav>
 
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Current Month</th>
-                    <th>Current Month $</th>
-                    <th>Total</th>
-                    <th>Total $</th>
-                </tr>
-                <td>
-                    <td>a</td>
-                    <td>e</td>
-                    <td>i</td>
-                    <td>o</td>
-                    <td>u</td>
-                    <td>y</td>
-                </td>
-            </table>
+
         </div>
     );
   }
