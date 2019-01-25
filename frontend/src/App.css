@@ -3,64 +3,10 @@
   padding: 0;
 }
 
-<<<<<<< HEAD
-.form{
-  text-align: left;
-  font-size: 20px;
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-end; */
-  color: grey;
-
-}
-
-.button{
-  align-items: right;
-
-}
-.savebutton{
-  margin-left: 20px;
-  background-color: rgb(18, 77, 136);
-  padding: 6px 70px;
-  color: white;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-.savebutton:hover {
-  background-color: rgb(13, 114, 13); /* Green */
-  color: white;
-}
-
-.cancelbutton{
-  background-color: rgb(18, 77, 136);
-  padding: 6px 70px;
-  color:white;
-  font-size: 20px;
-  border-radius: 10px;
-}
-.cancelbutton:hover {
-  background-color: rgb(145, 37, 37); /* Green */
-  color: white;
-}
-
-input {
-  max-width: 500px;
-}
-
-.inputbox{
-  display: flex;
-  /* padding-left: 100px; */
-  width:500px;
-  height: 20px;
-  font-size: 16px;
-  text-align: left;
-=======
 body {
   background: white;
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 300;
->>>>>>> 619745735d04549ad247386806956701b753bfc2
 }
 
 

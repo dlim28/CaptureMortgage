@@ -1,6 +1,4 @@
-{
-	"mortgage": 
-	[
+[
 		{
 			"id": "1",
 			"status": "0",
@@ -64,7 +62,9 @@
 			"amount": "",
 			"dateOfLead": "2018-08-22",
 			"lender": "",
-			"employee": "Katherine"
+			"employee": "Katherine",
+			"createdAt": "1/11/2019",
+			"isActive": "True"
 		},
 		{
 			"id": "6",
@@ -168,7 +168,9 @@
 			"amount": "$34541.00",
 			"dateOfLead": "2018-06-23",
 			"lender": "12",
-			"employee": "David"
+			"employee": "David",
+			"createdAt": "1/11/2019",
+			"isActive": "True"
 		},
 		{
 			"id": "14",
@@ -246,7 +248,9 @@
 			"amount": "$18766.00",
 			"dateOfLead": "2018-11-10",
 			"lender": "9",
-			"employee": "David"
+			"employee": "David",
+			"createdAt": "1/11/2019",
+			"isActive": "False"
 		},
 		{
 			"id": "20",
@@ -285,7 +289,9 @@
 			"amount": "$58308.00",
 			"dateOfLead": "2018-06-17",
 			"lender": "2",
-			"employee": "Johnny"
+			"employee": "Johnny",
+			"createdAt": "1/11/2019",
+			"isActive": "False"
 		},
 		{
 			"id": "23",
@@ -974,7 +980,9 @@
 			"amount": "",
 			"dateOfLead": "2018-11-21",
 			"lender": "",
-			"employee": "Johann"
+			"employee": "Johann",
+			"createdAt": "1/11/2019",
+			"isActive": "True"
 		},
 		{
 			"id": "76",
@@ -1208,7 +1216,9 @@
 			"amount": "$36523.00",
 			"dateOfLead": "2018-08-18",
 			"lender": "8",
-			"employee": "Johnny"
+			"employee": "Johnny",
+			"createdAt": "1/11/2019",
+			"isActive": "False"
 		},
 		{
 			"id": "94",
@@ -1364,7 +1374,9 @@
 			"amount": "",
 			"dateOfLead": "2019-01-07",
 			"lender": "",
-			"employee": "David"
+			"employee": "David",
+			"createdAt": "1/11/2019",
+			"isActive": "False"
 		},
 		{
 			"id": "106",
@@ -1637,7 +1649,9 @@
 			"amount": "$3135969.00",
 			"dateOfLead": "2018-07-15",
 			"lender": "3",
-			"employee": "Katherine"
+			"employee": "Katherine",
+			"createdAt": "1/11/2019",
+			"isActive": "False"
 		},
 		{
 			"id": "127",
@@ -3251,5 +3265,4 @@
 			"lender": "10",
 			"employee": "David"
 		}
-	]
-}
+]

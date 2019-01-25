@@ -3,9 +3,9 @@ import './App.css';
 import Navbar from './Navbar'
 import Leaderboard from './tables/LeaderboardTable';
 import LeadsTable from './tables/LeadsTable'
-import LodgementsTable from './tables/LodgementsTable'
-import ApprovalsTable from './tables/ApprovalsTable'
-import SettlementsTable from './tables/SettlementsTable'
+import LodgementsTable from './tables/lodgementsTable'
+import ApprovalsTable from './tables/approvalsTable'
+import SettlementsTable from './tables/settlementsTable'
 import CRM from './tables/crmTable'
 import Form from './Form'
 import UpdateForm from './UpdateForm'

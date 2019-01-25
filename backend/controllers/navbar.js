@@ -2,13 +2,26 @@ const express = require('express');
 const router = express.Router();
 const mortgage = require('../models/mortgage');
 
-router.get('/total/:status', (req, res) => {
+router.get('/getdata/:status', (req,res) => {
+    const { status } = req.params
+    // console.log(req.params)
+    // console.log(status)
+    mortgage.find({ status: status })
+        .then((docs) => {
+            res.send(docs)
+        })
+        .catch((err) => {
+            console.log(err.response)
+        })
+})
+
+router.get('/:status', (req, res) => {
     //Get the total amount of lead for the current month
     const { status } = req.params;
-
+    console.log(status)
     const queriedRecords = getTotalMortgages(status); 
     //The returned response will be an array of objects (queried records)
-
+    console.log(queriedRecords)
     const totalAmount = getTotalAmount(queriedRecords);
 
     const queriedRecordsYTD = getTotalMortgagesYTD(status);
@@ -28,8 +41,9 @@ function getTotalMortgages(status) {
 
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
-    const currentYear = cuentDate.getFullYear();
+    const currentYear = currentDate.getFullYear();
     //0 is january, add 1 as system time starts the month at 1
+    console.log(status)
     mortgage.find({ $and: [
         {"dateOfLead":{"$gte": new Date(currentYear,currentMonth,1), "$lte": currentDate}},
         {"status":status}

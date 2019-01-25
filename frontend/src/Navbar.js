@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './NavbarCM.css';
 import logo from './assets/CMP_Logo_White.png'
+import axios from 'axios'
 
-
-const Navbar = () => {
-    return (
+    class Navbar extends Component {
+        state = {}
+        componentDidMount() {
+            const status0 = axios.get('http://localhost:5000/navbar/getdata/0')
+            const status1 = axios.get('http://localhost:5000/navbar/getdata/1')
+            const status2 = axios.get('http://localhost:5000/navbar/getdata/2')
+            const status3 = axios.get('http://localhost:5000/navbar/getdata/3')
+            Promise.all([status0, status1, status2, status3])
+                .then((res) => {
+                    this.setState({status0: res[0].data.length})
+                    this.setState({status1: res[1].data.length})
+                    this.setState({status2: res[2].data.length})
+                    this.setState({status3: res[3].data.length})
+                })
+        }
+        
+        render() {
+            const { status0, status1, status2, status3 } = this.state
+            if (status3) {
+            return (
         <div class="nav-container">
             <nav class="navbar">
                     <div class="logo-box">
@@ -49,28 +67,28 @@ const Navbar = () => {
                         <tbody class="table-content">
                             <tr>
                                 <td>Leads</td>
-                                <td>9</td>
+                                <td>{status0}</td>
                                 <td>-</td>
                                 <td>11</td>
                                 <td>-</td>
                             </tr>
                             <tr>
                                 <td>Lodgements</td>
-                                <td>18</td>
+                                <td>{status1}</td>
                                 <td>$5,580,000</td>
                                 <td>25</td>
                                 <td>$7,900,000</td>
                             </tr>
                             <tr>
                                 <td>Approvals</td>
-                                <td>7</td>
+                                <td>{status2}</td>
                                 <td>$1,200,000</td>
                                 <td>9</td>
                                 <td>$1,900,000</td>
                             </tr>
                             <tr>
                                 <td>Settlements</td>
-                                <td>12</td>
+                                <td>{status3}</td>
                                 <td>$900,000</td>
                                 <td>15</td>
                                 <td>$1,250,000</td>
@@ -83,7 +101,10 @@ const Navbar = () => {
 
 
         </div>
-    );
+        )
+            }
+            else { return null }
+    }
   }
 
   export default Navbar;

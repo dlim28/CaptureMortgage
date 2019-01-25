@@ -1,7 +1,7 @@
 /* Navbar Links and Logo CSS */
 
 .navbar {
-	display: flex;
+	display: inline-block;
 	justify-content: space-between;
   overflow: hidden;
   background-color: #0E0E0E;
@@ -11,6 +11,7 @@
   position: fixed;
   top: 0;
   z-index: 10;
+  align-content: center;
 }
 
 .navbar a {
