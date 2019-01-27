@@ -35,7 +35,7 @@ router.get('/overview', (req, res) => {
         {
             $and: 
             [
-                // {"status":"0"},
+                {"status":"0"},
                 {"dateOfLead": {"$gte": `${currentYear - 1}-07-01`, "$lte": `${currentYear-1}-12-31`}}
             ]
         }
