@@ -5,25 +5,32 @@ const mortgage = require('../models/mortgage');
 router.get('/:status', (req, res) => {
     //Get the total amount of lead for the current month
     const { status } = req.params;
+    let returnObj = {}
 
-    // getTotalMortgages(status)
-    // .then(resultObject => { 
+    getTotalMortgages(status)
+    .then(resultObject => { 
 
-    //     getTotalAmount(resultObject)
-    //     .then(totalAmount => {
-    //         res.send(`Total Amount: ${totalAmount} Total Records for this month: ${Object.keys(resultObject).length}`)
-    //     })
+        getTotalAmount(resultObject)
+        .then(totalAmount => {
+            returnObj.totalRecordsForMonth = Object.keys(resultObject).length
+            returnObj.totalAmountForMonth = totalAmount
+        })
 
-    // })
-
-    getTotalMortgagesYTD(status)
-    .then(resultObjectYTD => {
+        getTotalMortgagesYTD(status)
+        .then(resultObjectYTD => {
         
-        getTotalAmountYTD(resultObjectYTD)
-        .then(totalAmountYTD => {
-            res.send(`Total Amount fiscal year: ${totalAmountYTD} Total Records for this fiscal year: ${Object.keys(resultObjectYTD).length}`)
+            getTotalAmountYTD(resultObjectYTD)
+            .then(totalAmountYTD => {
+                returnObj.totalRecordsYTD = Object.keys(resultObjectYTD).length
+                returnObj.totalAmountYTD = totalAmountYTD
+                console.log(returnObj)
+                res.send(returnObj)
+            })
         })
     })
+    
+    
+    
 })
 
 async function getTotalMortgages(status) {
