@@ -17,7 +17,7 @@ class mainPage extends Component {
       <div>
 
         <Navbar />
-
+        
         <div class="all-tables">
           <LeadsTable />
           <EmployeeLeaderboard />

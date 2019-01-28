@@ -6,18 +6,24 @@ import logo from './assets/CMP_Logo_White.png'
 const Navbar = () => {
     return (
         <div class="nav-container">
-            <nav class="navbar">
-                <div class="logo-box">
-                    <a href="#left" class="logo"><img src={logo} alt={"logo"} width='100'/>
-                        <p class='logo-text'><span class='white'>Capture</span><span class='orange'>Mortgage+</span></p>
-                        <p class='white-small'>CRM System</p>
-                    </a>
-                </div>
 
-                <div class="nav-box">
+            <div class="logo-box">
+                <div class="logo-img-box">
+                    <img src={logo} alt={"logo"}/>
+                </div>
+                <div class="logo-text">
+                    <h1><span class="white">Capture</span><span class="orange">Mortgage+</span></h1>
+                </div>
+                <div class="logo-subtext">
+                    <h4 class="small">CRM System</h4>
+                </div>
+            </div>
+    
+            <div class="nav-box">
+                <nav class="navbar">
                     <a href="#dashboard">DASHBOARD</a>
-                    <div class="dropdown"> 
-                        <button class="dropbtn">LEADS{' '}
+                    <div class="dropdown">
+                        <button class="dropbtn">LEADS<span> </span>
                             <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
@@ -30,57 +36,55 @@ const Navbar = () => {
                     <a href="#approvals">APPROVALS</a>
                     <a href="#settlements">SETTLEMENTS</a>
                     <a href="#crm">CRM</a>
-                    <a href="#logout">LOGOUT</a>   
-                </div> 
-
-
-                <div class="nav-table">
-                    <table>
-                        <thead class="table-header">
-                            <tr>
-                                <th></th>
-                                <th>Current Month</th>
-                                <th>Current Month $</th>
-                                <th>Total</th>
-                                <th>Total $</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-content">
-                            <tr>
-                                <td><strong>LEADS</strong></td>
-                                <td>9</td>
-                                <td>-</td>
-                                <td>11</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td><strong>LODGEMENTS</strong></td>
-                                <td>18</td>
-                                <td>$5,580,000</td>
-                                <td>25</td>
-                                <td>$7,900,000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>APPROVALS</strong></td>
-                                <td>7</td>
-                                <td>$1,200,000</td>
-                                <td>9</td>
-                                <td>$1,900,000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>SETTLEMENTS</strong></td>
-                                <td>12</td>
-                                <td>$900,000</td>
-                                <td>15</td>
-                                <td>$1,250,000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </nav>
-
-        </div>
+                    <a href="#logout">LOGOUT</a>
+                </nav>
+            </div>
+    
+            <div class="nav-table">
+                <table>
+                    <thead class="table-header">
+                        <tr>
+                            <th></th>
+                            <th>Current Month</th>
+                            <th>Current Month $</th>
+                            <th>Total YTD</th>
+                            <th>Total YTD $</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-content">
+                        <tr>
+                            <td class="firstcolumn">LEADS</td>
+                            <td>9</td>
+                            <td>-</td>
+                            <td>11</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td class="firstcolumn">LODGEMENTS</td>
+                            <td>18</td>
+                            <td>$5,580,000</td>
+                            <td>25</td>
+                            <td>$7,900,000</td>
+                        </tr>
+                        <tr>
+                            <td class="firstcolumn">APPROVALS</td>
+                            <td>7</td>
+                            <td>$1,200,000</td>
+                            <td>9</td>
+                            <td>$1,900,000</td>
+                        </tr>
+                        <tr>
+                            <td class="firstcolumn">SETTLEMENTS</td>
+                            <td>12</td>
+                            <td>$900,000</td>
+                            <td>15</td>
+                            <td>$1,250,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+      </div>
     );
   }
 

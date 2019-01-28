@@ -1,88 +1,110 @@
-/*===================================================================*/
-/* Navbar CSS Grid Setup */
 .nav-container {
-  /* display: flex; */
-  /* flex-direction: column; */
-  border: none;
   display: grid;
-  grid-template-columns: 2fr 4fr;
-  grid-template-rows: repeat(2, 1fr);
-}
-
-
-
-/*===================================================================*/
-/* Navbar Links and Logo CSS */
-
-.navbar {
-  grid-row: 1;
-  grid-column: 1 / 4;
-  display: grid;
-  grid-template-columns: 2fr 4fr;
-  grid-template-rows: repeat(2, 1fr);
-	display: block;
-	justify-content: space-between;
-  overflow: hidden;
-  background-color: #0E0E0E;
+  grid-template-columns: 1.5fr 3fr;
+  grid-template-rows: 2fr 0.5fr 4fr;
+  background-color: #0e0e0e;
   width: 100vw;
-  height: 350px;;
-  font-weight: 600;
+  height: 350px;
   position: fixed;
   top: 0;
   z-index: 10;
+  /* border: thick solid blue; */
+}
+
+/*===================================================================*/
+/* Logo CSS */
+
+.logo-box {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  /* border: thick solid yellow; */
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 2fr 1fr;
+}
+
+.logo-box .logo-img-box {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  /* border: thick solid pink; */
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding-left: 15px;
+}
+
+.logo-img-box img {
+  width: 150px;
+}
+
+.logo-box .logo-text {
+  grid-column: 2;
+  grid-row: 1 / 2;
+  /* border: thick solid purple; */
+  display: flex;
+  align-items: flex-end;
+
+
+}
+
+.logo-box .logo-subtext {
+  grid-column: 2;
+  grid-row: 2/ 3;
+  /* border: thick solid white; */
+  color: #fff;
+  font-weight: 100;
+}
+
+.logo-box .white {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 300;
+}
+
+.logo-box .orange {
+  color: #f37021;
+  font-size: 35px;
+  font-weight: 300;
+}
+
+.logo-box .small {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+/*===================================================================*/
+/* Navbar Links CSS */
+
+.nav-box {
+  grid-column: 2;
+  grid-row: 1;
+  /* border: thick solid lightsalmon; */
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  overflow: hidden;
 }
 
 .navbar a {
   text-align: right;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
   text-align: center;
-  padding: 16px 16px;
+  padding: 30px 20px;
   text-decoration: none;
-} 
-
-.logo-box {
-	display: flex;
-	justify-content: right;
-	float: left;
 }
-
-.logo {
-  display: inline;
-}
-
-.logo .white {
-  color: #fff;
-  font-size: 26px;
-  font-weight: 400;
-}
-
-.logo .orange {
-  color: #F37021;
-  font-size: 26px;
-  font-weight: 400;
-}
-
-.logo .white-small {
-  font-weight: 300;
-}
-
-.nav-box {
-  grid-row: 1;
-  grid-column: 2 / 4;
-	display: flex;
-	justify-content: right;
-  width: 70vw;
-  
-
-} 
 
 .dropdown {
   overflow: hidden;
 }
 
 .dropdown .dropbtn {
-  font-size: 16px;  
+  font-size: 18px;
   border: none;
   outline: none;
   color: white;
@@ -91,20 +113,20 @@
   font-weight: inherit;
   margin: 0;
   text-align: center;
-  padding: 16px 16px;
+  padding: 30px 10px;
 }
 
-.nav-box a:hover, .dropdown:hover .dropbtn {
-  color: #F37021;
-  text-decoration: underline overline;
+.nav-box a:hover,
+.dropdown:hover .dropbtn {
+  color: #f37021;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #fff;
   min-width: 140px;
-  box-shadow: 0px 7px 18px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -118,63 +140,42 @@
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-
 /*===================================================================*/
-/* Navbar Overview Table CSS */
+/* Overview Table CSS */
 
-.nav-container tr {
-  background-color: #0E0E0E;
-  height: 30px;
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 13px;
+.nav-table {
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
+  /* border: thick solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
-.nav-container table {
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
-  color: white;
-  z-index: 30;
-  width: 60vw;
-  table-layout: fixed;
-  background-color: #0E0E0E;
-  text-align: right;
+.nav-table table {
+  width: 800px;
+  height: 200px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 300;
   
 }
 
-.nav-container .table-header {
-  /* background-color: rgba(255,255,255,0.3); */
- }
-
- .nav-container .table-content {
-  /* height:300px; */
-  overflow-x:auto;
+.nav-table td {
+  background-color: #0e0e0e;
+  width: 140px;
 }
 
-.nav-container th {
-  /* padding: 20px 15px; */
+.nav-table .firstcolumn {
   text-align: left;
-  /* font-weight: 500; */
-  /* font-size: 12px; */
-  color: #fff;
   text-transform: uppercase;
-  /* height: 5px; */
-}
-
-.nav-container td {
-  /* padding: 15px; */
-  text-align: left;
-  vertical-align:middle;
-  font-weight: 300;
-  /* font-size: 12px; */
-  color: #fff;
-  background-color: #0E0E0E;
-  /* height: 5px; */
-  /* border-bottom: solid 1px rgba(255,255,255,0.1); */
 }
