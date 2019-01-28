@@ -17,7 +17,7 @@ const Navbar = () => {
                 <div class="nav-box">
                     <a href="#dashboard">DASHBOARD</a>
                     <div class="dropdown"> 
-                        <button class="dropbtn">LEADS
+                        <button class="dropbtn">LEADS{' '}
                             <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">

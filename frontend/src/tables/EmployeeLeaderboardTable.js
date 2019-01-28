@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './tablestyles/globalTableStyles.css';
 import './tablestyles/leaderboard.css';
+import FiscalYear from '../FiscalYear';
 
 class EmployeeLeaderboard extends Component {
   render() {
     return (
       <div class="leaderboard_table">
         <h1 class="header_leaderboard header">EMPLOYEE LEADERBOARD</h1>
-        <h3 class="CMP_leaderboard">CaptureMortgage+ Leader Board by Employee 2018/2019</h3>
+        <div class="CMP_leaderboard">
+            <h3>CaptureMortgage+ Leaderboard by Employee</h3><span> </span>
+            <h3><FiscalYear /></h3>
+        </div>
         <table id="myTable">
             <tr class="table_header_leaderboard">
                 <th>ID</th>
