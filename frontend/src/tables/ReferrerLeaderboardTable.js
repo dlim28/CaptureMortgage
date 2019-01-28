@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './tablestyles/globalTableStyles.css';
 import './tablestyles/leaderboard.css';
+import FiscalYear from '../FiscalYear';
 
-class Leaderboard extends Component {
+class ReferrerLeaderboard extends Component {
   render() {
     return (
       <div class="leaderboard_table">
-        <h1 class="header_leaderboard header">LEADERBOARD</h1>
-        <h3 class="CMP_leaderboard">CaptureMortgage+ Leader Board by Referrer 2018/2019</h3>
+        <h1 class="header_leaderboard header">REFERRER LEADERBOARD</h1>
+        <div class="CMP_leaderboard">
+            <h3>CaptureMortgage+ Leaderboard by Referrer</h3><span> </span>
+            <h3><FiscalYear /></h3>
+        </div>
         <table id="myTable">
             <tr class="table_header_leaderboard">
                 <th>Month</th>
@@ -31,7 +35,7 @@ class Leaderboard extends Component {
                 <td>0</td>
                 <td>45%</td>
             </tr>
-                <tr>
+            <tr>
                 <td>December</td>
                 <td>2</td>
                 <td>13</td>
@@ -42,7 +46,7 @@ class Leaderboard extends Component {
                 <td>0</td>
                 <td>16%</td>
             </tr>
-                <tr>
+            <tr>
                 <td>November</td>
                 <td>2</td>
                 <td>13</td>
@@ -59,6 +63,6 @@ class Leaderboard extends Component {
   }
 }
 
-export default Leaderboard;
+export default ReferrerLeaderboard;
 
 

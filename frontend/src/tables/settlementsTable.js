@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './tablestyles/globalTableStyles.css';
 import './tablestyles/settlements.css';
+import FiscalYear from '../FiscalYear';
 
 class SettlementsTable extends Component {
   render() {
     return (
       <div class="settlements_table">
         <h1 class="header_settlements header">SETTLEMENTS</h1>
-        <h3 class="CMP_settlements">CaptureMortgage+ Settlements Board *insert js*</h3>
+        <div class="CMP_settlements">
+          <h3>CaptureMortgage+ Settlements Board</h3><span> </span>
+          <h3><FiscalYear /></h3>
+        </div>
         <table id="myTable">
           <tr class="table_header_settlements">
             <th>No.</th>
