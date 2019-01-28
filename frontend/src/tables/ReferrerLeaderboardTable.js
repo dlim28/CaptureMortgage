@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './tablestyles/globalTableStyles.css';
 import './tablestyles/leaderboard.css';
 
-class Leaderboard extends Component {
+class ReferrerLeaderboard extends Component {
   render() {
     return (
       <div class="leaderboard_table">
-        <h1 class="header_leaderboard header">LEADERBOARD</h1>
+        <h1 class="header_leaderboard header">REFERRER LEADERBOARD</h1>
         <h3 class="CMP_leaderboard">CaptureMortgage+ Leader Board by Referrer 2018/2019</h3>
         <table id="myTable">
             <tr class="table_header_leaderboard">
@@ -59,6 +59,6 @@ class Leaderboard extends Component {
   }
 }
 
-export default Leaderboard;
+export default ReferrerLeaderboard;
 
 
