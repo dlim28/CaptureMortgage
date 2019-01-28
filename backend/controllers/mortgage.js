@@ -4,36 +4,98 @@ const mortgage = require('../models/mortgage');
 
 //Get all mortgages
 router.get('/', (req, res) => {
+
     mortgage.find({})
     .then((resp) => {
-    res.send(resp);
+       res.send(resp);
     })
+    console.log("Finished Root route")
 })
 
 //Get one mortgage based on parameter
-router.get('/:id', (req, res) => {
+router.get('/select/:id', (req, res) => {
     const { id } = req.params;
     mortgage.findOne({ id })
     .then((resp) => {
-        res.send(resp)
+        res.send(resp);
+    })
+    console.log("Finished id route")
+})
+
+router.get('/overview', (req, res) => {
+    //Sort by dateOfLead
+    //Query by Lead status
+    const currentDate = new Date()
+    const currentYear = currentDate.getFullYear()
+    
+    mortgage.find(
+        // search date of lead between 1st January last year and 31st December this year
+        {
+            $and: 
+            [
+                {"status":"0"},
+                {"dateOfLead": {"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentYear}-12-31`}}
+            ]
+        }
+    ).sort(
+        { "dateOfLead": 1}
+    )
+    .then((resp) => {
+        res.send(resp);
     })
 })
 
-function findMortgage(paramID) {
-    //finds a particular mortgage from the database
-    //paramID is the ID that is from the webpage
-    const mortgageObj = mortgage.findOne({id: paramID});
+router.get('/employee-leaderboard', (req, res) => {
+    //Show all the leads YTD by employee
+    const currentDate = new Date()
+    const currentYear = currentDate.getFullYear();
 
-    return mortgageObj;
-}
+    mortgage.find(
+        // search date of lead between 1st January last year and 31st December this year
+        {
+            $and: 
+            [
+                {"status":"0"},
+                {"dateOfLead": {"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentYear}-12-31`}}
+            ]
+        }
+    ).sort(
+        { "employee": 1 , "dateOfLead": 1}
+    )
 
-function findAllMortgage() {
-    //finds a particular mortgage from the database
-    //paramID is the ID that is from the webpage
-    const mortgageObj = mortgage.find({});
-    // console.log(mortgageObj);
-    return mortgageObj;
-}
+    .then((resp) => {
+        res.send(resp);
+    })
+})
+
+router.get('/referrer-leaderboard', (req, res) => {
+    // This route will get all the referrers and tally them
+    const currentDate = new Date()
+    const currentYear = currentDate.getFullYear();
+
+    mortgage.aggregate(
+        [
+            {$match: {"status":"0", "dateOfLead":{"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentYear}-12-31`}}},
+            {
+                $group: {
+                    _id: {Referrer: "$referrer"},
+                    // month: { },
+                    total: {$sum: 1}
+                }
+            }
+        ]
+    )
+    .sort(
+        {_id: 1}
+    )
+    .then(resp => {
+        res.send(resp)
+    })
+    .catch(err => {
+        res.send(err)
+    })
+})
+
 
 // GETTERS
 function getCustomerName() {
