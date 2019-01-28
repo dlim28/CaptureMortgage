@@ -29,7 +29,7 @@ class ApprovalsTable extends Component {
             <td>LP Staff</td>
             <td>Sarah Smith</td>
           </tr>
-            <tr>
+          <tr>
             <td>2</td>
             <td>01/01/2019</td>
             <td>James Dean</td>
@@ -39,7 +39,7 @@ class ApprovalsTable extends Component {
             <td>LP Staff</td>
             <td>Louise Lilly</td>
           </tr>
-            <tr>
+          <tr>
             <td>3</td>
             <td>02/04/2018</td>
             <td>Billy Joel</td>

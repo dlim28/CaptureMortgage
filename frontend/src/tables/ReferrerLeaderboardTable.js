@@ -31,7 +31,7 @@ class ReferrerLeaderboard extends Component {
                 <td>0</td>
                 <td>45%</td>
             </tr>
-                <tr>
+            <tr>
                 <td>December</td>
                 <td>2</td>
                 <td>13</td>
@@ -42,7 +42,7 @@ class ReferrerLeaderboard extends Component {
                 <td>0</td>
                 <td>16%</td>
             </tr>
-                <tr>
+            <tr>
                 <td>November</td>
                 <td>2</td>
                 <td>13</td>

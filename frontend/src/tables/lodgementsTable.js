@@ -27,7 +27,7 @@ class LodgementsTable extends Component {
             <td>3 Days</td>
             <td>Sarah Smith</td>
           </tr>
-            <tr>
+          <tr>
             <td>2</td>
             <td>01/01/2019</td>
             <td>James Dean</td>
@@ -36,7 +36,7 @@ class LodgementsTable extends Component {
             <td>7 Days</td>
             <td>Louise Lilly</td>
           </tr>
-            <tr>
+          <tr>
             <td>3</td>
             <td>02/04/2018</td>
             <td>Billy Joel</td>

@@ -33,14 +33,14 @@ class CRM extends Component {
             <td>Home Loan</td>
             <td>$200,000</td>
           </tr>
-            <tr>
+          <tr>
             <td>2</td>
             <td>01/01/2019</td>
             <td>James Dean</td>
             <td>Home Loan</td>
             <td>$40,000</td>
           </tr>
-            <tr>
+          <tr>
             <td>3</td>
             <td>02/04/2018</td>
             <td>Billy Joel</td>

@@ -11,47 +11,39 @@ class EmployeeLeaderboard extends Component {
         <table id="myTable">
             <tr class="table_header_leaderboard">
                 <th>ID</th>
-                <th>Entered as Lend</th>
-                <th>SPP Staff</th>
-                <th>Marketing Campaigns</th>
-                <th>BDM Staff</th>
-                <th>TFC</th>
-                <th>Others</th>
-                <th>Totals</th>
-                <th>%</th>
+                <th>Entered as Lead</th>
+                <th>Customer Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Referrer</th>
+                <th>Employee</th>
             </tr>
             <tr>
-                <td>January</td>
-                <td>2</td>
-                <td>13</td>
-                <td>12</td>
-                <td>4</td>
-                <td>31</td>
-                <td>4</td>
-                <td>0</td>
-                <td>45%</td>
+                <td>1</td>
+                <td>01/03/2019</td>
+                <td>Alicia Keys</td>
+                <td>Re-finance</td>
+                <td>$400,000</td>
+                <td>LP Staff</td>
+                <td>Sarah Smith</td>
             </tr>
-                <tr>
-                <td>December</td>
+            <tr>
                 <td>2</td>
-                <td>13</td>
-                <td>5</td>
-                <td>3</td>
-                <td>3</td>
-                <td>4</td>
-                <td>0</td>
-                <td>16%</td>
+                <td>01/02/2019</td>
+                <td>Beyonce</td>
+                <td>Home Loan</td>
+                <td>$260,000</td>
+                <td>LP Staff</td>
+                <td>Louise Lilly</td>
             </tr>
-                <tr>
-                <td>November</td>
-                <td>2</td>
-                <td>13</td>
-                <td>0</td>
-                <td>9</td>
-                <td>31</td>
-                <td>4</td>
-                <td>10</td>
-                <td>57%</td>
+            <tr>
+                <td>3</td>
+                <td>01/01/2019</td>
+                <td>Craig David</td>
+                <td>Re-finance</td>
+                <td>$110,000</td>
+                <td>LP Staff</td>
+                <td>Katherine Kale</td>
             </tr>
         </table>
     </div>
