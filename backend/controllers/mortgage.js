@@ -26,28 +26,49 @@ router.get('/overview', (req, res) => {
     //Sort by dateOfLead
     //Query by Lead status
     const currentDate = new Date()
-    const currentMonth = (currentDate.getMonth()) + 1
     const currentYear = currentDate.getFullYear()
     
     mortgage.find(
-        // Can be changed to Lead
-        // search date of lead between 1/1+1/current year and next year
+        // search date of lead between 1st January last year and 31st December this year
         {
             $and: 
             [
                 {"status":"0"},
-                {"dateOfLead": {"$gte": `${currentYear - 1}-07-01`, "$lte": `${currentYear-1}-12-31`}}
+                {"dateOfLead": {"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentYear}-12-31`}}
             ]
         }
+    ).sort(
+        { "dateOfLead": 1}
     )
     .then((resp) => {
-        console.log(resp)
         res.send(resp);
     })
 })
 
 router.get('/employee-leaderboard', (req, res) => {
+    //Show all the leads YTD by employee
+    const currentDate = new Date()
+    const currentDay = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentYear = currentDate.getFullYear();
+    const currentDateStr = `${currentYear}-${currentMonth}-${currentDay}`
 
+    mortgage.find(
+        // search date of lead between 1st January last year and 31st December this year
+        {
+            $and: 
+            [
+                {"status":"0"},
+                {"dateOfLead": {"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentDateStr}`}}
+            ]
+        }
+    ).sort(
+        { "employee": 1 , "dateOfLead": 1}
+    )
+
+    .then((resp) => {
+        res.send(resp);
+    })
 })
 
 router.get('/referrer-leaderboard', (req, res) => {
