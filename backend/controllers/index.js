@@ -5,17 +5,9 @@ const router = express.Router();
 // router.use('/', require(''));
 
 //  GET mortgages
-router.use('/leads', require('./mortgage.js'));
-
+router.use('/leads', require('./leads.js'));
+router.use('/lodgements', require('./lodgements.js'))
 //Get navbar dashboard data
 router.use('/navbar', require('./navbar.js'))
-
-//Get Leads Data
-
-//Get Lodgement Data
-
-//Get Approval Data
-
-//Get Settlement Data
 
 module.exports = router;
