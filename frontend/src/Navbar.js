@@ -21,24 +21,24 @@ const Navbar = () => {
     
             <div class="nav-box">
                 <nav class="navbar">
-                    <a href="#dashboard" class="lined">DASHBOARD</a>
-                    <a href="#leads" class="lined">
+                    <a href="/dashboard" class="lined">DASHBOARD</a>
+                    <a href="/leads" class="lined">
                         <div class="dropdown">
                             <button class="dropbtn">LEADS<span> </span>
                                 <i class="fa fa-caret-down"></i>
                             </button>
                             <div class="dropdown-content">
-                                <a href="#">New Lead</a>
-                                <a href="#">Employee Leaderboard</a>
-                                <a href="#">Referrer Leaderboard</a>
+                                <a href="/leads/new">New Lead</a>
+                                <a href="/leads/employeeleaderboard">Employee Leaderboard</a>
+                                <a href="/leads/referrerleaderboard">Referrer Leaderboard</a>
                             </div>
                         </div>
                     </a>
-                    <a href="#lodgements" class="lined">LODGEMENTS</a>
-                    <a href="#approvals" class="lined">APPROVALS</a>
-                    <a href="#settlements" class="lined">SETTLEMENTS</a>
-                    <a href="#crm" class="lined">CRM</a>
-                    <a href="#logout" class="lined">LOGOUT</a>
+                    <a href="/lodgements" class="lined">LODGEMENTS</a>
+                    <a href="/approvals" class="lined">APPROVALS</a>
+                    <a href="/settlements" class="lined">SETTLEMENTS</a>
+                    <a href="/crm" class="lined">CRM</a>
+                    <a href="/logout" class="lined">LOGOUT</a>
                 </nav>
             </div>
     
