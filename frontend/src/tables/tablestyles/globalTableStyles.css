@@ -24,9 +24,9 @@ body tr:nth-child(even){
 .header {
   font-size: 70px;
   margin-bottom: -15px;
+  margin-top: 30vh;
   margin-top: 320px;
   font-weight: 400;
-  
 }
 
 h3 {
@@ -34,6 +34,11 @@ h3 {
   font-size: 28px;
   line-height: 50px;
   font-weight: 300;
+}
+
+.second-header {
+  font-weight: 300;
+  font-size: 30px
 }
 
 

@@ -8,6 +8,11 @@ import FiscalYear from '../FiscalYear';
 class LodgementsTable extends Component {
   render() {
     return (
+      <div class="lodgements_table">
+        <h1 class="header_lodgements header">LODGEMENTS</h1>
+        <div class="CMP_lodgements">
+          <h3 class="second-header">CaptureMortgage+ Lodgements Board</h3><span> </span>
+          <h3 class="second-header"><FiscalYear /></h3>
       <div>
         <Navbar />
         <div class="lodgements_table">

@@ -13,6 +13,7 @@ import SettlementsTable from './tables/SettlementsTable'
 // import { BrowserRouter, Route } from 'react-router-dom'
 import CRM from './tables/crmTable'
 import Form from './Form'
+// import Login from './Login'
 
 
 class mainPage extends Component {
@@ -53,6 +54,11 @@ class mainPage extends Component {
           <ApprovalsTable />
           <SettlementsTable />
         </div>
+
+
+        <Form/>
+        {/* <Login /> */}
+
 
       </div>
     );

@@ -7,6 +7,11 @@ import FiscalYear from '../FiscalYear';
 class ReferrerLeaderboard extends Component {
   render() {
     return (
+      <div class="leaderboard_table">
+        <h1 class="header_leaderboard header">REFERRER LEADERBOARD</h1>
+        <div class="CMP_leaderboard">
+            <h3 class="second-header">CaptureMortgage+ Leaderboard by Referrer</h3><span> </span>
+            <h3 class="second-header"><FiscalYear /></h3>
         <div>
             <Navbar />
             <div class="leaderboard_table">
