@@ -1,15 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
-  background: white;
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 300;
 }
 
+body {
+  background: #fff;
+
+}
 
 .all-tables {
-  margin-top: 370px;
+  margin-top: 310px;
+  margin-bottom: 100px;
 }

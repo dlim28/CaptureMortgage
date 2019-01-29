@@ -62,9 +62,11 @@ router.get('/employee-leaderboard', (req, res) => {
     ).sort(
         { "employee": 1 , "dateOfLead": 1}
     )
-
     .then((resp) => {
         res.send(resp);
+    })
+    .catch(err => {
+        res.send(err)
     })
 })
 
