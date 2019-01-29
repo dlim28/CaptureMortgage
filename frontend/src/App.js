@@ -13,6 +13,27 @@ import Form from './Form'
 
 class mainPage extends Component {
   render() {
+    const { pathname } = window.location;
+    const params = pathname.substr(1);
+
+    if (params === 'leads') {
+      return <LeadsTable />
+    } else if (params === 'leads/new') {
+      return <Form />
+    }  else if (params === 'leads/employeeleaderboard') {
+      return <EmployeeLeaderboard />
+    } else if (params === 'leads/referrerleaderboard') {
+      return <ReferrerLeaderboard />
+    } else if (params === 'lodgements') {
+      return <LodgementsTable />
+    } else if (params === 'approvals') {
+      return <ApprovalsTable />
+    } else if (params === 'settlements') {
+      return <SettlementsTable />
+    } else if (params === 'crm') {
+      return <CRM />
+    } 
+
     return (
       <div>
 
