@@ -34,7 +34,7 @@
 }
 
 .logo-img-box img {
-  width: 150px;
+  width: 110px;
 }
 
 .logo-box .logo-text {
@@ -55,18 +55,18 @@
 
 .logo-box .white {
   color: #fff;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 300;
 }
 
 .logo-box .orange {
   color: #f37021;
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 300;
 }
 
 .logo-box .small {
-  font-size: 21px;
+  font-size: 17px;
   font-weight: 300;
 }
 
@@ -78,7 +78,7 @@
   grid-row: 1;
   display: flex;
   justify-content: flex-end;
-  padding-right: 15px;
+  padding-right: 5px;
   /* border: thick solid lightsalmon; */
 }
 

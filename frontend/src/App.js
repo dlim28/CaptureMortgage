@@ -18,7 +18,9 @@ class mainPage extends Component {
 
     if (params === 'leads') {
       return <LeadsTable />
-    } else if (params === 'leads/employeeleaderboard') {
+    } else if (params === 'leads/new') {
+      return <Form />
+    }  else if (params === 'leads/employeeleaderboard') {
       return <EmployeeLeaderboard />
     } else if (params === 'leads/referrerleaderboard') {
       return <ReferrerLeaderboard />

@@ -1,125 +1,107 @@
-html {
-    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* text-align: center; */
-  }
-  
-  
-  .form{
-    text-align: left;
-    font-size: 20px;
-    /* display: flex;
-    flex-direction: column;
-    align-items: flex-end; */
-    color: grey;
-  
-  }
-  
-  .button{
-    align-items: right;
-  
-  }
-  .savebutton{
-    margin-left: 20px;
-    background-color: rgb(18, 77, 136);
-    padding: 6px 60px;
-    color: white;
-    font-size: 20px;
-    border-radius: 10px;
-  }
-  
-  .savebutton:hover {
-    background-color: #009900;
-    /* background-color: rgb(13, 114, 13); Green */
-    color: white;
-    cursor: pointer;
-  }
-  
-  .cancelbutton{
-    background-color: rgb(18, 77, 136);
-    padding: 6px 50px;
-    color:white;
-    font-size: 20px;
-    border-radius: 10px;
-  }
-  .cancelbutton:hover {
-    background-color: #FF0000;
-    /* background-color: rgb(145, 37, 37); */
-    color: white;
-    cursor: pointer;
-  }
-  
-  input {
-    max-width: 500px;
-  }
-  
-  .inputbox{
-    display: flex;
-    /* padding-left: 100px; */
-    width:500px;
-    height: 20px;
-    font-size: 16px;
-    text-align: center;
-  }
-  
-  .customerdetailsheading{
-    margin-top: 50px;
-   font-size: 42px;
-   color: grey;
-   margin-left: 140px;
-   text-align: center;
-  }
-  
-  .statusblue{
-    color: dodgerblue;
-  
-  }
-  
-  .inLine h4{
-    margin: 0px;
-  
-  }
-  
-  .flex-form{
-    display: flex;
-    align-content: center;
-    
-  }
-  
-  .flexformtitles{
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    height: 500px;
-    justify-content: space-around;
-    text-align: left;
-  }
-  
-  .flexformcontent{
-    display:flex;
-    flex-direction: column;
-    margin: 20px;
-    height:500px;
-    justify-content: space-around;
-  }
-  
-  .buttonflex{
-    display:flex;
-    justify-content: center;
-  }
-  .emptybox{
-    display:flex;
-    width: 270px;
-  }
-  
-  .emptyboxone{
-    display:flex;
-    width: 300px;
-  }
-  
-  .alignbuttons{
-    display:flex;
-    justify-content: center;
-    width:500px;
-  }
-  
-  
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 300px 1fr;
+  width: 100vw;
+}
+
+.form {
+  text-align: left;
+  font-size: 20px;
+  color: rgb(153, 153, 153);
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  max-width: 500px;
+}
+
+.inputbox{
+  display: flex;
+  width:500px;
+  height: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.customerdetailsheading{
+  margin-top: 20px;
+  font-size: 42px;
+  color: rgb(153, 153, 153);
+  text-align: center;
+}
+
+.statusblue{
+  color: #0066CC;
+
+}
+
+.inLine h4{
+  margin: 0px;
+}
+
+.flex-form{
+  display: flex;
+  justify-content: center;
+}
+
+.flexformtitles{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  height: 500px;
+  justify-content: space-around;
+  text-align: left;
+}
+
+.flexformcontent{
+  display:flex;
+  flex-direction: column;
+  margin: 20px;
+  height:500px;
+  justify-content: space-around;
+}
+
+
+.button{
+  align-items: right;
+}
+
+.savebutton{
+  margin-left: 20px;
+  background-color: rgb(18, 77, 136);
+  padding: 6px 60px;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.savebutton:hover {
+  background-color: #009900;
+  /* background-color: rgb(13, 114, 13); Green */
+  color: white;
+  cursor: pointer;
+}
+
+.cancelbutton{
+  background-color: rgb(18, 77, 136);
+  padding: 6px 50px;
+  color:white;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.cancelbutton:hover {
+  background-color: #FF0000;
+  /* background-color: rgb(145, 37, 37); */
+  color: white;
+  cursor: pointer;
+}
+
+.buttonflex{
+  display:flex;
+  justify-content: flex-end;
+}
