@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './tablestyles/globalTableStyles.css';
 import './tablestyles/approvals.css';
+import FiscalYear from '../FiscalYear';
 
 class ApprovalsTable extends Component {
   render() {
     return (
       <div>
         <h1 class="header_approvals header">APPROVALS</h1>
-        <h3 class="CMP_approvals">CaptureMortgage+ Approvals Board *insert js*</h3>
+        <div class="CMP_approvals">
+          <h3>CaptureMortgage+ Approvals Board</h3><span> </span>
+          <h3><FiscalYear /></h3>
+        </div>
         <table id="myTable">
           <tr class="table_header_approvals">
             <th>ID</th>
@@ -29,7 +33,7 @@ class ApprovalsTable extends Component {
             <td>LP Staff</td>
             <td>Sarah Smith</td>
           </tr>
-            <tr>
+          <tr>
             <td>2</td>
             <td>01/01/2019</td>
             <td>James Dean</td>
@@ -39,7 +43,7 @@ class ApprovalsTable extends Component {
             <td>LP Staff</td>
             <td>Louise Lilly</td>
           </tr>
-            <tr>
+          <tr>
             <td>3</td>
             <td>02/04/2018</td>
             <td>Billy Joel</td>
