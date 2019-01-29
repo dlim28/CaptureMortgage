@@ -5,12 +5,14 @@ import Navbar from './Navbar'
 import EmployeeLeaderboard from './tables/EmployeeLeaderboardTable'
 import ReferrerLeaderboard from './tables/ReferrerLeaderboardTable'
 import LeadsTable from './tables/LeadsTable'
-import LodgementsTable from './tables/LodgementsTable'
-import ApprovalsTable from './tables/ApprovalsTable'
+import LodgementsTable from './tables/lodgementsTable'
+import ApprovalsTable from './tables/approvalsTable'
 import SettlementsTable from './tables/SettlementsTable'
 // import CRM from './tables/CrmTable'
 // import Form from './Form'
 // import { BrowserRouter, Route } from 'react-router-dom'
+import CRM from './tables/crmTable'
+import Form from './Form'
 
 
 class mainPage extends Component {
