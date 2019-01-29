@@ -4,7 +4,7 @@
   grid-template-rows: 2fr 0.5fr 4fr;
   background-color: #0e0e0e;
   width: 100vw;
-  height: 350px;
+  height: 250px;
   position: fixed;
   top: 0;
   z-index: 10;
@@ -35,7 +35,7 @@
 
 .logo-img-box img {
   width: 120px;
-  height: 100px
+  height: 80px
 }
 
 .logo-box .logo-text {
@@ -93,11 +93,11 @@
 
 .navbar a {
   text-align: right;
-  font-size: 18px;
   color: white;
   text-align: center;
   padding: 30px 20px;
   text-decoration: none;
+  font-size: 13px
 }
 
 .dropdown {
@@ -105,7 +105,7 @@
 }
 
 .dropdown .dropbtn {
-  font-size: 18px;
+  font-size: 13px;
   border: none;
   outline: none;
   color: white;
@@ -129,6 +129,7 @@
   min-width: 140px;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  font-size: 15px;
 }
 
 .dropdown-content a {
@@ -164,10 +165,9 @@
 
 .nav-table table {
   width: 800px;
-  height: 200px;
+  height: 120px;
   text-align: center;
   font-size: 17px;
-  font-weight: 300;
   
 }
 
@@ -179,4 +179,9 @@
 .nav-table .firstcolumn {
   text-align: left;
   text-transform: uppercase;
+}
+
+.table-header {
+  font-size: 12px;
+  font-weight: lighter;
 }
