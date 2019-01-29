@@ -9,8 +9,8 @@ class ReferrerLeaderboard extends Component {
       <div class="leaderboard_table">
         <h1 class="header_leaderboard header">REFERRER LEADERBOARD</h1>
         <div class="CMP_leaderboard">
-            <h3>CaptureMortgage+ Leaderboard by Referrer</h3><span> </span>
-            <h3><FiscalYear /></h3>
+            <h3 class="second-header">CaptureMortgage+ Leaderboard by Referrer</h3><span> </span>
+            <h3 class="second-header"><FiscalYear /></h3>
         </div>
         <table id="myTable">
             <tr class="table_header_leaderboard">

@@ -10,8 +10,8 @@ class LodgementsTable extends Component {
       <div class="lodgements_table">
         <h1 class="header_lodgements header">LODGEMENTS</h1>
         <div class="CMP_lodgements">
-          <h3>CaptureMortgage+ Lodgements Board</h3><span> </span>
-          <h3><FiscalYear /></h3>
+          <h3 class="second-header">CaptureMortgage+ Lodgements Board</h3><span> </span>
+          <h3 class="second-header"><FiscalYear /></h3>
         </div>
         <table id="myTable">
           <tr class="table_header_lodgements">

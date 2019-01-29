@@ -24,11 +24,17 @@ body tr:nth-child(even){
   font-size: 70px;
   margin-bottom: -15px;
   margin-top: 30vh;
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300
 }
 
 h3 {
   display: inline-block;
+}
+
+.second-header {
+  font-weight: 300;
+  font-size: 30px
 }
 
 

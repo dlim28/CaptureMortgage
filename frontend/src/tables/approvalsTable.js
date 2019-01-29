@@ -9,8 +9,8 @@ class ApprovalsTable extends Component {
       <div>
         <h1 class="header_approvals header">APPROVALS</h1>
         <div class="CMP_approvals">
-          <h3>CaptureMortgage+ Approvals Board</h3><span> </span>
-          <h3><FiscalYear /></h3>
+          <h3 class="second-header">CaptureMortgage+ Approvals Board</h3><span> </span>
+          <h3 class="second-header"><FiscalYear /></h3>
         </div>
         <table id="myTable">
           <tr class="table_header_approvals">

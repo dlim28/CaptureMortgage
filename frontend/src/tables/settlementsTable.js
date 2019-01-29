@@ -9,8 +9,8 @@ class SettlementsTable extends Component {
       <div class="settlements_table">
         <h1 class="header_settlements header">SETTLEMENTS</h1>
         <div class="CMP_settlements">
-          <h3>CaptureMortgage+ Settlements Board</h3><span> </span>
-          <h3><FiscalYear /></h3>
+          <h3 class="second-header">CaptureMortgage+ Settlements Board</h3><span> </span>
+          <h3 class="second-header"><FiscalYear /></h3>
         </div>
         <table id="myTable">
           <tr class="table_header_settlements">
