@@ -1,119 +1,44 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.form{
-  text-align: left;
-  font-size: 20px;
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-end; */
-  color: grey;
-
+body {
+  background: white;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
 }
 
-.button{
-  align-items: right;
 
+.body {
+  margin:0; 
+  padding:0; 
+  background:#efefef;
+  text-align:center; /* used to center div in IE */
 }
-.savebutton{
-  margin-left: 20px;
-  background-color: rgb(18, 77, 136);
-  padding: 6px 60px;
-  color: white;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-.savebutton:hover {
-  background-color: rgb(13, 114, 13); /* Green */
-  color: white;
-}
-
-.cancelbutton{
-  background-color: rgb(18, 77, 136);
-  padding: 6px 50px;
-  color:white;
-  font-size: 20px;
-  border-radius: 10px;
-}
-.cancelbutton:hover {
-  background-color: rgb(145, 37, 37); /* Green */
-  color: white;
+.wrapper {
+  width:600px; 
+  margin:0 auto; /*centers the div horizontally in all browsers (except IE)*/
+  background:#fff; 
+  text-align:left; /*resets text alignment from body tag */
+  border:1px solid #ccc;
+  border-top:none; 
+  padding:25px; 
+  /*Let's add some CSS3 styles, these will degrade gracefully in older browser and IE*/
+  border-radius:0 0 5px 5px;
+  -moz-border-radius:0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px; 
+  box-shadow:0 0 5px #ccc;
+  -moz-box-shadow:0 0 5px #ccc;
+  -webkit-box-shadow:0 0 5px #ccc;
 }
 
-input {
-  max-width: 500px;
+.lightbox {
+  position:fixed; /* keeps the lightbox window in the current viewport */
+  top:0; 
+  left:0; 
+  width:100%; 
+  height:100%; 
+  background:url("https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwj227XtooXgAhUHeisKHX4EAIwQjRx6BAgBEAU&url=https%3A%2F%2Fya-webdesign.com%2Fexplore%2Fblack-overlay-png%2F&psig=AOvVaw3Uk1BftyFU3cqIyNmvbSIY&ust=1548379923705239") repeat; 
+  text-align:center;
 }
-
-.inputbox{
-  display: flex;
-  /* padding-left: 100px; */
-  width:500px;
-  height: 20px;
-  font-size: 16px;
-  text-align: center;
-}
-
-.customerdetailsheading{
-  margin-top: 50px;
- font-size: 42px;
- color: grey;
- margin-left: 140px;
- text-align: center;
-}
-
-.statusblue{
-  color: dodgerblue;
-
-}
-
-.inLine h4{
-  margin: 0px;
-
-}
-
-.flex-form{
-  display: flex;
-  align-content: center;
-  
-}
-
-.flexformtitles{
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  height: 500px;
-  justify-content: space-around;
-  text-align: left;
-}
-
-.flexformcontent{
-  display:flex;
-  flex-direction: column;
-  margin: 20px;
-  height:500px;
-  justify-content: space-around;
-}
-
-.buttonflex{
-  display:flex;
-  justify-content: center;
-}
-.emptybox{
-  display:flex;
-  width: 270px;
-}
-
-.emptyboxone{
-  display:flex;
-  width: 300px;
-}
-
-.alignbuttons{
-  display:flex;
-  justify-content: center;
-  width:500px;
-
-}
-
