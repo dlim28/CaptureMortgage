@@ -22,7 +22,6 @@ import axios from 'axios'
         
         render() {
             const { status0, status1, status2, status3 } = this.state
-console.log(this.state)
             if (status3) {
             return (
         <div class="nav-container">
@@ -74,30 +73,30 @@ console.log(this.state)
                     <tbody class="table-content">
                         <tr>
                             <td class="firstcolumn">LEADS</td>
-                            <td>{status0}</td>
+                            <td></td>
                             <td>-</td>
-                            <td>11</td>
+                            <td>{status0}</td>
                             <td>-</td>
                         </tr>
                         <tr>
                             <td class="firstcolumn">LODGEMENTS</td>
-                            <td>{status1}</td>
+                            <td></td>
                             <td>$5,580,000</td>
-                            <td>25</td>
+                            <td>{status1}</td>
                             <td>$7,900,000</td>
                         </tr>
                         <tr>
                             <td class="firstcolumn">APPROVALS</td>
-                            <td>{status2}</td>
+                            <td></td>
                             <td>$1,200,000</td>
-                            <td>9</td>
+                            <td>{status2}</td>
                             <td>$1,900,000</td>
                         </tr>
                         <tr>
                             <td class="firstcolumn">SETTLEMENTS</td>
-                            <td>{status3}</td>
+                            <td></td>
                             <td>$900,000</td>
-                            <td>15</td>
+                            <td>{status3}</td>
                             <td>$1,250,000</td>
                         </tr>
                     </tbody>

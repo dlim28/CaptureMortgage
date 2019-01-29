@@ -44,6 +44,17 @@ router.get("/getdata/:status", (req,res) => {
         })
 })
 
+router.get("/getstatusdate/:statusDate", (req,res) => {
+    const statusDate = req.params.statusDate
+    mortgage.find({statusDate: statusDate})
+        .then((data) =>{
+            res.send(data)
+        })
+        .catch((err) => {
+            res.send(err.response)
+        })
+})
+
 async function getTotalMortgages(status) {
     /*This function will get all records of current month 
     depending on the status query that is passed through*/
