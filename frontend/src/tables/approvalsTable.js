@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './tablestyles/globalTableStyles.css';
-import './tablestyles/approvals.css';
+import './tablestyles/approvalsTable.css';
 import FiscalYear from '../FiscalYear';
 
 class ApprovalsTable extends Component {

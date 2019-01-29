@@ -9,6 +9,7 @@ import ApprovalsTable from './tables/ApprovalsTable'
 import SettlementsTable from './tables/SettlementsTable'
 import CRM from './tables/CrmTable'
 import Form from './Form'
+import Login from './Login'
 
 
 class mainPage extends Component {
@@ -29,6 +30,7 @@ class mainPage extends Component {
         </div>
 
         <Form/>
+        <Login />
 
       </div>
     );
