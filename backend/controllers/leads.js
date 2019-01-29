@@ -66,6 +66,9 @@ router.get('/employee-leaderboard', (req, res) => {
     .then((resp) => {
         res.send(resp);
     })
+    .catch(err => {
+        res.send(err)
+    })
 })
 
 router.get('/referrer-leaderboard', (req, res) => {
