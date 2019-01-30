@@ -8,6 +8,7 @@ class CRM extends Component {
     return (
       <div>
         <Navbar />
+        
         <h1 class="header_crm header">CRM</h1>
         <select class='input-box' name="Category" id="username">          
           <option value="0">--select activity status--</option>

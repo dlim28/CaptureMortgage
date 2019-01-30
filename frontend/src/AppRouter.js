@@ -9,6 +9,7 @@ import ApprovalsTable from './tables/ApprovalsTable'
 import SettlementsTable from './tables/SettlementsTable'
 import CRM from './tables/CrmTable'
 import Form from './Form'
+import Login from './Login'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 
@@ -28,6 +29,7 @@ class AppRouter extends Component {
                 <Route exact path='/approvals' component={ApprovalsTable} />
                 <Route exact path='/settlements' component={SettlementsTable} />
                 <Route path='/crm' component={CRM} />
+                <Route path='/login' component={Login} />
             </div>
         </BrowserRouter>
 
