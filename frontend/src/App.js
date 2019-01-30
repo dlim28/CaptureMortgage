@@ -2,22 +2,20 @@ import React, { Component } from 'react';
 import './App.css'
 import Navbar from './Navbar'
 // import Dashboard from './Dashboard'
-import EmployeeLeaderboard from './tables/EmployeeLeaderboardTable'
-import ReferrerLeaderboard from './tables/ReferrerLeaderboardTable'
 import LeadsTable from './tables/LeadsTable'
-import LodgementsTable from './tables/lodgementsTable'
-import ApprovalsTable from './tables/approvalsTable'
+// import EmployeeLeaderboard from './tables/EmployeeLeaderboardTable'
+// import ReferrerLeaderboard from './tables/ReferrerLeaderboardTable'
+import LodgementsTable from './tables/LodgementsTable'
+import ApprovalsTable from './tables/ApprovalsTable'
 import SettlementsTable from './tables/SettlementsTable'
 // import CRM from './tables/CrmTable'
 // import Form from './Form'
-// import { BrowserRouter, Route } from 'react-router-dom'
-import CRM from './tables/crmTable'
-import Form from './Form'
 // import Login from './Login'
 
 
 class mainPage extends Component {
   render() {
+
     // const { pathname } = window.location;
     // const params = pathname.substr(1);
 
@@ -39,7 +37,9 @@ class mainPage extends Component {
     //   return <SettlementsTable />
     // } else if (params === 'crm') {
     //   return <CRM />
-    // } 
+    // } else if (params === 'login') {
+    //   return <Login />
+    // }
 
     return (
       <div>
@@ -48,16 +48,10 @@ class mainPage extends Component {
         
         <div class="all-tables">
           <LeadsTable />
-          <EmployeeLeaderboard />
-          <ReferrerLeaderboard />
           <LodgementsTable />
           <ApprovalsTable />
           <SettlementsTable />
         </div>
-
-
-        <Form/>
-        {/* <Login /> */}
 
 
       </div>
