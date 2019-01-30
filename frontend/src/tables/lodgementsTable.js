@@ -3,6 +3,7 @@ import './tablestyles/globalTableStyles.css';
 import './tablestyles/lodgements.css';
 import Navbar from '../Navbar'
 import FiscalYear from '../FiscalYear';
+// change file names
 
 
 class LodgementsTable extends Component {
