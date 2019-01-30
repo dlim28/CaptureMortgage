@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import './tablestyles/globalTableStyles.css';
-import './tablestyles/crm.css';
-import Navbar from '../Navbar'
+import '../styles/globalTableStyles.css';
+import '../styles/crm.css';
 
 class CRM extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        
         <h1 class="header_crm header">CRM</h1>
         <select class='input-box' name="Category" id="username">          
           <option value="0">--select activity status--</option>

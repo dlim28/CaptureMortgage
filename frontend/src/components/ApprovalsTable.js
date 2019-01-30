@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import './tablestyles/globalTableStyles.css';
-import './tablestyles/approvalsTable.css';
-import Navbar from '../Navbar'
-import FiscalYear from '../FiscalYear';
+import '../styles/globalTableStyles.css';
+import FiscalYear from './FiscalYear';
 
 class ApprovalsTable extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <div>
-          <h1 class="header_approvals header">APPROVALS</h1>
-          <div class="CMP_approvals">
+        <div class="center">
+          <h1 class="header approvals">APPROVALS</h1>
+          <div class="approvals">
             <h3>CaptureMortgage+ Approvals Board</h3><span> </span>
             <h3><FiscalYear /></h3>
           </div>
           <table id="myTable">
-            <tr class="table_header_approvals">
+            <tr class="approvals-back">
               <th>ID</th>
               <th>Moved to Approvals</th>
               <th>Customer Name</th>

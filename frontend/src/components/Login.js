@@ -1,6 +1,6 @@
 import React from 'react';
-import './Login.css';
-import logo from './assets/CMP_Logo_White.png'
+import '../styles/Login.css';
+import logo from '../assets/CMP_Logo_White.png'
 
 
 const Login = () => {
