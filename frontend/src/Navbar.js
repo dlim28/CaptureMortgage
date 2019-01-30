@@ -38,7 +38,7 @@ const Navbar = () => {
                     <a href="/approvals" class="lined">APPROVALS</a>
                     <a href="/settlements" class="lined">SETTLEMENTS</a>
                     <a href="/crm" class="lined">CRM</a>
-                    <a href="/logout" class="lined">LOGOUT</a>
+                    <a href="/login" class="lined">LOGOUT</a>
                 </nav>
             </div>
     

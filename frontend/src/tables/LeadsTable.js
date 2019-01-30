@@ -7,13 +7,9 @@ import FiscalYear from '../FiscalYear';
 class LeadsTable extends Component {
     render() {
         return (
-            <div class="leads_table">
-                <h1 class="header_leads header">LEADS</h1>
-                <div class="CMP_leads">
-                    <h3 class="second-header">CaptureMortgage+ Leads Board</h3><span> </span>
-                    <h3 class="second-header"><FiscalYear /></h3>
             <div>
-                <Navbar />
+                <Navbar />  
+
                 <div class="leads_table">
                     <h1 class="header_leads header">LEADS</h1>
                     <div class="CMP_leads">
@@ -60,6 +56,7 @@ class LeadsTable extends Component {
                     </table>
                 </div>
             </div>
+                
         );
     }
 }

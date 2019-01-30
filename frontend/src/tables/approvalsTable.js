@@ -8,10 +8,6 @@ class ApprovalsTable extends Component {
   render() {
     return (
       <div>
-        <h1 class="header_approvals header">APPROVALS</h1>
-        <div class="CMP_approvals">
-          <h3 class="second-header">CaptureMortgage+ Approvals Board</h3><span> </span>
-          <h3 class="second-header"><FiscalYear /></h3>
         <Navbar />
         <div>
           <h1 class="header_approvals header">APPROVALS</h1>
