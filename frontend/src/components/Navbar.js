@@ -1,6 +1,6 @@
 import React from 'react';
-import './NavbarCM.css';
-import logo from './assets/CMP_Logo_White.png'
+import "../styles/navbarcm.css";
+import logo from '../assets/CMP_Logo_White.png'
 
 
 const Navbar = () => {

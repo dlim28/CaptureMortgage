@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './tablestyles/globalTableStyles.css';
-import './tablestyles/leaderboard.css';
-import Navbar from '../Navbar'
-import FiscalYear from '../FiscalYear';
+import '../styles/globaltablestyles.css';
+import '../styles/leaderboard.css';
+import Navbar from './Navbar'
+import FiscalYear from './FiscalYear';
 
 class EmployeeLeaderboard extends Component {
     render() {

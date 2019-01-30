@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './tablestyles/globalTableStyles.css';
-import './tablestyles/crm.css';
-import Navbar from '../Navbar'
+import '../styles/globaltablestyles.css';
+import '../styles/crm.css';
+import Navbar from './Navbar'
 
 class CRM extends Component {
   render() {

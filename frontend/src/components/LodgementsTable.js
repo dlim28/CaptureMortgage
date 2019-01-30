@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import './tablestyles/globalTableStyles.css';
-import './tablestyles/settlements.css';
-import Navbar from '../Navbar'
-import FiscalYear from '../FiscalYear';
+import '../styles/globaltablestyles.css';
+import '../styles/lodgements.css';
+import Navbar from './Navbar'
+import FiscalYear from './FiscalYear';
+// change file names
 
-class SettlementsTable extends Component {
+
+class LodgementsTable extends Component {
   render() {
     return (
       <div>
         <Navbar />
-        <div class="settlements_table">
-          <h1 class="header_settlements header">SETTLEMENTS</h1>
-          <div class="CMP_settlements">
-            <h3>CaptureMortgage+ Settlements Board</h3><span> </span>
+        <div class="lodgements_table">
+          <h1 class="header_lodgements header">LODGEMENTS</h1>
+          <div class="CMP_lodgements">
+            <h3>CaptureMortgage+ Lodgements Board</h3><span> </span>
             <h3><FiscalYear /></h3>
           </div>
           <table id="myTable">
-            <tr class="table_header_settlements">
-              <th>No.</th>
-              <th>Moved to Settlements</th>
+            <tr class="table_header_lodgements">
+              <th>ID</th>
+              <th>Moved to Lodgements</th>
               <th>Customer Name</th>
               <th>Category</th>
               <th>Amount</th>
-              <th>Lender</th>
+              <th>WIP</th>
               <th>Employee</th>
             </tr>
             <tr>
@@ -31,7 +33,7 @@ class SettlementsTable extends Component {
               <td>Craig David</td>
               <td>Home Loan</td>
               <td>$200,000</td>
-              <td>LP Staff</td>
+              <td>3 Days</td>
               <td>Sarah Smith</td>
             </tr>
             <tr>
@@ -40,7 +42,7 @@ class SettlementsTable extends Component {
               <td>James Dean</td>
               <td>Home Loan</td>
               <td>$40,000</td>
-              <td>LP Staff</td>
+              <td>7 Days</td>
               <td>Louise Lilly</td>
             </tr>
             <tr>
@@ -49,7 +51,7 @@ class SettlementsTable extends Component {
               <td>Billy Joel</td>
               <td>Home Loan</td>
               <td>$475,000</td>
-              <td>LP Staff</td>
+              <td>1 Day</td>
               <td>Katherine Kale</td>
             </tr>
           </table>
@@ -59,6 +61,6 @@ class SettlementsTable extends Component {
   }
 }
 
-export default SettlementsTable;
+export default LodgementsTable;
 
 

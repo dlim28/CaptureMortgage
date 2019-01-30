@@ -103,10 +103,10 @@ html {
       font-weight: 300;
       padding-top: 35px
   }
-  
+/*   
   .logo {
     image: url(./logo.svg);
-  }
+  } */
 
   .logo-img {
     width: 170px;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Form.css';
+import '../styles/form.css';
 import Navbar from './Navbar'
 const Status = "LEAD"
 const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")

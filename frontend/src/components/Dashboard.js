@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './App.css'
+import '../App.css'
 import Navbar from './Navbar'
-import LeadsTable from './tables/LeadsTable'
-import LodgementsTable from './tables/LodgementsTable'
-import ApprovalsTable from './tables/ApprovalsTable'
-import SettlementsTable from './tables/SettlementsTable'
+import LeadsTable from './LeadsTable'
+import LodgementsTable from './LodgementsTable'
+import ApprovalsTable from './ApprovalsTable'
+import SettlementsTable from './SettlementsTable'
 
 
 class Dashboard extends Component {
