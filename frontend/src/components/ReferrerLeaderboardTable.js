@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import './tablestyles/globalTableStyles.css';
-import './tablestyles/leaderboard.css';
-import Navbar from '../Navbar'
-import FiscalYear from '../FiscalYear';
+import '../styles/globalTableStyles.css';
+import FiscalYear from './FiscalYear';
 
 class ReferrerLeaderboard extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-            <div class="leaderboard_table">
-                <h1 class="header_leaderboard header">REFERRER LEADERBOARD</h1>
-                <div class="CMP_leaderboard">
+
+            <div class="center">
+                <h1 class="header leads">REFERRER LEADERBOARD</h1>
+                <div class="leads">
                     <h3>CaptureMortgage+ Leaderboard by Referrer</h3><span> </span>
                     <h3><FiscalYear /></h3>
                 </div>

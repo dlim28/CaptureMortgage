@@ -21,6 +21,10 @@ body tr:nth-child(even){
   border-bottom: 1px solid #ddd; 
 }
 
+#myTable td {
+  color: #000;
+}
+
 .header {
   font-size: 70px;
   margin-bottom: -15px;
@@ -41,8 +45,43 @@ h3 {
   font-size: 30px
 }
 
+.center {
+  text-align: center;
+}
 
-/* th {
-  border-left: solid 1px #ddd;
-} */
+.leads {
+  color: #0066CC;
+}
+
+.leads-back {
+  background-color: #0066CC;
+  color: #fff;
+}
+
+.lodgements {
+  color: #66CCCC;;
+}
+
+.lodgements-back {
+  background-color: #66CCCC;;
+  color: #fff;
+}
+
+.approvals {
+  color: #F19D38;
+}
+
+.approvals-back {
+  background-color: #F19D38;
+  color: #fff;
+}
+
+.settlements {
+  color: #43963F;
+}
+
+.settlements-back {
+  background-color: #43963F;
+  color: #fff;
+}
 

@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
-import './tablestyles/globalTableStyles.css';
-import './tablestyles/lodgements.css';
-import Navbar from '../Navbar'
-import FiscalYear from '../FiscalYear';
-// change file names
+import '../styles/globalTableStyles.css';
+import FiscalYear from './FiscalYear';
 
 
 class LodgementsTable extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <div class="lodgements_table">
+
+        <div class="lodgements center">
           <h1 class="header_lodgements header">LODGEMENTS</h1>
           <div class="CMP_lodgements">
             <h3>CaptureMortgage+ Lodgements Board</h3><span> </span>
             <h3><FiscalYear /></h3>
           </div>
           <table id="myTable">
-            <tr class="table_header_lodgements">
+            <tr class="lodgements-back">
               <th>ID</th>
               <th>Moved to Lodgements</th>
               <th>Customer Name</th>
@@ -57,7 +54,8 @@ class LodgementsTable extends Component {
           </table>
         </div>
       </div>
-    );
+
+    )
   }
 }
 
