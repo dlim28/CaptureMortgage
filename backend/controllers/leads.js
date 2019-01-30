@@ -98,7 +98,6 @@ router.get('/referrer-leaderboard', (req, res) => {
     })
 })
 
-
 // GETTERS
 function getCustomerName() {
     return currentState.customerName;
