@@ -5,6 +5,19 @@ import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 
 const Navbar = () => {
+    state = { settlements: [] }
+
+    componentDidMount() {
+      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/settlements')
+          .then(resp => {
+              console.log(resp.data)
+              this.setState({ settlements: resp.data })
+          })
+      }
+  
+    render() {
+      const { settlements } = this.state;
+
     return (
         <div>
             <div class="nav-container">
