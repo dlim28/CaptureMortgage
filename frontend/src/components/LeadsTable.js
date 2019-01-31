@@ -38,17 +38,17 @@ class LeadsTable extends Component {
                         </tr>
 
                         {leads.map((lead, i) => {
-                        return (
-                            <tr key={i}>
-                            <td>{lead.id}</td>
-                            <td>{lead.dateOfLead}</td>
-                            <td>{lead.customerName}</td>
-                            <td>{lead.category}</td>
-                            <td>${lead.amount}</td>
-                            <td>{lead.referrer}</td>
-                            <td>{lead.employee}</td>
-                        </tr>
-                            )})}
+                            return (
+                                <tr key={i}>
+                                <td>{lead.id}</td>
+                                <td>{lead.dateOfLead}</td>
+                                <td>{lead.customerName}</td>
+                                <td>{lead.category}</td>
+                                <td>${lead.amount}</td>
+                                <td>{lead.referrer}</td>
+                                <td>{lead.employee}</td>
+                            </tr>
+                        )})}
 
                     </table>
                 </div>

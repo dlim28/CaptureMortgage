@@ -1,68 +1,59 @@
 import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
+import axios from 'axios';
 
 class ReferrerLeaderboard extends Component {
-  render() {
-    return (
-      <div>
+    state = { leads: [] }
 
-            <div class="center">
-                <h1 class="header leads">REFERRER LEADERBOARD</h1>
-                <div class="leads">
-                    <h3>CaptureMortgage+ Leaderboard by Referrer</h3><span> </span>
-                    <h3><FiscalYear /></h3>
-                </div>
-                <table id="myTable">
-                    <tr class="leads-back">
-                        <th>Month</th>
-                        <th>LP Staff</th>
-                        <th>SPP Staff</th>
-                        <th>Marketing Campaigns</th>
-                        <th>BDM Staff</th>
-                        <th>TFC</th>
-                        <th>Others</th>
-                        <th>Totals</th>
-                        <th>%</th>
-                    </tr>
-                    <tr>
-                        <td>January</td>
-                        <td>2</td>
-                        <td>13</td>
-                        <td>12</td>
-                        <td>4</td>
-                        <td>31</td>
-                        <td>4</td>
-                        <td>0</td>
-                        <td>45%</td>
-                    </tr>
-                    <tr>
-                        <td>December</td>
-                        <td>2</td>
-                        <td>13</td>
-                        <td>5</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>0</td>
-                        <td>16%</td>
-                    </tr>
-                    <tr>
-                        <td>November</td>
-                        <td>2</td>
-                        <td>13</td>
-                        <td>0</td>
-                        <td>9</td>
-                        <td>31</td>
-                        <td>4</td>
-                        <td>10</td>
-                        <td>57%</td>
-                    </tr>
-                </table>
-            </div>      
-        </div>
-    );
-  }
+    componentDidMount() {
+      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/referrer-leaderboard')
+        .then(resp => {
+            console.log(resp.data)
+            this.setState({ leads: resp.data })
+        })
+      }
+
+    render() {
+        const { leads } = this.state;
+
+        return (
+            <div>
+
+                <div class="center">
+                    <h1 class="header leads">REFERRER LEADERBOARD</h1>
+                    <div class="leads">
+                        <h3>CaptureMortgage+ Leaderboard by Referrer</h3><span> </span>
+                        <h3><FiscalYear /></h3>
+                    </div>
+                    <table id="myTable">
+                        <tr class="leads-back">
+                            <th>Month</th>
+                            <th>LP Staff</th>
+                            <th>SPP Staff</th>
+                            <th>Marketing Campaigns</th>
+                            <th>BDM Staff</th>
+                            <th>TFC</th>
+                            <th>Others</th>
+                            <th>Totals</th>
+                            <th>%</th>
+                        </tr>
+
+
+                        {leads.map((lead, i) => {
+                            return (
+                                <tr key={i}>
+                                <td>{lead.id}</td>
+                                <td>{lead.referrer}</td>
+                                <td>{lead.total}</td>
+                            </tr>
+                        )})}
+
+                    </table>
+                </div>      
+            </div>
+        );
+    }
 }
 
 export default ReferrerLeaderboard;
