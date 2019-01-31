@@ -27,7 +27,6 @@ const Navbar = () => {
                 <div class="nav-box">
                     <nav class="navbar">
                         
-                        {/* <a href="/dashboard" class="lined">DASHBOARD</a> */}
                         <NavLink to="/dashboard" class="lined">DASHBOARD</NavLink>
                         <a href="/leads" class="lined">
                             <div class="dropdown">
@@ -35,18 +34,12 @@ const Navbar = () => {
                                     <i class="fa fa-caret-down"></i>
                                 </button>
                                 <div class="dropdown-content">
-                                    <a href="/leads/new">New Lead</a>
-                                    <a href="/leads/employeeleaderboard">Employee Leaderboard</a>
-                                    <a href="/leads/referrerleaderboard">Referrer Leaderboard</a>
+                                    <NavLink to="/new">New Lead</NavLink>
+                                    <NavLink to="/employeeleaderboard">Employee Leaderboard</NavLink>
+                                    <NavLink to="/referrerleaderboard">Referrer Leaderboard</NavLink>
                                 </div>
                             </div>
                         </a>
-                        {/* <NavLink to="/lodgement">LODGEMENTS</NavLink> */}
-                        {/* <a href="/lodgements" class="lined">LODGEMENTS</a>
-                        <a href="/approvals" class="lined">APPROVALS</a> */}
-                        {/* <a href="/settlements" class="lined">SETTLEMENTS</a> */}
-                        {/* <a href="/crm" class="lined">CRM</a>
-                        <a href="/login" class="lined">LOGOUT</a> */}
                         <NavLink to="/lodgements" class="lined">LODGEMENTS</NavLink>
                         <NavLink to="/approvals" class="lined">APPROVALS</NavLink>
                         <NavLink to="/settlements" class="lined">SETTLEMENTS</NavLink>

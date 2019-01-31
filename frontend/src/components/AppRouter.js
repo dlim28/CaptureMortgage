@@ -19,18 +19,18 @@ class AppRouter extends Component {
     return (
     
         <div>
-            <Route exact path='/' component={App} />
+            <Route exact path='/' component={Login} />
+            <Route path='/login' component={Login} />
             <Route path='/dashboard' component={Dashboard} />
             <Route path='/leads' component={LeadsTable} />
-            <Route exact path='/leads/:id' component={LeadsTable} />
-            <Route exact path='/leads/new' component={Form} />
-            <Route exact path='/leads/employeeleaderboard' component={EmployeeLeaderboard} />
-            <Route exact path='/leads/referrerleaderboard' component={ReferrerLeaderboard} />
+            <Route path='/leads/:id' component={LeadsTable} />
+            <Route path='/new' component={Form} />
+            <Route path='/employeeleaderboard' component={EmployeeLeaderboard} />
+            <Route path='/referrerleaderboard' component={ReferrerLeaderboard} />
             <Route path='/lodgements' component={LodgementsTable} />
             <Route path='/approvals' component={ApprovalsTable} />
             <Route path='/settlements' component={SettlementsTable} />
             <Route path='/crm' component={CRM} />
-            <Route path='/login' component={Login} />
         </div>
 
     );
