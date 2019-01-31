@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/NavbarCM.css';
 import logo from '../assets/CMP_FullLogo.png'
 import { NavLink } from 'react-router-dom'
-
+import axios from 'axios';
 
 const Navbar = () => {
     return (
