@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './App.css'
-import Navbar from './Navbar'
-import Dashboard from './Dashboard'
-import LeadsTable from './tables/LeadsTable'
-import EmployeeLeaderboard from './tables/EmployeeLeaderboardTable'
-import ReferrerLeaderboard from './tables/ReferrerLeaderboardTable'
-import LodgementsTable from './tables/LodgementsTable'
-import ApprovalsTable from './tables/ApprovalsTable'
-import SettlementsTable from './tables/SettlementsTable'
-import CRM from './tables/CrmTable'
-import Form from './Form'
-import Login from './Login'
+import Navbar from './components/Navbar'
+import Dashboard from './components/Dashboard'
+import LeadsTable from './components/LeadsTable'
+import EmployeeLeaderboard from './components/EmployeeLeaderboardTable'
+import ReferrerLeaderboard from './components/ReferrerLeaderboardTable'
+import LodgementsTable from './components/LodgementsTable'
+import ApprovalsTable from './components/ApprovalsTable'
+import SettlementsTable from './components/SettlementsTable'
+import CRM from './components/CrmTable'
+import Form from './components/Form'
+import Login from './components/Login'
+import AppRouter from './components/AppRouter'
 
 
 class App extends Component {
