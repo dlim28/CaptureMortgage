@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import './App.css'
-import Navbar from './Navbar'
-import LeadsTable from './tables/LeadsTable'
-import LodgementsTable from './tables/LodgementsTable'
-import ApprovalsTable from './tables/ApprovalsTable'
-import SettlementsTable from './tables/SettlementsTable'
+import '../App.css'
+import LeadsTable from './LeadsTable'
+import LodgementsTable from './LodgementsTable'
+import ApprovalsTable from './ApprovalsTable'
+import SettlementsTable from './SettlementsTable'
 
 
 class Dashboard extends Component {
@@ -12,8 +11,6 @@ class Dashboard extends Component {
     
     return (
       <div>
-
-        <Navbar />
         
         <div class="all-tables">
           <LeadsTable />

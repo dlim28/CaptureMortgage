@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 // GET root
-// router.use('/', require(''));
+router.get('/', (req,res) => {
+    res.send("Welcome to capture mortgage plus root page")
+});
 
 //  GET mortgages
 router.use('/leads', require('./leads.js'));

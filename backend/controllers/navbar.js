@@ -2,6 +2,20 @@ const express = require('express');
 const router = express.Router();
 const mortgage = require('../models/mortgage');
 
+router.get('/', (req,res) => {
+    res.send(`
+    /navbar/{status number}
+
+    STATUS NUMBER
+    -3 = approval withdrawn
+    -2 = lodgement declined
+    -1 = lead lost
+    0 = LEAD
+    1 = LODGEMENT
+    2 = APPROVAL
+    3 = SETTLEMENT
+    `)
+})
 router.get('/:status', (req, res) => {
     //Get the total amount of lead for the current month
     const { status } = req.params;
