@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './Form.css';
-import Navbar from './Navbar'
+import '../styles/Form.css';
+
 const Status = "LEAD"
 const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")
 
@@ -9,7 +9,7 @@ class Form extends Component {
   render() {
     return (
         <div class='form-grid'>
-            <Navbar />
+
             <div className='form' >
                 <div className='customerdetailsheading'>CUSTOMER DETAILS</div>
                     <div className='flex-form'>

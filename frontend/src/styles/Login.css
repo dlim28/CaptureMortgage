@@ -17,7 +17,7 @@ html {
     height: 350px;
     position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 40;
   }
 
   .logInput {
@@ -25,7 +25,7 @@ html {
     }
 
   .LoginPage {
-    margin-top: 75px;
+    margin-top: 370px;
     align-content: center;
     font-size: 20px;
     color: grey;
@@ -33,7 +33,6 @@ html {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     grid-column: 2;
-
   }
   
   .LoginHeader {
@@ -44,6 +43,7 @@ html {
    text-align: center;
    font-weight: 300;
    grid-column: 2;
+   z-index: 100;
   }
 
   .loginInput {
@@ -103,14 +103,10 @@ html {
       font-weight: 300;
       padding-top: 35px
   }
-  
-  .logo {
-    image: url(./logo.svg);
-  }
 
   .logo-img {
-    width: 170px;
-    height: 140px;
+    width: 200px;
+    /* height: 140px; */
     grid-row: 2;
     grid-column: 2
   }

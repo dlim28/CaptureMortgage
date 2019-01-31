@@ -13,7 +13,7 @@ import Form from './Form'
 import Login from './Login'
 
 
-class mainPage extends Component {
+class App extends Component {
   render() {
 
     const { pathname } = window.location;
@@ -43,20 +43,13 @@ class mainPage extends Component {
 
     return (
       <div>
-
         <Navbar />
-        
-        <div class="all-tables">
-          <LeadsTable />
-          <LodgementsTable />
-          <ApprovalsTable />
-          <SettlementsTable />
-        </div>
-
+        <AppRouter />
 
       </div>
     );
+
   }
 }
 
-export default mainPage;
+export default App;

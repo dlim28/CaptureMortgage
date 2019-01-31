@@ -1,29 +1,26 @@
 import React, { Component } from 'react';
-import './tablestyles/globalTableStyles.css';
-import './tablestyles/lodgements.css';
-import Navbar from '../Navbar'
-import FiscalYear from '../FiscalYear';
+import '../styles/globalTableStyles.css';
+import FiscalYear from './FiscalYear';
 
-
-class LodgementsTable extends Component {
+class SettlementsTable extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <div class="lodgements_table">
-          <h1 class="header_lodgements header">LODGEMENTS</h1>
-          <div class="CMP_lodgements">
-            <h3>CaptureMortgage+ Lodgements Board</h3><span> </span>
+
+        <div class="center">
+          <h1 class="header settlements">SETTLEMENTS</h1>
+          <div class="settlements">
+            <h3>CaptureMortgage+ Settlements Board</h3><span> </span>
             <h3><FiscalYear /></h3>
           </div>
           <table id="myTable">
-            <tr class="table_header_lodgements">
-              <th>ID</th>
-              <th>Moved to Lodgements</th>
+            <tr class="settlements-back">
+              <th>No.</th>
+              <th>Moved to Settlements</th>
               <th>Customer Name</th>
               <th>Category</th>
               <th>Amount</th>
-              <th>WIP</th>
+              <th>Lender</th>
               <th>Employee</th>
             </tr>
             <tr>
@@ -32,7 +29,7 @@ class LodgementsTable extends Component {
               <td>Craig David</td>
               <td>Home Loan</td>
               <td>$200,000</td>
-              <td>3 Days</td>
+              <td>LP Staff</td>
               <td>Sarah Smith</td>
             </tr>
             <tr>
@@ -41,7 +38,7 @@ class LodgementsTable extends Component {
               <td>James Dean</td>
               <td>Home Loan</td>
               <td>$40,000</td>
-              <td>7 Days</td>
+              <td>LP Staff</td>
               <td>Louise Lilly</td>
             </tr>
             <tr>
@@ -50,7 +47,7 @@ class LodgementsTable extends Component {
               <td>Billy Joel</td>
               <td>Home Loan</td>
               <td>$475,000</td>
-              <td>1 Day</td>
+              <td>LP Staff</td>
               <td>Katherine Kale</td>
             </tr>
           </table>
@@ -60,6 +57,6 @@ class LodgementsTable extends Component {
   }
 }
 
-export default LodgementsTable;
+export default SettlementsTable;
 
 

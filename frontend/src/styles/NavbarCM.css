@@ -4,7 +4,7 @@
   grid-template-rows: 2fr 0.5fr 4fr;
   background-color: #0e0e0e;
   width: 100vw;
-  height: 250px;
+  height: 230px;
   position: fixed;
   top: 0;
   z-index: 10;
@@ -16,39 +16,39 @@
 
 .logo-box {
   grid-column: 1;
-  grid-row: 1 / 3;
+  grid-row: 1;
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: 1.7fr 1fr;
+  grid-template-rows: 1fr 1fr;
   /* border: thick solid yellow; */
 }
 
 .logo-box .logo-img-box {
   grid-column: 1;
   grid-row: 1 / 3;
-  display: flex;
-  justify-content: center;
-  align-self: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-self: center; */
   padding-left: 15px;
   /* border: thick solid pink; */
 }
 
 .logo-img-box img {
   width: 120px;
-  height: 80px
+  /* height: 80px */
 }
 
 .logo-box .logo-text {
   grid-column: 2;
-  grid-row: 1 / 2;
-  display: flex;
-  align-items: flex-end;
+  grid-row: 1;
+  /* display: flex; */
+  /* align-items: flex-end; */
   /* border: thick solid purple; */
 }
 
 .logo-box .logo-subtext {
   grid-column: 2;
-  grid-row: 2/ 3;
+  grid-row: 2;
   color: #fff;
   font-weight: 100;
   /* border: thick solid white; */
@@ -183,12 +183,10 @@
 }
 
 .nav-table table {
-  width: 800px;
-  height: 120px;
+  height: 140px;
   text-align: center;
   font-size: 17px;
   width: 780px;
-  height: 80px;
   text-align: center;
   font-size: 16px;
   font-weight: 300;
