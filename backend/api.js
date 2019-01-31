@@ -25,11 +25,4 @@ app.use(cors())
 app.use(express.json())
 app.use(require('./controllers'));
 
-// app.get('/', (req, res) => {
-//   mortgage.find({})
-//   .then((resp) => {
-//     res.send(resp);
-//   })
-// })
-
 app.listen(port, () => console.log(`Listening on port:${port}`));

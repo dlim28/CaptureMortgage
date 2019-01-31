@@ -28,7 +28,6 @@ const Navbar = () => {
         console.log(status3)
         if (status3) {
 
-            
     return (
         <div>
             <div class="nav-container">
