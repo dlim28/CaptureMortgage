@@ -14,7 +14,7 @@ class ReferrerLeaderboard extends Component {
                     <h3><FiscalYear /></h3>
                 </div>
                 <table id="myTable">
-                    <tr class="table_header_leaderboard">
+                    <tr class="leads-back">
                         <th>Month</th>
                         <th>LP Staff</th>
                         <th>SPP Staff</th>

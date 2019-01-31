@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
+import axios from 'axios';
 
 class LeadsTable extends Component {
+    state = { leads: [] }
+    
+    componentDidMount() {
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads')
+            .then(resp => {
+                console.log(resp.data)
+                this.setState({ leads: resp.data })
+            })
+        }
+
     render() {
+        const { leads } = this.state;
+
         return (
             <div>
 
@@ -23,35 +36,23 @@ class LeadsTable extends Component {
                             <th>Referrer</th>
                             <th>Employee</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>01/01/2019</td>
-                            <td>Craig David</td>
-                            <td>Home Loan</td>
-                            <td>$200,000</td>
-                            <td>LP Staff</td>
-                            <td>Sarah Smith</td>
+
+                        {leads.map((lead, i) => {
+                        return (
+                        <tr key={i}>
+                            <td>{lead.id}</td>
+                            <td>{lead.dateOfLead}</td>
+                            <td>{lead.customerName}</td>
+                            <td>{lead.category}</td>
+                            <td>{lead.amount}</td>
+                            <td>{lead.referrer}</td>
+                            <td>{lead.employee}</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>01/01/2019</td>
-                            <td>James Dean</td>
-                            <td>Home Loan</td>
-                            <td>$40,000</td>
-                            <td>LP Staff</td>
-                            <td>Louise Lilly</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>02/04/2018</td>
-                            <td>Billy Joel</td>
-                            <td>Home Loan</td>
-                            <td>$475,000</td>
-                            <td>LP Staff</td>
-                            <td>Katherine Kale</td>
-                        </tr>
+                            )})}
+
                     </table>
                 </div>
+
             </div>
                 
         );
