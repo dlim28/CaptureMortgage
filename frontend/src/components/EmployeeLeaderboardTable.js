@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
+import axios from 'axios';
 
 class EmployeeLeaderboard extends Component {
+    state = { leads: [] }
+
+    componentDidMount() {
+      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/employee-leaderboard')
+        .then(resp => {
+            console.log(resp.data)
+            this.setState({ leads: resp.data })
+        })
+      }
+
+
     render() {
+        const { leads } = this.state;
+
         return (
             <div>
                 <div class="center">
@@ -22,33 +36,20 @@ class EmployeeLeaderboard extends Component {
                             <th>Referrer</th>
                             <th>Employee</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>01/03/2019</td>
-                            <td>Alicia Keys</td>
-                            <td>Re-finance</td>
-                            <td>$400,000</td>
-                            <td>LP Staff</td>
-                            <td>Sarah Smith</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>01/02/2019</td>
-                            <td>Beyonce</td>
-                            <td>Home Loan</td>
-                            <td>$260,000</td>
-                            <td>LP Staff</td>
-                            <td>Louise Lilly</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>01/01/2019</td>
-                            <td>Craig David</td>
-                            <td>Re-finance</td>
-                            <td>$110,000</td>
-                            <td>LP Staff</td>
-                            <td>Katherine Kale</td>
-                        </tr>
+
+                        {leads.map((lead, i) => {
+                            return (
+                                <tr key={i}>
+                                <td>{lead.id}</td>
+                                <td>{lead.dateOfLead}</td>
+                                <td>{lead.customerName}</td>
+                                <td>{lead.category}</td>
+                                <td>${(300000).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
+                                <td>{lead.referrer}</td>
+                                <td>{lead.employee}</td>
+                            </tr>
+                        )})}
+
                     </table>
                 </div>
             </div>

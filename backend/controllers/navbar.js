@@ -16,6 +16,7 @@ router.get('/', (req,res) => {
     3 = SETTLEMENT
     `)
 })
+
 router.get('/:status', (req, res) => {
     //Get the total amount of lead for the current month
     const { status } = req.params;
@@ -42,7 +43,6 @@ router.get('/:status', (req, res) => {
             })
         })
     })
-    
     
     
 })
