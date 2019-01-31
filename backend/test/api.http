@@ -16,4 +16,13 @@ Content-Type: application/json
 		"lender": "1",
 		"employee": "Katherine"
 }
+###
+GET http://localhost:5000/leads/select/253
+###
+PATCH http://localhost:5000/leads/253/edit
+Content-Type: application/json
 
+{
+	"lender": 3,
+	"amount":24123112
+}
