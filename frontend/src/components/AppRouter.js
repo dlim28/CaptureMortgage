@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css'
 import Dashboard from './Dashboard'
 import EmployeeLeaderboard from './EmployeeLeaderboardTable'
 import ReferrerLeaderboard from './ReferrerLeaderboardTable'
@@ -10,7 +9,6 @@ import SettlementsTable from './SettlementsTable'
 import CRM from './CrmTable'
 import Form from './Form'
 import Login from './Login'
-import App from '../App'
 import { Route } from 'react-router-dom'
 
 

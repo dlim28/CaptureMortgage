@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/NavbarCM.css';
-import logo from '../assets/CMP_Logo_White.png'
+import logo from '../assets/CMP_FullLogo.png'
 import { NavLink } from 'react-router-dom'
 
 
@@ -12,15 +12,6 @@ const Navbar = () => {
                 <div class="logo-box">
                     <div class="logo-img-box">
                         <img src={logo} alt={"logo"}/>
-                    </div>
-                    <div class="logo-text">
-                        <h1>
-                            <span class="white">Capture</span>
-                            <span class="orange">Mortgage+</span>
-                        </h1>
-                    </div>
-                    <div class="logo-subtext">
-                        <h4 class="small">CRM System</h4>
                     </div>
                 </div>
 
