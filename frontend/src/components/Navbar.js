@@ -5,6 +5,29 @@ import { NavLink } from 'react-router-dom'
 
 
 const Navbar = () => {
+    state = {}
+
+    componentDidMount() {
+        const status0 = axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar/0')
+        const status1 = axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar/1')
+        const status2 = axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar/2')
+        const status3 = axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar/3')
+        Promise.all([status0, status1, status2, status3])
+            .then((res) => {
+                this.setState({status0: res[0].totalRecordsForMonth})
+                this.setState({status1: res[1].data.length})
+                this.setState({status2: res[2].data.length})
+                this.setState({status3: res[3].totalRecordsForMonth})
+                console.log(res)
+            })
+        // status0.then(resp => {console.log(resp)})
+    }
+    // xoxox
+    render() {
+        const { status0, status1, status2, status3 } = this.state
+        console.log(status3)
+        if (status3) {
+
     return (
         <div>
             <div class="nav-container">
