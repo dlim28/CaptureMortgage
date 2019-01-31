@@ -1,1 +1,28 @@
-GET http://localhost:5000/leads
+GET http://localhost:5000/navbar/0
+###
+
+POST http://localhost:5000/leads/new-lead
+Content-Type: application/json
+
+{
+		"status": "2",
+		"statusDate": "2019-11-26",
+		"referrer": "1",
+		"source": "2",
+		"category": "1",
+		"customerName": "Staph",
+		"amount": "4202133",
+		"dateOfLead": "2019-11-01",
+		"lender": "1",
+		"employee": "Katherine"
+}
+###
+GET http://localhost:5000/leads/select/253
+###
+PATCH http://localhost:5000/leads/253/edit
+Content-Type: application/json
+
+{
+	"lender": 3,
+	"amount":24123112
+}
