@@ -23,9 +23,5 @@ PATCH http://localhost:5000/leads/253/edit
 Content-Type: application/json
 
 {
-	"lender": 1,
-	"amount":7000,
-	"customerName":"Tiffany",
-	"source":1,
-	"category":3
+	"customerName":"Benny"
 }

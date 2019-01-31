@@ -119,6 +119,7 @@ router.post('/new-lead', (req, res) => {
         
         let data = new mortgage(newLead)
         data.history.push(setHistory(data.history))
+
         data.save()
         .then(resp => {
             console.log(resp)
@@ -131,24 +132,52 @@ router.post('/new-lead', (req, res) => {
     })    
 })
 
-function setHistory(historyArray) {
+router.patch('/:id/edit', (req, res) => {
+    const { id } = req.params
+    const changes = req.body;
+    console.log(changes)
+
+    mortgage.findOneAndUpdate({id}, changes)
+    .then(doc => {
+        doc.history.push(setHistory(doc.history,changes,doc))
+        doc.save()
+        .then(resp => {
+            res.send("Successful")
+        })
+    })
+    .catch(err => {
+        return err;
+    })
+})
+
+function setHistory(historyArray, reqBody = null, originalObj = null) {
 
     let historyChanges = {};
 
+    const timestamp = new Date();
+    const timestampDay = timestamp.getDate();
+    const timestampMonth = timestamp.getMonth();
+    const timestampYear = timestamp.getFullYear();
+
+    
+
     if(historyArray.length <= 0) {
-        const timestamp = new Date();
-        const timestampDay = timestamp.getDate();
-        const timestampMonth = timestamp.getMonth();
-        const timestampYear = timestamp.getFullYear();
-
-        const stringDate = `${timestampYear}-${timestampMonth}-${timestampDay}`
-
+        let stringDate = `${timestampYear}-${timestampMonth}-${timestampDay}`
         historyChanges[stringDate] = "Creation date"
     }
     else {
 
+        let changeIndex = 0;
+        let stringDate = `${timestampYear}-${timestampMonth}-${timestampDay}`
+
+        for (const key in reqBody) {
+            if (reqBody.hasOwnProperty(key)) {
+                changeIndex++;
+                updateMsg = `Change: ${changeIndex}| ` + stringDate
+                historyChanges[updateMsg] = `${key} has been changed from ${originalObj[key]} to ${reqBody[key]}`
+            }
+        }
     }
     return historyChanges;
 }
-
 module.exports = router;
