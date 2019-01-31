@@ -74,16 +74,9 @@
   grid-template-rows: 2fr 1fr;
 }
 
-<<<<<<< HEAD
-.logo-text {
-    text-align: center;
-    font-size: 40px;
-    display: inline-flex;
-=======
   .logo-img {
     width: 200px;
     height: 140px;
->>>>>>> b03656361ce906a09e52fccbe437dab84023ec5c
     grid-row: 2;
     grid-column: 2;
     padding-top: 30px

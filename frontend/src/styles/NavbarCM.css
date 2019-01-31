@@ -36,6 +36,7 @@
   width: 330px;
   /* position: absolute; */
   display: flex;
+  margin-top: -115px
 
   /* height: 80px */
 }
