@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
+import axios from 'axios';
 
 class ApprovalsTable extends Component {
+  state = { approvals: [] }
+
+  componentDidMount() {
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/approvals')
+        .then(resp => {
+            console.log(resp.data)
+            this.setState({ approvals: resp.data })
+        })
+    }
+
   render() {
+    const { approvals } = this.state;
+
     return (
       <div>
         <div class="center">
@@ -23,36 +36,21 @@ class ApprovalsTable extends Component {
               <th>Lender</th>
               <th>Employee</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>01/01/2019</td>
-              <td>Craig David</td>
-              <td>Home Loan</td>
-              <td>$200,000</td>
-              <td>2 Days</td>
-              <td>LP Staff</td>
-              <td>Sarah Smith</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>01/01/2019</td>
-              <td>James Dean</td>
-              <td>Home Loan</td>
-              <td>$40,000</td>
-              <td>4 Days</td>
-              <td>LP Staff</td>
-              <td>Louise Lilly</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>02/04/2018</td>
-              <td>Billy Joel</td>
-              <td>Home Loan</td>
-              <td>$475,000</td>
-              <td>6 Days</td>
-              <td>LP Staff</td>
-              <td>Katherine Kale</td>
-            </tr>
+
+            {approvals.map((approval, i) => {
+              return (
+              <tr key={i}>
+                  <td>{approval.id}</td>
+                  <td>{approval.statusDate}</td>
+                  <td>{approval.customerName}</td>
+                  <td>{approval.category}</td>
+                  <td>${approval.amount}</td>
+                  <td></td>
+                  <td>{approval.lender}</td>
+                  <td>{approval.employee}</td>
+              </tr>
+            )})}
+
           </table>
         </div>
       </div>
