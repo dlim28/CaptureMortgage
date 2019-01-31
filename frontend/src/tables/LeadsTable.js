@@ -8,7 +8,8 @@ class LeadsTable extends Component {
     render() {
         return (
             <div>
-                <Navbar />
+                <Navbar />  
+
                 <div class="leads_table">
                     <h1 class="header_leads header">LEADS</h1>
                     <div class="CMP_leads">
@@ -55,6 +56,7 @@ class LeadsTable extends Component {
                     </table>
                 </div>
             </div>
+                
         );
     }
 }

@@ -1,42 +1,45 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.css'
 import Navbar from './Navbar'
-import EmployeeLeaderboard from './tables/EmployeeLeaderboardTable';
-import ReferrerLeaderboard from './tables/ReferrerLeaderboardTable';
+// import Dashboard from './Dashboard'
 import LeadsTable from './tables/LeadsTable'
+// import EmployeeLeaderboard from './tables/EmployeeLeaderboardTable'
+// import ReferrerLeaderboard from './tables/ReferrerLeaderboardTable'
 import LodgementsTable from './tables/LodgementsTable'
 import ApprovalsTable from './tables/ApprovalsTable'
 import SettlementsTable from './tables/SettlementsTable'
-import CRM from './tables/CrmTable'
-import Form from './Form'
-import UpdateForm from './UpdateForm'
-import Lightbox from 'lightbox-react';
-import 'lightbox-react/style.css';
-import axios from 'axios'
+// import CRM from './tables/CrmTable'
+// import Form from './Form'
+// import Login from './Login'
 
 class App extends Component {
 
   render() {
-    const { pathname } = window.location;
-    const params = pathname.substr(1);
 
-    if (params === 'leads') {
-      return <LeadsTable />
-    } else if (params === 'leads/new') {
-      return <Form />
-    }  else if (params === 'leads/employeeleaderboard') {
-      return <EmployeeLeaderboard />
-    } else if (params === 'leads/referrerleaderboard') {
-      return <ReferrerLeaderboard />
-    } else if (params === 'lodgements') {
-      return <LodgementsTable />
-    } else if (params === 'approvals') {
-      return <ApprovalsTable />
-    } else if (params === 'settlements') {
-      return <SettlementsTable />
-    } else if (params === 'crm') {
-      return <CRM />
-    } 
+    // const { pathname } = window.location;
+    // const params = pathname.substr(1);
+
+    // if (params === 'dashboard') {
+    //   return <Dashboard />
+    // } else if (params === 'leads') {
+    //   return <LeadsTable />
+    // } else if (params === 'leads/new') {
+    //   return <Form />
+    // }  else if (params === 'leads/employeeleaderboard') {
+    //   return <EmployeeLeaderboard />
+    // } else if (params === 'leads/referrerleaderboard') {
+    //   return <ReferrerLeaderboard />
+    // } else if (params === 'lodgements') {
+    //   return <LodgementsTable />
+    // } else if (params === 'approvals') {
+    //   return <ApprovalsTable />
+    // } else if (params === 'settlements') {
+    //   return <SettlementsTable />
+    // } else if (params === 'crm') {
+    //   return <CRM />
+    // } else if (params === 'login') {
+    //   return <Login />
+    // }
 
     return (
       <div>
@@ -45,15 +48,11 @@ class App extends Component {
       
       <div class="all-tables">
           <LeadsTable />
-          <EmployeeLeaderboard />
-          <ReferrerLeaderboard />
           <LodgementsTable />
           <ApprovalsTable />
           <SettlementsTable />
-          <CRM />
         </div>
 
-        <Form/>
 
       </div>
     );

@@ -9,6 +9,7 @@ class EmployeeLeaderboard extends Component {
         return (
             <div>
                 <Navbar />
+                
                 <div class="leaderboard_table">
                     <h1 class="header_leaderboard header">EMPLOYEE LEADERBOARD</h1>
                     <div class="CMP_leaderboard">

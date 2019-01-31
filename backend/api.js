@@ -3,13 +3,15 @@ const axios = require('axios');
 const mongoose = require('mongoose')
 const cors = require('cors')
 const mortgage = require('./models/mortgage');
+require('dotenv').config();
 
 //Start Express
 const app = new express();
 const port = 5000; //This port can be configurable
 
 //Connect MongoDB
-mongoose.connect('mongodb://localhost:27017/CaptureMortgage'); //This is configurable to any service
+mongoose.connect('mongodb://localhost:27017/CaptureMortgagePlus');
+// mongoose.connect(process.env.DB_URL);
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to mongod');

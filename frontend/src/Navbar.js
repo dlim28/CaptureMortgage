@@ -7,63 +7,67 @@ import axios from 'axios'
         state = {}
 
         componentDidMount() {
-            const status0 = axios.get('http://localhost:5000/navbar/getdata/0')
-            const status1 = axios.get('http://localhost:5000/navbar/getdata/1')
-            const status2 = axios.get('http://localhost:5000/navbar/getdata/2')
-            const status3 = axios.get('http://localhost:5000/navbar/getdata/3')
+            const status0 = axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar/0')
+            const status1 = axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar/1')
+            const status2 = axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar/2')
+            const status3 = axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar/3')
             Promise.all([status0, status1, status2, status3])
                 .then((res) => {
-                    this.setState({status0: res[0].data.length})
+                    this.setState({status0: res[0].totalRecordsForMonth})
                     this.setState({status1: res[1].data.length})
                     this.setState({status2: res[2].data.length})
-                    this.setState({status3: res[3].data.length})
+                    this.setState({status3: res[3].totalRecordsForMonth})
+                    console.log(res)
+                   
                 })
+            // status0.then(resp => {console.log(resp)})
         }
-        
+        // xoxox
         render() {
             const { status0, status1, status2, status3 } = this.state
+            console.log(status3)
             if (status3) {
             return (
-        <div class="nav-container">
+        <div className="nav-container">
 
-            <div class="logo-box">
-                <div class="logo-img-box">
+            <div className="logo-box">
+                <div className="logo-img-box">
                     <img src={logo} alt={"logo"}/>
                 </div>
-                <div class="logo-text">
-                    <h1><span class="white">Capture</span><span class="orange">Mortgage+</span></h1>
+                <div className="logo-text">
+                    <h1><span className="white">Capture</span><span className="orange">Mortgage+</span></h1>
                 </div>
-                <div class="logo-subtext">
-                    <h4 class="small">CRM System</h4>
+                <div className="logo-subtext">
+                    <h4 className="small">CRM System</h4>
                 </div>
             </div>
     
-            <div class="nav-box">
-                <nav class="navbar">
-                    <a href="/dashboard" class="lined">DASHBOARD</a>
-                    <a href="/leads" class="lined">
-                        <div class="dropdown">
-                            <button class="dropbtn">LEADS<span> </span>
-                                <i class="fa fa-caret-down"></i>
+            <div className="nav-box">
+                <nav className="navbar">
+                    <a href="/dashboard" className="lined">DASHBOARD</a>
+                    <a href="/leads" className="lined">
+                        <div className="dropdown">
+                            <button className="dropbtn">LEADS<span> </span>
+                                <i className="fa fa-caret-down"></i>
                             </button>
-                            <div class="dropdown-content">
+                            <div className="dropdown-content">
                                 <a href="/leads/new">New Lead</a>
                                 <a href="/leads/employeeleaderboard">Employee Leaderboard</a>
                                 <a href="/leads/referrerleaderboard">Referrer Leaderboard</a>
                             </div>
                         </div>
                     </a>
-                    <a href="/lodgements" class="lined">LODGEMENTS</a>
-                    <a href="/approvals" class="lined">APPROVALS</a>
-                    <a href="/settlements" class="lined">SETTLEMENTS</a>
-                    <a href="/crm" class="lined">CRM</a>
-                    <a href="/logout" class="lined">LOGOUT</a>
+                    <a href="/lodgements" className="lined">LODGEMENTS</a>
+                    <a href="/approvals" className="lined">APPROVALS</a>
+                    <a href="/settlements" className="lined">SETTLEMENTS</a>
+                    <a href="/crm" className="lined">CRM</a>
+                    <a href="/login" className="lined">LOGOUT</a>
                 </nav>
             </div>
     
-            <div class="nav-table">
+            <div className="nav-table">
                 <table>
-                    <thead class="table-header">
+                    <thead className="table-header">
                         <tr>
                             <th></th>
                             <th>Current Month</th>
@@ -72,30 +76,30 @@ import axios from 'axios'
                             <th>Total YTD $</th>
                         </tr>
                     </thead>
-                    <tbody class="table-content">
+                    <tbody className="table-content">
                         <tr>
-                            <td class="firstcolumn">LEADS</td>
+                            <td className="firstcolumn">LEADS</td>
                             <td></td>
                             <td>-</td>
                             <td>{status0}</td>
                             <td>-</td>
                         </tr>
                         <tr>
-                            <td class="firstcolumn">LODGEMENTS</td>
+                            <td className="firstcolumn">LODGEMENTS</td>
                             <td></td>
                             <td>$5,580,000</td>
                             <td>{status1}</td>
                             <td>$7,900,000</td>
                         </tr>
                         <tr>
-                            <td class="firstcolumn">APPROVALS</td>
+                            <td className="firstcolumn">APPROVALS</td>
                             <td></td>
                             <td>$1,200,000</td>
                             <td>{status2}</td>
                             <td>$1,900,000</td>
                         </tr>
                         <tr>
-                            <td class="firstcolumn">SETTLEMENTS</td>
+                            <td className="firstcolumn">SETTLEMENTS</td>
                             <td></td>
                             <td>$900,000</td>
                             <td>{status3}</td>
@@ -107,7 +111,7 @@ import axios from 'axios'
       </div>
     );
          } else {
-             return "null"
+             return "Not working"
          }
     }
 }

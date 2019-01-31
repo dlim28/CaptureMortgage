@@ -7,8 +7,8 @@ import FiscalYear from '../FiscalYear';
 class ReferrerLeaderboard extends Component {
   render() {
     return (
-        <div>
-            <Navbar />
+      <div>
+        <Navbar />
             <div class="leaderboard_table">
                 <h1 class="header_leaderboard header">REFERRER LEADERBOARD</h1>
                 <div class="CMP_leaderboard">
@@ -61,7 +61,7 @@ class ReferrerLeaderboard extends Component {
                         <td>57%</td>
                     </tr>
                 </table>
-            </div>
+            </div>      
         </div>
     );
   }
