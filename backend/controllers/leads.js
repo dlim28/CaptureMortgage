@@ -4,14 +4,15 @@ const mortgage = require('../models/mortgage');
 
 //Get all mortgages
 router.get('/', (req, res) => {
-
-    mortgage.find({})
-    .then((resp) => {
-       res.send(resp);
-    })
-    console.log("Finished Root route")
+       res.send("Welcome to the leads homepage");
 })
 
+router.get('/all',(req, res) => {
+    mortgage.find({"status":"0"})
+    .then(resp => {
+        res.send(resp)
+    })
+})
 //Get one mortgage based on parameter
 router.get('/select/:id', (req, res) => {
     const { id } = req.params;
@@ -98,113 +99,57 @@ router.get('/referrer-leaderboard', (req, res) => {
     })
 })
 
-// GETTERS
-function getCustomerName() {
-    return currentState.customerName;
-}
+router.post('/new-lead', (req, res) => {
 
-function getStatus() {
-    return currentState.status;
-}
+    mortgage.countDocuments({}).then(length => {
+        
+        const newLead = 
+        {
+            "id": length + 1,
+            "status": req.body.status,
+            "statusDate": req.body.statusDate,
+            "referrer": req.body.referrer,
+            "source": req.body.source,
+            "category": req.body.category,
+            "customerName": req.body.customerName,
+            "amount": req.body.amount,
+            "dateOfLead": req.body.dateOfLead,
+            "lender": req.body.lender,
+            "employee": req.body.employee
+        }
+        
+        let data = new mortgage(newLead)
+        data.history.push(setHistory(data.history))
+        data.save()
+        .then(resp => {
+            console.log(resp)
+            res.send("Item saved to database")
+        })
+        .catch(err => {
+            console.log(err)
+            res.status(400).send("unable to save to database");
+        })
+    })    
+})
 
-function getReferrer() {
-    return currentState.referrer;
-}
+function setHistory(historyArray) {
 
-function getSource() {
-    return currentState.source;
-}
-
-function getCategory() {
-    return currentState.category;
-}
-
-function getLender() {
-    return currentState.lender;
-}
-
-function getHistory() {
-    return currentState.history; //returns array of objects
-}
-
-function getDateOfLead() {
-    return currentState.dateOfLead;
-}
-
-function getIsActive() {
-    return currentState.isActive;
-}
-
-function getAmount() {
-    return currentState.amount;
-}
-
-function getEmployee() {
-    return currentState.employee;
-}
-// GETTERS
-
-// SETTERS
-
-function setClientName(paramCustomerName) {
-    currentState.customerName = paramCustomerName;
-    // Save to database after each set
-}
-
-function setStatus(paramStatusID) {
-    currentState.status = paramStatusID;
-}
-
-function setReferrer(paramReferrer) {
-    currentState.referrer = paramReferrer;
-}
-
-function setSource(paramSource) {
-    currentState.source = paramSource;
-}
-
-function setCategory(paramCategory) {
-    currentState.category = paramCategory;
-}
-
-function setLender(paramLender) {
-    currentState.lender = paramLender;
-}
-
-function setDateOfLead(paramLeadDate) {
-    currentState.dateOfLead = paramLeadDate;
-}
-
-function setIsActive(paramIsActive) {
-    currentState.isActive = paramIsActive;
-}
-
-function setAmount(paramAmount) {
-    currentState.amount = paramAmount;
-}
-
-function setHistory() {
-    //Use the previous object and compare it with the current object
-    //Iterate through the prevObj and compare the value with the currentObj
-    //Set the value of the history changes (another object) to the history key
     let historyChanges = {};
 
-    for (var key in previousState) {
-        if (previousState.hasOwnProperty(key)) {
-            // console.log(key + " -> " + prevObj[key]);
-            if(key != 'history') {
-                if(previousState[key] != currentState[key]) {
-                    //push the prevObj key/value and currentObj key/value into another variable
-                    const timeStamp = new Date(); //This will be the key
-                    historyChanges.timeStamp = `${key}` + ':' + `${previousState[key]}` + 'changed to' + `${key}` + ':' + `${currentState[key]}` //This will be the value
-                }
-            }
-        }
+    if(historyArray.length <= 0) {
+        const timestamp = new Date();
+        const timestampDay = timestamp.getDate();
+        const timestampMonth = timestamp.getMonth();
+        const timestampYear = timestamp.getFullYear();
+
+        const stringDate = `${timestampYear}-${timestampMonth}-${timestampDay}`
+
+        historyChanges[stringDate] = "Creation date"
     }
+    else {
 
-    currentState.history.push(historyChanges); //Push the history into the array
-    currentState.save();
-
+    }
+    return historyChanges;
 }
 
 module.exports = router;
