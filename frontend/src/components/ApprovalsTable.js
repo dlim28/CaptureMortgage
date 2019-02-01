@@ -46,7 +46,7 @@ class ApprovalsTable extends Component {
                     <td>{approval.statusDate}</td>
                     <td>{approval.customerName}</td>
                     <td>{approval.category}</td>
-                    <td>${approval.amount}</td>
+                    <td>${Intl.NumberFormat().format(approval.amount)}</td>
                     <td></td>
                     <td>{approval.lender}</td>
                     <td>{approval.employee}</td>
