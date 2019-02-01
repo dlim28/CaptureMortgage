@@ -27,16 +27,18 @@ class EmployeeLeaderboard extends Component {
                         <h3><FiscalYear /></h3>
                     </div>
                     <table id="myTable">
-                        <tr class="leads-back">
-                            <th>ID</th>
-                            <th>Entered as Lead</th>
-                            <th>Customer Name</th>
-                            <th>Category</th>
-                            <th>Amount</th>
-                            <th>Referrer</th>
-                            <th>Employee</th>
-                        </tr>
-
+                        <thead>
+                            <tr class="leads-back">
+                                <th>ID</th>
+                                <th>Entered as Lead</th>
+                                <th>Customer Name</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Referrer</th>
+                                <th>Employee</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         {leads.map((lead, i) => {
                             return (
                                 <tr key={i}>
@@ -44,11 +46,13 @@ class EmployeeLeaderboard extends Component {
                                 <td>{lead.dateOfLead}</td>
                                 <td>{lead.customerName}</td>
                                 <td>{lead.category}</td>
-                                <td>${(300000).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
+                                <td>${Intl.NumberFormat().format(lead.amount)}</td>
                                 <td>{lead.referrer}</td>
                                 <td>{lead.employee}</td>
                             </tr>
                         )})}
+                        </tbody>
+
 
                     </table>
                 </div>

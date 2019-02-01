@@ -28,28 +28,31 @@ class LodgementsTable extends Component {
             <h3><FiscalYear /></h3>
           </div>
           <table id="myTable">
-            <tr class="lodgements-back">
-              <th>ID</th>
-              <th>Moved to Lodgements</th>
-              <th>Customer Name</th>
-              <th>Category</th>
-              <th>Amount</th>
-              <th>WIP</th>
-              <th>Employee</th>
-            </tr>
-
-            {lodgements.map((lodgement, i) => {
-                return (
+            <thead>
+              <tr class="lodgements-back">
+                <th>ID</th>
+                <th>Moved to Lodgements</th>
+                <th>Customer Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>WIP</th>
+                <th>Employee</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lodgements.map((lodgement, i) => {
+                  return (
                     <tr key={i}>
-                    <td>{lodgement.id}</td>
-                    <td>{lodgement.statusDate}</td>
-                    <td>{lodgement.customerName}</td>
-                    <td>{lodgement.category}</td>
-                    <td>${lodgement.amount}</td>
-                    <td></td>
-                    <td>{lodgement.employee}</td>
-                </tr>
-            )})}
+                      <td>{lodgement.id}</td>
+                      <td>{lodgement.statusDate}</td>
+                      <td>{lodgement.customerName}</td>
+                      <td>{lodgement.category}</td>
+                      <td>${lodgement.amount}</td>
+                      <td></td>
+                      <td>{lodgement.employee}</td>
+                  </tr>
+              )})}
+            </tbody>
 
           </table>
         </div>

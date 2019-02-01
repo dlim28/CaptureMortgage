@@ -27,29 +27,31 @@ class LeadsTable extends Component {
                         <h3><FiscalYear /></h3>
                     </div>
                     <table id="myTable">
-                        <tr class="leads-back">
-                            <th>ID</th>
-                            <th>Entered as Lead</th>
-                            <th>Customer Name</th>
-                            <th>Category</th>
-                            <th>Amount</th>
-                            <th>Referrer</th>
-                            <th>Employee</th>
-                        </tr>
-
-                        {leads.map((lead, i) => {
-                            return (
-                                <tr key={i}>
-                                <td>{lead.id}</td>
-                                <td>{lead.dateOfLead}</td>
-                                <td>{lead.customerName}</td>
-                                <td>{lead.category}</td>
-                                <td>${lead.amount}</td>
-                                <td>{lead.referrer}</td>
-                                <td>{lead.employee}</td>
+                            <thead>
+                            <tr class="leads-back">
+                                <th>ID</th>
+                                <th>Entered as Lead</th>
+                                <th>Customer Name</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Referrer</th>
+                                <th>Employee</th>
                             </tr>
-                        )})}
-
+                        </thead>
+                        <tbody>
+                            {leads.map((lead, i) => {
+                                return (
+                                <tr key={i}>
+                                    <td>{lead.id}</td>
+                                    <td>{lead.dateOfLead}</td>
+                                    <td>{lead.customerName}</td>
+                                    <td>{lead.category}</td>
+                                    <td>${lead.amount}</td>
+                                    <td>{lead.referrer}</td>
+                                    <td>{lead.employee}</td>
+                                </tr>
+                            )})}
+                        </tbody>
                     </table>
                 </div>
 

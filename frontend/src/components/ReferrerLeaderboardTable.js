@@ -27,27 +27,29 @@ class ReferrerLeaderboard extends Component {
                         <h3><FiscalYear /></h3>
                     </div>
                     <table id="myTable">
-                        <tr class="leads-back">
-                            <th>Month</th>
-                            <th>LP Staff</th>
-                            <th>SPP Staff</th>
-                            <th>Marketing Campaigns</th>
-                            <th>BDM Staff</th>
-                            <th>TFC</th>
-                            <th>Others</th>
-                            <th>Totals</th>
-                            <th>%</th>
-                        </tr>
-
-
-                        {leads.map((lead, i) => {
-                            return (
-                                <tr key={i}>
-                                <td>{lead.id}</td>
-                                <td>{lead.referrer}</td>
-                                <td>{lead.total}</td>
-                            </tr>
-                        )})}
+                        <thead>
+                            <tr class="leads-back">
+                                <th>Month</th>
+                                <th>LP Staff</th>
+                                <th>SPP Staff</th>
+                                <th>Marketing Campaigns</th>
+                                <th>BDM Staff</th>
+                                <th>TFC</th>
+                                <th>Others</th>
+                                <th>Totals</th>
+                                <th>%</th>
+                            </tr>`
+                        </thead>
+                        <tbody>
+                            {leads.map((lead, i) => {
+                                return (
+                                    <tr key={i}>
+                                    <td>{lead.id}</td>
+                                    <td>{lead.referrer}</td>
+                                    <td>{lead.total}</td>
+                                </tr>
+                            )})}
+                        </tbody>
 
                     </table>
                 </div>      

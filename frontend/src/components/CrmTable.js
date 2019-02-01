@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import '../styles/crm.css';
 
+
 class CRM extends Component {
   render() {
     return (
@@ -18,34 +19,38 @@ class CRM extends Component {
         <br></br>
         <button className='search-button'>Search</button>
         <table id="myTable">
-          <tr class="table_header_crm">
-            <th>NO.</th>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Status Date</th>
-            <th>Category</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>01/01/2019</td>
-            <td>Craig David</td>
-            <td>Home Loan</td>
-            <td>$200,000</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>01/01/2019</td>
-            <td>James Dean</td>
-            <td>Home Loan</td>
-            <td>$40,000</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>02/04/2018</td>
-            <td>Billy Joel</td>
-            <td>Home Loan</td>
-            <td>$475,000</td>
-          </tr>
+          <thead>
+            <tr class="table_header_crm">
+              <th>NO.</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Status Date</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>01/01/2019</td>
+              <td>Craig David</td>
+              <td>Home Loan</td>
+              <td>$200,000</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>01/01/2019</td>
+              <td>James Dean</td>
+              <td>Home Loan</td>
+              <td>$40,000</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>02/04/2018</td>
+              <td>Billy Joel</td>
+              <td>Home Loan</td>
+              <td>$475,000</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     );
