@@ -36,19 +36,20 @@ class SettlementsTable extends Component {
               <th>Lender</th>
               <th>Employee</th>
             </tr>
-            
-            {settlements.map((settlement, i) => {
-              return (
-              <tr key={i}>
-                  <td>{settlement.id}</td>
-                  <td>{settlement.statusDate}</td>
-                  <td>{settlement.customerName}</td>
-                  <td>{settlement.category}</td>
-                  <td>${settlement.amount}</td>
-                  <td>{settlement.lender}</td>
-                  <td>{settlement.employee}</td>
-              </tr>
-            )})}
+            <tbody>
+              {settlements.map((settlement, i) => {
+                return (
+                <tr key={i}>
+                    <td>{settlement.id}</td>
+                    <td>{settlement.statusDate}</td>
+                    <td>{settlement.customerName}</td>
+                    <td>{settlement.category}</td>
+                    <td>${Intl.NumberFormat().format(settlement.amount)}</td>
+                    <td>{settlement.lender}</td>
+                    <td>{settlement.employee}</td>
+                </tr>
+              )})}
+            </tbody>
 
 
           </table>
