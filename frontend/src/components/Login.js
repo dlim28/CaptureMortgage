@@ -1,36 +1,39 @@
-import React from 'react';
+import React, { Component } from "react";
 import '../styles/Login.css';
 import logo from '../assets/CMP_Logo_White.png'
 
-
-const Login = () => {
-  return (
-      <div class="LoginPage">
-
-        <div class="top-rectangle">
-          <div class="logo-text">                   
-            <img class="logo-img" src={logo} alt={"logo"}/>
-                <h1 class="captureplus">Capture</h1><h1 class="mortgage">Mortgage</h1><h1 class="captureplus">+</h1>
-                <br></br>
-          </div>
-            <h1 class="crmSys">CRM System</h1>
-        </div>
-
-        <div class="loginInput">
-          <h2 class="LoginHeader"> LOGIN </h2>
-          <input name="UserName" className='inputbox'  type="text" id="username" placeholder="Username"></input>
-          <br></br>
-          <input name="PassName" className='inputbox'  type="password" id="password" placeholder="Password"></input>
-          <br></br>
-          <button className="loginbutton">
-            LOG IN
-          </button>
-          <p class="passwordForgot"><a href="#">Forgot my Password</a></p>  
-        </div>
-
-      </div>
-    
-    );
+class Login extends Component {
+  handleClick = (e) => {
+    e.preventDefault();
+    console.log(e)
   }
+  render() {
+    return (
 
-  export default Login;
+      <div class="Login">
+        <form>
+          <input class="inputbox" placeholder="Username" type="text" id="username" />
+          <br></br>
+          <input class="inputbox" placeholder="Password" type="password" id="password" />
+          <br></br>
+          <button onClick={this.handleClick} class="loginbutton" type="submit">LOG IN</button>
+          <br></br>
+          <p class="passwordForgot"><a href="#">Forgot my Password</a></p>  
+        </form>
+      </div>
+    )
+  }
+}
+
+//       <div class="LoginPage">
+
+//         <div class="top-rectangle">
+//           <div class="logo-text">                   
+//             <img class="logo-img" src={logo} alt={"logo"}/>
+//                 <h1 class="captureplus">Capture</h1><h1 class="mortgage">Mortgage</h1><h1 class="captureplus">+</h1>
+//                 <br></br>
+//           </div>
+//             <h1 class="crmSys">CRM System</h1>
+//         </div>
+
+export default Login;

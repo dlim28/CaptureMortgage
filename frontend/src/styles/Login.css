@@ -1,3 +1,7 @@
+form {
+  align-content: center;
+  grid-column: 2
+}
 
 .top-rectangle {
   display: grid;
@@ -15,15 +19,16 @@
   width: 400px;
   }
 
-.LoginPage {
+.Login {
+  grid-column: 2;
   margin-top: 370px;
   align-content: center;
+  text-align: center;
   font-size: 20px;
   color: grey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-column: 2;
 }
 
 .LoginHeader {
