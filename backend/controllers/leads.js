@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/all',(req, res) => {
-    mortgage.find({"status":"0"})
+    mortgage.find({"status":"lead"})
     .then(resp => {
         res.send(resp)
     })

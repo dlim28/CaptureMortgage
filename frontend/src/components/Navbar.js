@@ -70,7 +70,7 @@ class Navbar extends Component {
                             {navbars.map((navbar, i) => {
                                 return (
                                     <tr key={i}>
-                                        <td class="firstcolumn">{navbar.status}s</td>
+                                        <td class="firstcolumn">{navbar.statusName}s</td>
                                         <td>{navbar.totalRecordsForMonth}</td>
                                         <td>${Intl.NumberFormat().format(navbar.totalAmountForMonth)}</td>
                                         <td>{navbar.totalRecordsYTD}</td>
