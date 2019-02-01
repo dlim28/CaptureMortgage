@@ -18,8 +18,34 @@ router.get('/', (req,res) => {
     let returnArr = []
 
     for (let index = 0; index < 4; index++) {
-        const status = getData(index);
-        returnArr.push(status)
+
+        switch (index) {
+            case 0:
+                const str = "lead"
+                const status = getData(str);
+                returnArr.push(status)
+            break;
+
+            case 1:
+                const str1 = "lodgement"
+                const status1 = getData(str1);
+                returnArr.push(status1)
+            break;
+
+            case 2:
+                const str2 = "approval"
+                const status2 = getData(str2);
+                returnArr.push(status2)
+            break;
+
+            case 3:
+                const str3 = "settlement"
+                const status3 = getData(str3);
+                returnArr.push(status3)
+            break
+            default:
+            break;
+        }
     }
 
     Promise.all(returnArr).then(data => {
@@ -63,6 +89,7 @@ function getData(status)
                 let returnObj = {};
                 getTotalAmount(resultObject)
                 .then(totalAmount => {
+                    returnObj.statusName = status
                     returnObj.totalRecordsForMonth = Object.keys(resultObject).length
                     returnObj.totalAmountForMonth = totalAmount
                 })
@@ -94,8 +121,8 @@ async function getTotalMortgages(status) {
             { 
                 $and: 
                 [
-                    {"dateOfLead":{"$gte": `${currentYear}-0${currentMonth+1}-01`, 
-                    "$lte": `${currentYear}-${currentMonth + 1}-${currentDay}`}},
+                    {"dateOfLead":{"$gte": `01-0${currentMonth+1}-${currentYear}`, 
+                    "$lte": `${currentDay}-${currentMonth + 1}-${currentYear}`}},
                     // , "$lte": `${currentYear}-${currentMonth + 1}-${currentDay}`}
                     {"status":status}
                 ]
@@ -136,7 +163,7 @@ async function getTotalMortgagesYTD(status) {
             { 
                 $and:
                 [
-                    {"dateOfLead":{"$gte": `${currentYear - 1}-06-01`, "$lte":`${currentYear}-06-31`}},
+                    {"dateOfLead":{"$gte": `01-07-${currentYear - 1}`, "$lte":`30-06-${currentYear}`}},
                     {"status":status}
                 ]
             }

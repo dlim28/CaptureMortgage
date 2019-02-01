@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/all',(req, res) => {
-    mortgage.find({"status":"0"})
+    mortgage.find({"status":"lead"})
     .then(resp => {
         res.send(resp)
     })
@@ -30,12 +30,11 @@ router.get('/overview', (req, res) => {
     const currentYear = currentDate.getFullYear()
     
     mortgage.find(
-        // search date of lead between 1st January last year and 31st December this year
         {
             $and: 
             [
-                {"status":"0"},
-                {"dateOfLead": {"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentYear}-12-31`}}
+                {"status":"LEADS"},
+                {"dateOfLead": {"$gte": `${currentYear - 1}-07-01`, "$lte": `${currentYear}-06-30`}}
             ]
         }
     ).sort(
@@ -75,23 +74,62 @@ router.get('/referrer-leaderboard', (req, res) => {
     // This route will get all the referrers and tally them
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear();
-
-    mortgage.aggregate(
-        [
-            {$match: {"status":"0", "dateOfLead":{"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentYear}-12-31`}}},
-            {
-                $group: {
-                    _id: {Month: "$referrer"},
-                    total: {$sum: 1}
-                }
-            }
-        ]
+    let counter = 0;
+    mortgage.find(
+        {
+            $and:
+            [
+                {status:"LEADS"},
+                {dateOfLead:{$gte: `${currentYear - 1}-07-01`, $lte: `${currentYear}-06-30`}}
+            ]
+        }
     )
     .sort(
-        {_id: 1}
+        {dateOfLead: 1}
     )
     .then(resp => {
-        res.send(resp)
+        
+            let returnObj = {}
+            resp.forEach((element, index) => {
+
+                if(index === 0)
+                {
+                    const prevMonth = new Date(resp[index].dateOfLead).getMonth() + 1;
+                    const currentMonth = new Date(element.dateOfLead).getMonth() + 1;
+
+                    if(prevMonth === currentMonth)
+                    {
+                        counter++
+                        console.log(`Current Month ${currentMonth}`, counter)
+                    }
+                    else
+                    {
+                        let str = `Month ${currentMonth}`;
+                        returnObj[str] = counter;
+                        counter = 0;
+                    }
+                }
+                else
+                {
+                    let prevMonth = new Date(resp[index - 1].dateOfLead).getMonth() + 1;
+                    let currentMonth = new Date(element.dateOfLead).getMonth() + 1;
+
+                    if(prevMonth === currentMonth)
+                    {
+                        counter++
+                        console.log(`Current Month ${currentMonth}`, counter)
+                    }
+                    else
+                    {
+                        let str = `Month ${currentMonth}`;
+                        returnObj[str] = counter;
+                        counter = 0;
+                    }
+                }
+            }
+        );
+        console.log(returnObj)
+        res.send(returnObj)
     })
     .catch(err => {
         res.send(err)
@@ -136,18 +174,39 @@ router.patch('/:id/edit', (req, res) => {
     const { id } = req.params
     const changes = req.body;
     console.log(changes)
-
-    mortgage.findOneAndUpdate({id}, changes)
-    .then(doc => {
-        doc.history.push(setHistory(doc.history,changes,doc))
-        doc.save()
-        .then(resp => {
-            res.send("Successful")
-        })
-    })
-    .catch(err => {
-        return err;
-    })
+    
+    for (const key in changes) {
+        if (changes.hasOwnProperty(key)) {
+            if (key === "status") {
+                
+            }
+            else
+            {
+                mortgage.findOneAndUpdate({id}, changes)
+                .then(doc => {
+                    doc.history.push(setHistory(doc.history,changes,doc))
+                    doc.save()
+                .then(resp => {
+                    res.send("Successful")
+                    })
+                })
+                .catch(err => {
+                    return err;
+                })
+            }
+        }
+    }
+    // mortgage.findOneAndUpdate({id}, changes)
+    // .then(doc => {
+    //     doc.history.push(setHistory(doc.history,changes,doc))
+    //     doc.save()
+    //     .then(resp => {
+    //         res.send("Successful")
+    //     })
+    // })
+    // .catch(err => {
+    //     return err;
+    // })
 })
 
 function setHistory(historyArray, reqBody = null, originalObj = null) {

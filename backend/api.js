@@ -10,8 +10,8 @@ const app = new express();
 const port = 5000; //This port can be configurable
 
 //Connect MongoDB
-mongoose.connect('mongodb://localhost:27017/CaptureMortgagePlus');
-// mongoose.connect(process.env.DB_URL);
+// mongoose.connect('mongodb://localhost:27017/CaptureMortgagePlus');
+mongoose.connect(process.env.DB_URL); //mlab
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to mongod');
