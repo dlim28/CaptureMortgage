@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
             $and:
             [
                 {"status":"settlement"},
-                {"dateOfLead": {"$gte": `01-07-${currentYear - 1}`, "$lte": `30-06-${currentYear}`}}
+                {"dateOfLead": {"$gte": `01/07/${currentYear - 1}`, "$lte": `30/06/${currentYear}`}}
             ]
         }
     )

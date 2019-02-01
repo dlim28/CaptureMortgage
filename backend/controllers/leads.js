@@ -33,8 +33,8 @@ router.get('/overview', (req, res) => {
         {
             $and: 
             [
-                {"status":"LEADS"},
-                {"dateOfLead": {"$gte": `${currentYear - 1}-07-01`, "$lte": `${currentYear}-06-30`}}
+                {"status":"lead"},
+                {"dateOfLead": {"$gte": `01/07/${currentYear - 1}`, "$lte": `30/06/${currentYear}`}}
             ]
         }
     ).sort(
@@ -55,8 +55,8 @@ router.get('/employee-leaderboard', (req, res) => {
         {
             $and: 
             [
-                {"status":"0"},
-                {"dateOfLead": {"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentYear}-12-31`}}
+                {"status":"lead"},
+                {"dateOfLead": {"$gte": `01/07/${currentYear - 1}`, "$lte": `30/06/${currentYear}`}}
             ]
         }
     ).sort(
@@ -79,8 +79,8 @@ router.get('/referrer-leaderboard', (req, res) => {
         {
             $and:
             [
-                {status:"LEADS"},
-                {dateOfLead:{$gte: `${currentYear - 1}-07-01`, $lte: `${currentYear}-06-30`}}
+                {status:"lead"}
+                // {dateOfLead:{$gte: `${currentYear - 1}-07-01`, $lte: `${currentYear}-06-30`}}
             ]
         }
     )
@@ -221,13 +221,13 @@ function setHistory(historyArray, reqBody = null, originalObj = null) {
     
 
     if(historyArray.length <= 0) {
-        let stringDate = `${timestampYear}-${timestampMonth}-${timestampDay}`
+        let stringDate = `${timestampDay}/${timestampMonth}/${timestampYear}`
         historyChanges[stringDate] = "Creation date"
     }
     else {
 
         let changeIndex = 0;
-        let stringDate = `${timestampYear}-${timestampMonth}-${timestampDay}`
+        let stringDate = `${timestampDay}/${timestampMonth}/${timestampYear}`
 
         for (const key in reqBody) {
             if (reqBody.hasOwnProperty(key)) {

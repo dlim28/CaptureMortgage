@@ -44,6 +44,7 @@ router.get('/', (req,res) => {
                 returnArr.push(status3)
             break
             default:
+
             break;
         }
     }
@@ -87,6 +88,7 @@ function getData(status)
             getTotalMortgages(status)
                 .then(resultObject => { 
                 let returnObj = {};
+                console.log(resultObject)
                 getTotalAmount(resultObject)
                 .then(totalAmount => {
                     returnObj.statusName = status
@@ -119,16 +121,16 @@ async function getTotalMortgages(status) {
 
     let result = await mortgage.find(
             { 
-                $and: 
+                $and:
                 [
-                    {"dateOfLead":{"$gte": `01-0${currentMonth+1}-${currentYear}`, 
-                    "$lte": `${currentDay}-${currentMonth + 1}-${currentYear}`}},
-                    // , "$lte": `${currentYear}-${currentMonth + 1}-${currentDay}`}
-                    {"status":status}
+                    {
+                        dateOfLead:{$gte: `01/${currentMonth + 1}/${currentYear}`,
+                        $lte: `${currentDay}/${currentMonth + 1}/${currentYear}`},
+                        status:status
+                    }
                 ]
             }
         )
-
     return result
 }
 
