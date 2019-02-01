@@ -17,14 +17,9 @@ class Navbar extends Component {
         })
     }
 
-    // const enumIndex = {}
-    // enumIndex.Enum('LEADS', 'LODGEMENTS', 'APPROVALS', 'SETTLEMENTS')
-
     
     render() {
         const { navbars } = this.state;
-
-
 
         return (
             
@@ -73,15 +68,9 @@ class Navbar extends Component {
                         </thead>
                         <tbody class="table-content">
                             {navbars.map((navbar, i) => {
-                                // switch (i) {
-                                //     case 0: return i = "LEADS";
-                                //     case 1: return i =  "LODGEMENTS";
-                                //     case 2: return i =  "APPROVALS";
-                                //     case 3: return i =  "SETTLEMENTS";
-                                // }
                                 return (
                                     <tr key={i}>
-                                        <td class="firstcolumn">{i}</td>
+                                        <td class="firstcolumn">{navbar.status}s</td>
                                         <td>{navbar.totalRecordsForMonth}</td>
                                         <td>${Intl.NumberFormat().format(navbar.totalAmountForMonth)}</td>
                                         <td>{navbar.totalRecordsYTD}</td>
