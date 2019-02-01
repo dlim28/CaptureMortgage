@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../styles/NavbarCM.css';
 import logo from '../assets/CMP_FullLogo.png'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 
-const Navbar = () => {
-    state = { settlements: [] }
+class Navbar extends Component {
+    state = { 
+        navbars: [] 
+    }
 
     componentDidMount() {
-      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/settlements')
-          .then(resp => {
-              console.log(resp.data)
-              this.setState({ settlements: resp.data })
-          })
-      }
-  
-    render() {
-      const { settlements } = this.state;
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar')
+        .then(resp => {
+            console.log(resp.data)
+            this.setState({ navbars: resp.data })
+        })
+    }
 
-    return (
-        <div>
+    // const enumIndex = {}
+    // enumIndex.Enum('LEADS', 'LODGEMENTS', 'APPROVALS', 'SETTLEMENTS')
+
+    
+    render() {
+        const { navbars } = this.state;
+
+
+
+        return (
+            
             <div class="nav-container">
 
                 <div class="logo-box">
@@ -64,41 +72,30 @@ const Navbar = () => {
                             </tr>
                         </thead>
                         <tbody class="table-content">
-                            <tr>
-                                <td class="firstcolumn">LEADS</td>
-                                <td>9</td>
-                                <td>-</td>
-                                <td>11</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td class="firstcolumn">LODGEMENTS</td>
-                                <td>18</td>
-                                <td>$5,580,000</td>
-                                <td>25</td>
-                                <td>$7,900,000</td>
-                            </tr>
-                            <tr>
-                                <td class="firstcolumn">APPROVALS</td>
-                                <td>7</td>
-                                <td>$1,200,000</td>
-                                <td>9</td>
-                                <td>$1,900,000</td>
-                            </tr>
-                            <tr>
-                                <td class="firstcolumn">SETTLEMENTS</td>
-                                <td>12</td>
-                                <td>$900,000</td>
-                                <td>15</td>
-                                <td>$1,250,000</td>
-                            </tr>
+                            {navbars.map((navbar, i) => {
+                                // switch (i) {
+                                //     case 0: return i = "LEADS";
+                                //     case 1: return i =  "LODGEMENTS";
+                                //     case 2: return i =  "APPROVALS";
+                                //     case 3: return i =  "SETTLEMENTS";
+                                // }
+                                return (
+                                    <tr key={i}>
+                                        <td class="firstcolumn">{i}</td>
+                                        <td>{navbar.totalRecordsForMonth}</td>
+                                        <td>${Intl.NumberFormat().format(navbar.totalAmountForMonth)}</td>
+                                        <td>{navbar.totalRecordsYTD}</td>
+                                        <td>${Intl.NumberFormat().format(navbar.totalAmountYTD)}</td>
+                                    </tr>
+                                )})}
                         </tbody>
                     </table>
                 </div>
         
-        </div>
-        </div>
-    );
-  }
+            </div>
+
+        );
+    }
+}
 
   export default Navbar;
