@@ -81,8 +81,7 @@ router.get('/referrer-leaderboard', (req, res) => {
             {$match: {"status":"0", "dateOfLead":{"$gte": `${currentYear - 1}-01-01`, "$lte": `${currentYear}-12-31`}}},
             {
                 $group: {
-                    _id: {Referrer: "$referrer"},
-                    // month: { },
+                    _id: {Month: "$referrer"},
                     total: {$sum: 1}
                 }
             }
@@ -181,5 +180,4 @@ function setHistory(historyArray, reqBody = null, originalObj = null) {
     }
     return historyChanges;
 }
-
 module.exports = router;
