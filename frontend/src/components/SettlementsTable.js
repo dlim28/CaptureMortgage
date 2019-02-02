@@ -42,7 +42,7 @@ class SettlementsTable extends Component {
                 <tr key={i}>
                     <td>{settlement.id}</td>
                     <td>{settlement.statusDate}</td>
-                    <td>{settlement.customerName}</td>
+                    <td><a href="#">{settlement.customerName}</a></td>
                     <td>{settlement.category}</td>
                     <td>${Intl.NumberFormat().format(settlement.amount)}</td>
                     <td>{settlement.lender}</td>
