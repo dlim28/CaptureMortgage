@@ -105,3 +105,15 @@ input {
   display:flex;
   justify-content: flex-end;
 }
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modaldata{
+  display: flex;
+  justify-content: space-around;
+}
