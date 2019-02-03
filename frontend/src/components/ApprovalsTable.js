@@ -1,62 +1,179 @@
 import React, { Component } from 'react';
+import "react-table/react-table.css";
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
-//making a comment
+import ReactTable from "react-table";
+
 class ApprovalsTable extends Component {
   render() {
+
+    const data = [{
+      id: 1,
+      approvals: '',
+      name: 'Roy Agasthyan',
+      category: 'Home Lone',
+      amount: 2000,
+      wip: '3 days',
+      lender: 'Bob Builder',
+      employee: 'Hank Hill'
+    },
+    {
+      id: 2,
+      approvals: '',
+      name: 'Roy Agasthyan',
+      category: 'Home Lone',
+      amount: 2000,
+      wip: '3 days',
+      lender: 'Bob Builder',
+      employee: 'Hank Mill'
+    },
+    {
+      id: 3,
+      approvals: '',
+      name: 'Roy Agasthyan',
+      category: 'Home Lone',
+      amount: 2000,
+      wip: '3 days',
+      lender: 'Bob Builder',
+      employee: 'Hank Till'
+    },
+    {
+      id: 4,
+      approvals: '',
+      name: 'Roy Agasthyan',
+      category: 'Home Lone',
+      amount: 2000,
+      wip: '3 days',
+      lender: 'Bob Builder',
+      employee: 'Hank Dill'
+    },
+    {
+      id: 5,
+      approvals: '',
+      name: 'Roy Agasthyan',
+      category: 'Home Lone',
+      amount: 2000,
+      wip: '3 days',
+      lender: 'Bob Builder',
+      employee: 'Hank Kill'
+    },
+    {
+      id: 6,
+      approvals: '',
+      name: 'Roy Agasthyan',
+      category: 'Home Lone',
+      amount: 2000,
+      wip: '3 days',
+      lender: 'Bob Builder',
+      employee: 'Hank Zill'
+    },
+    {
+    id: 7,
+    approvals: '',
+    name: 'Roy Agasthyan',
+    category: 'Home Lone',
+    amount: 2000,
+    wip: '3 days',
+    lender: 'Bob Builder',
+    employee: 'Hank Hill'
+  },
+  {
+    id: 8,
+    approvals: '',
+    name: 'Roy Agasthyan',
+    category: 'Home Lone',
+    amount: 2000,
+    wip: '3 days',
+    lender: 'Bob Builder',
+    employee: 'Hank Mill'
+  },
+  {
+    id: 9,
+    approvals: '',
+    name: 'Roy Agasthyan',
+    category: 'Home Lone',
+    amount: 2000,
+    wip: '3 days',
+    lender: 'Bob Builder',
+    employee: 'Hank Till'
+  },
+  {
+    id: 10,
+    approvals: '',
+    name: 'Roy Agasthyan',
+    category: 'Home Lone',
+    amount: 2000,
+    wip: '3 days',
+    lender: 'Bob Builder',
+    employee: 'Hank Dill'
+  },
+  {
+    id: 11,
+    approvals: '',
+    name: 'Roy Agasthyan',
+    category: 'Home Lone',
+    amount: 2000,
+    wip: '3 days',
+    lender: 'Bob Builder',
+    employee: 'Hank Kill'
+  }
+ ]
+
+    const columns = [{
+      Header: 'ID',
+      accessor: 'id'
+    },
+    {
+      Header: 'Moved to Approvals',
+      accessor: 'approvals'
+    },
+    {
+      Header: 'Customer Name',
+      accessor: 'name'
+    },
+    {
+      Header: 'Category',
+      accessor: 'category'
+    },
+    {
+      Header: 'Amount',
+      accessor: 'amount'
+    },
+    {
+      Header: 'WIP',
+      accessor: 'wip'
+    },
+    {
+      Header: 'Lender',
+      accessor: 'lender'
+    },
+    {
+      Header: 'Employee',
+      accessor: 'employee'
+    }
+  ]
+
     return (
-      <div>
-        <div class="center">
-          <h1 class="header approvals">APPROVALS</h1>
-          <div class="approvals">
-            <h3>CaptureMortgage+ Approvals Board</h3><span> </span>
-            <h3><FiscalYear /></h3>
-          </div>
-          <table id="myTable">
-            <tr class="approvals-back">
-              <th>ID</th>
-              <th>Moved to Approvals</th>
-              <th>Customer Name</th>
-              <th>Category</th>
-              <th>Amount</th>
-              <th>WIP</th>
-              <th>Lender</th>
-              <th>Employee</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>01/01/2019</td>
-              <td>Craig David</td>
-              <td>Home Loan</td>
-              <td>$200,000</td>
-              <td>2 Days</td>
-              <td>LP Staff</td>
-              <td>Sarah Smith</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>01/01/2019</td>
-              <td>James Dean</td>
-              <td>Home Loan</td>
-              <td>$40,000</td>
-              <td>4 Days</td>
-              <td>LP Staff</td>
-              <td>Louise Lilly</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>02/04/2018</td>
-              <td>Billy Joel</td>
-              <td>Home Loan</td>
-              <td>$475,000</td>
-              <td>6 Days</td>
-              <td>LP Staff</td>
-              <td>Katherine Kale</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    );
+
+          
+
+
+          <div>
+
+<div class="approvals header">
+    <h3>CaptureMortgage+ Approvals Board</h3><span> </span>
+    <h3><FiscalYear /></h3>
+    </div>
+
+              <ReactTable
+                data={data}
+                columns={columns}
+                defaultPageSize = {10}
+                pageSizeOptions = {[10, 20, 50]}
+              />
+          </div>      
+    )
+
   }
 }
 

@@ -1,11 +1,122 @@
 import React, { Component } from 'react';
-import '../styles/globalTableStyles.css';
+import "react-table/react-table.css";
 import '../styles/crm.css';
+import FiscalYear from './FiscalYear';
+import ReactTable from "react-table";
 
 class CRM extends Component {
   render() {
+
+    const data = [
+    {
+      no: 1,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 2,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 3,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 4,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 5,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 6,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 7,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 8,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 9,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 10,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    },
+    {
+      no: 11,
+      name: 'John Adams',
+      status: 'Lead Lost',
+      stDate: '01/01/2019',
+      category: 'Home Loan'
+    }
+ ]
+
+    const columns = [{
+      Header: 'NO.',
+      accessor: 'no'
+    },
+    {
+      Header: 'Name',
+      accessor: 'name'
+    },
+    {
+      Header: 'Status',
+      accessor: 'status'
+    },
+    {
+      Header: 'Status Date',
+      accessor: 'stDate'
+    },
+    {
+      Header: 'Category',
+      accessor: 'category'
+    }
+  ]
+
     return (
-      <div>
+
+          
+
+
+          <div>
+
+<div>
         <h1 class="header_crm header">CRM</h1>
         <select class='input-box' name="Category" id="username">          
           <option value="0">--select activity status--</option>
@@ -17,38 +128,17 @@ class CRM extends Component {
         <input type="search" class="crm-search" data-table="order-table" placeholder="Search Name"></input>
         <br></br>
         <button className='search-button'>Search</button>
-        <table id="myTable">
-          <tr class="table_header_crm">
-            <th>NO.</th>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Status Date</th>
-            <th>Category</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>01/01/2019</td>
-            <td>Craig David</td>
-            <td>Home Loan</td>
-            <td>$200,000</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>01/01/2019</td>
-            <td>James Dean</td>
-            <td>Home Loan</td>
-            <td>$40,000</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>02/04/2018</td>
-            <td>Billy Joel</td>
-            <td>Home Loan</td>
-            <td>$475,000</td>
-          </tr>
-        </table>
-      </div>
-    );
+        </div>
+
+              <ReactTable
+                data={data}
+                columns={columns}
+                defaultPageSize = {10}
+                pageSizeOptions = {[10, 20, 50]}
+              />
+          </div>      
+    )
+
   }
 }
 

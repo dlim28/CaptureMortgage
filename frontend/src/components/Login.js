@@ -25,15 +25,4 @@ class Login extends Component {
   }
 }
 
-//       <div class="LoginPage">
-
-//         <div class="top-rectangle">
-//           <div class="logo-text">                   
-//             <img class="logo-img" src={logo} alt={"logo"}/>
-//                 <h1 class="captureplus">Capture</h1><h1 class="mortgage">Mortgage</h1><h1 class="captureplus">+</h1>
-//                 <br></br>
-//           </div>
-//             <h1 class="crmSys">CRM System</h1>
-//         </div>
-
 export default Login;

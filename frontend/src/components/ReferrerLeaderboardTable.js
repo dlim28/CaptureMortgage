@@ -1,67 +1,194 @@
 import React, { Component } from 'react';
+import "react-table/react-table.css";
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
+import ReactTable from "react-table";
 
 class ReferrerLeaderboard extends Component {
   render() {
-    return (
-      <div>
 
-            <div class="center">
-                <h1 class="header leads">REFERRER LEADERBOARD</h1>
-                <div class="leads">
-                    <h3>CaptureMortgage+ Leaderboard by Referrer</h3><span> </span>
-                    <h3><FiscalYear /></h3>
-                </div>
-                <table id="myTable">
-                    <tr class="leads-back">
-                        <th>Month</th>
-                        <th>LP Staff</th>
-                        <th>SPP Staff</th>
-                        <th>Marketing Campaigns</th>
-                        <th>BDM Staff</th>
-                        <th>TFC</th>
-                        <th>Others</th>
-                        <th>Totals</th>
-                        <th>%</th>
-                    </tr>
-                    <tr>
-                        <td>January</td>
-                        <td>2</td>
-                        <td>13</td>
-                        <td>12</td>
-                        <td>4</td>
-                        <td>31</td>
-                        <td>4</td>
-                        <td>0</td>
-                        <td>45%</td>
-                    </tr>
-                    <tr>
-                        <td>December</td>
-                        <td>2</td>
-                        <td>13</td>
-                        <td>5</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>0</td>
-                        <td>16%</td>
-                    </tr>
-                    <tr>
-                        <td>November</td>
-                        <td>2</td>
-                        <td>13</td>
-                        <td>0</td>
-                        <td>9</td>
-                        <td>31</td>
-                        <td>4</td>
-                        <td>10</td>
-                        <td>57%</td>
-                    </tr>
-                </table>
-            </div>      
-        </div>
-    );
+    const data = [{
+      month: 'March',
+      lpStaff: 1,
+      sppStaff: 4,
+      marketing: 12,
+      bdm: 2,
+      tfc: 31,
+      others: 4,
+      totals: 10,
+      percent: '12%'
+    },
+    {
+      month: 'March',
+      lpStaff: 1,
+      sppStaff: 4,
+      marketing: 12,
+      bdm: 2,
+      tfc: 31,
+      others: 4,
+      totals: 10,
+      percent: '12%'
+    },
+    {
+      month: 'March',
+      lpStaff: 1,
+      sppStaff: 4,
+      marketing: 12,
+      bdm: 2,
+      tfc: 31,
+      others: 4,
+      totals: 10,
+      percent: '12%'
+    },
+    {
+      month: 'March',
+      lpStaff: 1,
+      sppStaff: 4,
+      marketing: 12,
+      bdm: 2,
+      tfc: 31,
+      others: 4,
+      totals: 10,
+      percent: '12%'
+    },
+    {
+      month: 'March',
+      lpStaff: 1,
+      sppStaff: 4,
+      marketing: 12,
+      bdm: 2,
+      tfc: 31,
+      others: 4,
+      totals: 10,
+      percent: '12%'
+    },
+    {
+      month: 'March',
+      lpStaff: 1,
+      sppStaff: 4,
+      marketing: 12,
+      bdm: 2,
+      tfc: 31,
+      others: 4,
+      totals: 10,
+      percent: '12%'
+    },
+    {
+    month: 'March',
+    lpStaff: 1,
+    sppStaff: 4,
+    marketing: 12,
+    bdm: 2,
+    tfc: 31,
+    others: 4,
+    totals: 10,
+    percent: '12%'
+  },
+  {
+    month: 'March',
+    lpStaff: 1,
+    sppStaff: 4,
+    marketing: 12,
+    bdm: 2,
+    tfc: 31,
+    others: 4,
+    totals: 10,
+    percent: '12%'
+  },
+  {
+    month: 'March',
+    lpStaff: 1,
+    sppStaff: 4,
+    marketing: 12,
+    bdm: 2,
+    tfc: 31,
+    others: 4,
+    totals: 10,
+    percent: '12%'
+  },
+  {
+    month: 'March',
+    lpStaff: 1,
+    sppStaff: 4,
+    marketing: 12,
+    bdm: 2,
+    tfc: 31,
+    others: 4,
+    totals: 10,
+    percent: '12%'
+  },
+  {
+    month: 'March',
+    lpStaff: 1,
+    sppStaff: 4,
+    marketing: 12,
+    bdm: 2,
+    tfc: 31,
+    others: 4,
+    totals: 10,
+    percent: '12%'
+  }
+ ]
+
+    const columns = [{
+      Header: 'Month',
+      accessor: 'month'
+    },
+    {
+      Header: 'LP Staff',
+      accessor: 'lpStaff'
+    },
+    {
+      Header: 'SPP Staff',
+      accessor: 'sppStaff'
+    },
+    {
+      Header: 'Marketing Campaigns',
+      accessor: 'marketing'
+    },
+    {
+      Header: 'BDM Staff',
+      accessor: 'bdm'
+    },
+    {
+      Header: 'TFC',
+      accessor: 'tfc'
+    },
+    {
+      Header: 'Others',
+      accessor: 'others'
+    },
+    {
+      Header: 'Totals',
+      accessor: 'totals'
+    },
+    {
+      Header: '%',
+      accessor: 'percent'
+    }
+  ]
+
+    return (
+
+          
+
+
+          <div>
+
+<div class="leads header">
+    <h3>CaptureMortgage+ Referrer Leaderboard</h3><span> </span>
+    <h3><FiscalYear /></h3>
+    </div>
+
+              <ReactTable
+                data={data}
+                columns={columns}
+                defaultPageSize = {10}
+                pageSizeOptions = {[10, 20, 50]}
+              />
+          </div>      
+    )
+
   }
 }
 
