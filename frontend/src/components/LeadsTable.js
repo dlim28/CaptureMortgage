@@ -46,7 +46,7 @@ class LeadsTable extends Component {
                                 <tr key={i}>
                                     <td>{lead.id}</td>
                                     <td>{lead.dateOfLead}</td>
-                                    <td>{lead.customerName}</td>
+                                    <td><a href="#">{lead.customerName}</a></td>
                                     <td>{lead.category}</td>
                                     <td>${Intl.NumberFormat().format(lead.amount)}</td>
                                     <td>{lead.referrer}</td>

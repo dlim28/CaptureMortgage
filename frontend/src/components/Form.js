@@ -7,41 +7,54 @@ const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", 
 
 
 class Form extends Component {
+    state = {
+        createdAt: null,
+        customerName: null,
+        status: null,
+        referrer: null,
+        source: null,
+        category: null,
+        lender: null,
+        history: null,
+        dateOfLead: null,
+        isActive: null,
+        amount: null,
+        employee: null
+    }
 
-    // state = { isSubmitted: false }
+    handleInputChange = (e) => {
+        const { value, id } = e.currentTarget;
+        this.setState({ [id]: value } )
+    }
 
-    // handleInputChange = (e) => {
-    //     const { value, id } = e.currentTarget;
-    //     this.setState({ [id]: value })
-    // }
+    submitForm = (e) => {
+        e.preventDefault()
+        console.log(this.state)
 
-    // submitForm = (e) => {
-    //     e.preventDefault()
+        const { createdAt, lcustomerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee } = this.state
+        const url = "http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/new-lead"
 
-    //     const { createdAt, customerName, status, referrer, source, category, lender, hisotry, dateOfLead, isActive, amount, employee } = this.state
-
-    //     const url = 'http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/new-lead'
-
-    //     const data = { createdAt, customerName, status, referrer, source, category, lender, hisotry, dateOfLead, isActive, amount, employee } 
-
-    //     axios.post(url, data)
-    //         .then(resp => {
-    //             this.setState({ message: 'Successful login', error: null, isSubmited: true})
-    //         })
-    //         .catch(err => {
-    //             console.log(err.response)
-    //             if (err.response === 400) {
-    //                 this.setState({ error: 'Incorrect login', message: null })
-    //             }
-    //         })
-
+        const data = { createdAt, lcustomerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee }
+        axios.post(url, data)
+        .then(resp => {
+            console.log(resp)
+            this.setState({ message: 'New lead added', error: null})
+        })
+        .catch(err => {
+            console.log(err.response)
+                if (err.response === 403) {
+                this.setState({ error: 'Lead was not saved, please try again', message: null})
+            }
+        })
+    }
+    
     render() {
-        // const { error, message } = this.state
+        const { error, message } = this.state
 
         return (
             <div class='form-grid'>
 
-                <div className='form' >
+                <form className='form' >
                     <div className='customerdetailsheading'>CUSTOMER DETAILS</div>
                         <div className='flex-form'>
                             <div className='flexformtitles'>
@@ -141,7 +154,7 @@ class Form extends Component {
                                     CANCEL
                             </button>
                         </div>
-                </div>
+                </form>
             </div>
         
         );
