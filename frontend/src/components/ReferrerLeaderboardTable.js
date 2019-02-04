@@ -38,12 +38,12 @@ class ReferrerLeaderboard extends Component {
                                 <th>Others</th>
                                 <th>Totals</th>
                                 <th>%</th>
-                            </tr>`
+                                </tr>
                         </thead>
                         <tbody>
                             {leads.map((lead, i) => {
                                 return (
-                                    <tr key={i}>
+                                <tr key={i}>
                                     <td>{lead.id}</td>
                                     <td>{lead.referrer}</td>
                                     <td>{lead.total}</td>

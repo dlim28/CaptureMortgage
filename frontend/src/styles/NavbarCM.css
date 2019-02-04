@@ -124,9 +124,9 @@
   overflow: hidden;
 }
 
-.dropbtn {
-  min-width: 122px;
-}
+/* .dropbtn { */
+  /* min-width: 122px; */
+/* } */
 
 .nav-box a:hover,
 .dropdown:hover .dropbtn {

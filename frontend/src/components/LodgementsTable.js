@@ -45,9 +45,9 @@ class LodgementsTable extends Component {
                     <tr key={i}>
                       <td>{lodgement.id}</td>
                       <td>{lodgement.statusDate}</td>
-                      <td>{lodgement.customerName}</td>
+                      <td><a href="#">{lodgement.customerName}</a></td>
                       <td>{lodgement.category}</td>
-                      <td>${lodgement.amount}</td>
+                      <td>${Intl.NumberFormat().format(lodgement.amount)}</td>
                       <td></td>
                       <td>{lodgement.employee}</td>
                   </tr>

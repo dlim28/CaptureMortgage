@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
+// import ReactTable from "react-table";
+
 
 class LeadsTable extends Component {
     state = { leads: [] }
@@ -44,9 +46,9 @@ class LeadsTable extends Component {
                                 <tr key={i}>
                                     <td>{lead.id}</td>
                                     <td>{lead.dateOfLead}</td>
-                                    <td>{lead.customerName}</td>
+                                    <td><a href="#">{lead.customerName}</a></td>
                                     <td>{lead.category}</td>
-                                    <td>${lead.amount}</td>
+                                    <td>${Intl.NumberFormat().format(lead.amount)}</td>
                                     <td>{lead.referrer}</td>
                                     <td>{lead.employee}</td>
                                 </tr>

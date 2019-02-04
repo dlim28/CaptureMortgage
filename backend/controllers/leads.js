@@ -90,12 +90,6 @@ router.get('/referrer-leaderboard', (req, res) => {
     )
     .lean()
     .then(resp => {
-        // let lpArray = []
-        // let spArray = []
-        // let marketingArray = []
-        // let bdmArray = []
-        // let tfcArray = []
-        // let otherArray = [] 
         
         let arrayByMonth = []
         let data = {}
