@@ -9,7 +9,7 @@ class LeadsTable extends Component {
 
     const data = [{
       id: 1,
-      leads: '',
+      leads: '02/02/2019',
       name: 'Roy Agasthyan',
       category: 'Home Lone',
       amount: 2000,
@@ -18,7 +18,7 @@ class LeadsTable extends Component {
     },
     {
       id: 2,
-      leads: '',
+      leads: '02/02/2019',
       name: 'Roy Agasthyan',
       category: 'Home Lone',
       amount: 2000,
@@ -27,7 +27,7 @@ class LeadsTable extends Component {
     },
     {
       id: 3,
-      leads: '',
+      leads: '02/02/2019',
       name: 'Roy Agasthyan',
       category: 'Home Lone',
       amount: 2000,
@@ -36,7 +36,7 @@ class LeadsTable extends Component {
     },
     {
       id: 4,
-      leads: '',
+      leads: '02/02/2019',
       name: 'Roy Agasthyan',
       category: 'Home Lone',
       amount: 2000,
@@ -45,7 +45,7 @@ class LeadsTable extends Component {
     },
     {
       id: 5,
-      leads: '',
+      leads: '02/02/2019',
       name: 'Roy Agasthyan',
       category: 'Home Lone',
       amount: 2000,
@@ -63,7 +63,7 @@ class LeadsTable extends Component {
     },
     {
     id: 7,
-    leads: '',
+    leads: '02/02/2019',
     name: 'Roy Agasthyan',
     category: 'Home Lone',
     amount: 2000,
@@ -81,7 +81,7 @@ class LeadsTable extends Component {
   },
   {
     id: 9,
-    leads: '',
+    leads: '02/02/2019',
     name: 'Roy Agasthyan',
     category: 'Home Lone',
     amount: 2000,
@@ -90,7 +90,7 @@ class LeadsTable extends Component {
   },
   {
     id: 10,
-    leads: '',
+    leads: '02/02/2019',
     name: 'Roy Agasthyan',
     category: 'Home Lone',
     amount: 2000,
@@ -99,7 +99,7 @@ class LeadsTable extends Component {
   },
   {
     id: 11,
-    leads: '',
+    leads: '02/02/2019',
     name: 'Roy Agasthyan',
     category: 'Home Lone',
     amount: 2000,

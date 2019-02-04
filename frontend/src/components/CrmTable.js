@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "react-table/react-table.css";
 import '../styles/crm.css';
-import FiscalYear from './FiscalYear';
 import ReactTable from "react-table";
 
 class CRM extends Component {
@@ -17,70 +16,70 @@ class CRM extends Component {
     },
     {
       no: 2,
-      name: 'John Adams',
+      name: 'John Kadams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 3,
-      name: 'John Adams',
+      name: 'John Tadams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 4,
-      name: 'John Adams',
+      name: 'John Nadams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 5,
-      name: 'John Adams',
+      name: 'John Madams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 6,
-      name: 'John Adams',
+      name: 'John Sadams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 7,
-      name: 'John Adams',
+      name: 'John Ladams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 8,
-      name: 'John Adams',
+      name: 'John Cadams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 9,
-      name: 'John Adams',
+      name: 'John Zadams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 10,
-      name: 'John Adams',
+      name: 'John Nadams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
     },
     {
       no: 11,
-      name: 'John Adams',
+      name: 'John Badams',
       status: 'Lead Lost',
       stDate: '01/01/2019',
       category: 'Home Loan'
@@ -132,6 +131,9 @@ class CRM extends Component {
 
               <ReactTable
                 data={data}
+                // filterable
+                // defaultFilterMethod={(filter, row) =>
+                // String(row[filter.id]) === filter.value}
                 columns={columns}
                 defaultPageSize = {10}
                 pageSizeOptions = {[10, 20, 50]}
