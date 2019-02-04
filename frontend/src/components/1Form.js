@@ -1,35 +1,14 @@
 import React, { Component } from 'react';
 import '../styles/Form.css';
-import Modal from '../components/Modal/Modal';
+import axios from 'axios';
+
 const Status = "LEAD"
 const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")
 
 
 
 
-
-class FormUpdate extends Component {
-
-    constructor() {
-        super();
-
-        this.state = {
-            isShowing: false
-        }
-    }
-
-    openModalHandler = () => {
-        this.setState({
-            isShowing: true
-        });
-    }
-
-    closeModalHandler = () => {
-        this.setState({
-            isShowing: false
-        });
-    }
-
+class Form extends Component {
 
     // state = { isSubmitted: false }
 
@@ -58,28 +37,13 @@ class FormUpdate extends Component {
     //             }
     //         })
 
+    
+
     render() {
         // const { error, message } = this.state
 
         return (
-
-
             <div class='form-grid'>
-
-<Modal className="modal"
-                                show={this.state.isShowing}
-                                close={this.closeModalHandler}>
-                                <div className="modaldata">
-                                    <div>
-                                        <div>Name:</div>
-                                        <div>Status:</div>
-                                    </div>
-                                    <div>
-                                        <div>name</div>
-                                        <div>status</div>
-                                    </div>
-                                </div>
-                        </Modal>
 
                 <div className='form' >
                     <div className='customerdetailsheading'>CUSTOMER DETAILS</div>
@@ -172,37 +136,20 @@ class FormUpdate extends Component {
 
                         </div>
 
-                       
-
                         <div className='buttonflex'>
-                            <button 
-                            onClick={this.submitForm} className='savebutton'> 
-                                SAVE
+                            <button onClick={this.submitForm} className='savebutton'>
+                                    SAVE
                             </button>
-                            {this.state.isShowing ? 
-                                <div
-                                    onClick={this.closeModalHandler} className="back-drop">
-                                </div>
-                            : null}
 
-                            <button  
-                                className="open-modal-btn" onClick={this.openModalHandler}> 
-                                    Update Status
+                            <button className='cancelbutton'>
+                                    CANCEL
                             </button>
-                            
                         </div>
-
                 </div>
             </div>
-
-            
-            
         
         );
-        
     }
-    
-    
-}
+    }
 
-export default FormUpdate;
+export default Form;

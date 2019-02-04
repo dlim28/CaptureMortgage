@@ -3,7 +3,7 @@
     border: 1px solid #d0cccc;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
     transition: all .8s;
-    width: 60%;
+    width: 50%;
     align-content: center;
     position: fixed;
     overflow: auto;
@@ -13,7 +13,7 @@
 }
 
 .modal-header {
-    background: rgb(18, 77, 136);
+    background: black;
     height: 40px;
     line-height: 40px;
     padding: 5px 20px;

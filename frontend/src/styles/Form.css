@@ -116,4 +116,14 @@ input {
 .modaldata{
   display: flex;
   justify-content: space-around;
+  height: 100px
+}
+
+.modalcontent{
+  height: 100px;
+  display: inline-block;
+  justify-content: space-around;
+  margin-top: 25px;
+  font-size: 22px;
+  font-style: bold;
 }

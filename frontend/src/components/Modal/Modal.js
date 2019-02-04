@@ -14,10 +14,8 @@ const modal = (props) => {
                     <h3>Update Status</h3>
                     <span className="close-modal-btn" onClick={props.close}>×</span>
                 </div>
-                <div className="modal-body">
-                    <p>
-                        {props.children}
-                    </p>
+                <div className="modal-body">2                 
+                        {props.children}      
                 </div>
                 <div className="modal-footer">
                     <button className="btn-cancel" onClick={props.close}>MOVE TO LODGEMENT</button>
