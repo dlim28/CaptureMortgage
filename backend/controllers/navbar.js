@@ -3,18 +3,28 @@ const router = express.Router();
 const mortgage = require('../models/mortgage');
 
 router.get('/', (req,res) => {
-    res.send(`
-    /navbar/{status number}
+    // res.send(`
+    // /navbar/{status number}
 
-    STATUS NUMBER
-    -3 = approval withdrawn
-    -2 = lodgement declined
-    -1 = lead lost
-    0 = LEAD
-    1 = LODGEMENT
-    2 = APPROVAL
-    3 = SETTLEMENT
-    `)
+    // STATUS NUMBER
+    // -3 = approval withdrawn
+    // -2 = lodgement declined
+    // -1 = lead lost
+    // 0 = LEAD
+    // 1 = LODGEMENT
+    // 2 = APPROVAL
+    // 3 = SETTLEMENT
+    // `)
+    let returnArr = []
+
+    for (let index = 0; index < 4; index++) {
+        const status = getData(index);
+        returnArr.push(status)
+    }
+
+    Promise.all(returnArr).then(data => {
+        res.send(data)
+    })
 })
 
 router.get('/:status', (req, res) => {
@@ -43,9 +53,34 @@ router.get('/:status', (req, res) => {
             })
         })
     })
-    
-    
 })
+
+function getData(status)
+{
+    return new Promise((resolve, reject) => {
+            getTotalMortgages(status)
+                .then(resultObject => { 
+                let returnObj = {};
+                getTotalAmount(resultObject)
+                .then(totalAmount => {
+                    returnObj.totalRecordsForMonth = Object.keys(resultObject).length
+                    returnObj.totalAmountForMonth = totalAmount
+                })
+
+                getTotalMortgagesYTD(status)
+                .then(resultObjectYTD => {
+                
+                    getTotalAmountYTD(resultObjectYTD)
+                    .then(totalAmountYTD => {
+                        returnObj.totalRecordsYTD = Object.keys(resultObjectYTD).length
+                        returnObj.totalAmountYTD = totalAmountYTD
+                        resolve(returnObj)
+                    })
+                })
+            })
+        }
+    )
+}
 
 async function getTotalMortgages(status) {
     /*This function will get all records of current month 
