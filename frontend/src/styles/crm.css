@@ -3,11 +3,13 @@
     color: rgb(153, 153, 153);
     font-size: 50px;
     margin-bottom: 10px;
+    margin-left: 5vw;
   }
 
 .table_header_crm {
     background: rgb(153, 153, 153);
     color: white;
+    margin-left: 5vw;
 }
 
 .crm-search {
@@ -20,12 +22,14 @@
     font-size: 13px;
     text-decoration: none;
     color: #000000;
-    text-align: left
+    text-align: left;
+    margin-left: 5vw;
 }
 
 .input-box {
     max-width: 300px;
     margin-bottom: 10px;
+    margin-left: 5vw;
 }
 
 .search-button {
@@ -36,6 +40,7 @@
     font-size: 20px;
     border-radius: 10px;
     margin-bottom: 15px;
+    margin-left: 5vw;
 }
 
 .search-button:hover {

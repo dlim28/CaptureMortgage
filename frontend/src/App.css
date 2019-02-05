@@ -1,41 +1,16 @@
-html {
-  background: white;
-  display: flex;
-}
-
-
-.nav-ver1 {
-  list-style: none;
-  float: left;
-  top: 0%;
-  background: rgb(11, 92, 150);
-  padding: 50px;
+* {
+  margin: 0;
+  padding: 0;
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin: 0%;
+  font-weight: 300;
 }
 
-li {
-  float: left;
-  margin: 30px;
-  margin-top: 0px;
+body {
+  background: #fff;
+
 }
 
-li a {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  color: white;
+.all-tables {
+  margin-top: 270px;
+  margin-bottom: 100px;
 }
-
-li a:hover {
-  text-decoration: underline;
-  color: rgba(255, 153, 0, 1);
-} 
-<<<<<<< HEAD
-
-    © 2019 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-=======
->>>>>>> 26c379b1bf49ad0f2c7475a67551ce46ba2d5a28
