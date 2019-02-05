@@ -21,7 +21,10 @@ mongoose.connection.on('error', () => {
     console.log('Failed to connect to mongod');
   });
 
-app.use(cors())
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+  }));
 app.use(express.json())
 app.use(require('./controllers'));
 

@@ -7,20 +7,20 @@ class CRM extends Component {
   render() {
     return (
       <div>
-        <h1 class="header_crm header">CRM</h1>
-        <select class='input-box' name="Category" id="username">          
+        <h1 className="header_crm header">CRM</h1>
+        <select className='input-box' name="Category" id="username">          
           <option value="0">--select activity status--</option>
           <option value="1">Active Customers</option> 
           <option value="2">In-Active Customers</option>
           <option value="3">All Customers</option>
         </select> 
               <br></br>
-        <input type="search" class="crm-search" data-table="order-table" placeholder="Search Name"></input>
+        <input type="search" className="crm-search" data-table="order-table" placeholder="Search Name"></input>
         <br></br>
         <button className='search-button'>Search</button>
         <table id="myTable">
           <thead>
-            <tr class="table_header_crm">
+            <tr className="table_header_crm">
               <th>NO.</th>
               <th>Name</th>
               <th>Status</th>

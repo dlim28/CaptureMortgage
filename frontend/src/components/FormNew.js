@@ -3,14 +3,14 @@ import '../styles/Form.css';
 import axios from 'axios';
 
 const Status = "LEAD"
-const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")
+const Dates = Date().replace("GMT+1100 (Australian Eastern Daylight Time)", "")
 
 
 class Form extends Component {
     state = {
-        createdAt: null,
+        createdAt: Date().replace("GMT+1100 (Australian Eastern Daylight Time)", ""),
         customerName: null,
-        status: null,
+        status: "lead",
         referrer: null,
         source: null,
         category: null,
@@ -31,14 +31,16 @@ class Form extends Component {
         e.preventDefault()
         console.log(this.state)
 
-        const { createdAt, lcustomerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee } = this.state
+        const { createdAt, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee } = this.state
         const url = "http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/new-lead"
 
-        const data = { createdAt, lcustomerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee }
+        const data = { createdAt, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee }
+        
         axios.post(url, data)
         .then(resp => {
             console.log(resp)
             this.setState({ message: 'New lead added', error: null})
+            this.context.history.push('/leads');
         })
         .catch(err => {
             console.log(err.response)
@@ -52,7 +54,7 @@ class Form extends Component {
         const { error, message } = this.state
 
         return (
-            <div class='form-grid'>
+            <div className='form-grid'>
 
                 <form className='form' >
                     <div className='customerdetailsheading'>CUSTOMER DETAILS</div>
@@ -79,7 +81,7 @@ class Form extends Component {
                                     {Dates}
                                 </div>
 
-                                <select className='inputbox' name="Referrer" id="Username">
+                                <select className='inputbox' name="Referrer" id="referrer">
                                     <option value="">--select--</option>
                                     <option value="LP Staff">LP Staff</option>
                                     <option value="SP Staff">SP Staff</option>
@@ -89,14 +91,14 @@ class Form extends Component {
                                     <option value="Others">Others</option>
                                 </select>
 
-                                <select className='inputbox' name="Source" id="username">
+                                <select className='inputbox' name="Source" id="source">
                                     <option value="">--select--</option>
                                     <option value="Email">Email</option>
                                     <option value="Phone Call">Phone Call</option>
                                     <option value="App">App</option> 
                                 </select>
 
-                                <select className='inputbox' name="Category" id="username">
+                                <select className='inputbox' name="Category" id="category">
                                     <option value="">--select--</option>
                                     <option value="Re-finance">Re-finance</option>
                                     <option value="Commercial">Commercial</option>
@@ -105,13 +107,13 @@ class Form extends Component {
                                     <option value="Construction">Construction</option>
                                 </select>
 
-                                <input name="CustomerName" className='inputbox'  type="text" id="username"></input>
+                                <input name="CustomerName" className='inputbox'  type="text" id="customerName"></input>
 
-                                <input name="Amount" className='inputbox' type="number" id="username" min="1"></input>
+                                <input name="Amount" className='inputbox' type="number" id="amount" min="1"></input>
 
-                                <input name="DateOfLead" className='inputbox' type="date" id="username"></input>
+                                <input name="DateOfLead" className='inputbox' type="date" id="dateOfLead"></input>
 
-                                <select className='inputbox' name="Lender" id="username">
+                                <select className='inputbox' name="Lender" id="lender">
                                     <option value="">--select--</option>
                                     <option value="ANZ">ANZ</option>
                                     <option value="Bank First">Bank First</option>
@@ -133,7 +135,7 @@ class Form extends Component {
                                     <option value="Westpac">Westpac</option>
                                 </select>
 
-                                <select className='inputbox' name="Employee" id="username">
+                                <select className='inputbox' name="Employee" id="employee">
                                     <option value="">--select--</option>
                                     <option value="Katherin">Katherine</option>
                                     <option value="Johann">Johann</option>
@@ -146,13 +148,16 @@ class Form extends Component {
                         </div>
 
                         <div className='buttonflex'>
+                            <button className='cancelbutton'>
+                                    CANCEL
+                            </button>
                             <button onClick={this.submitForm} className='savebutton'>
                                     SAVE
                             </button>
 
-                            <button className='cancelbutton'>
-                                    CANCEL
-                            </button>
+                            { message && <p>{ message }</p> }
+                            { error && <p>{ error }</p> }
+
                         </div>
                 </form>
             </div>

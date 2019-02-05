@@ -7,11 +7,10 @@ import AppRouter from './components/AppRouter';
 class App extends Component {
   render() {
     return (
-      <div>
+      <>
         <Navbar />
         <AppRouter />
-
-      </div>
+      </>
     );
 
   }

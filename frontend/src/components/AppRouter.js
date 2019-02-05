@@ -7,7 +7,8 @@ import LodgementsTable from './LodgementsTable'
 import ApprovalsTable from './ApprovalsTable'
 import SettlementsTable from './SettlementsTable'
 import CRM from './CrmTable'
-import Form from './Form'
+import FormNew from './FormNew'
+import FormUpdate from './FormUpdate'
 import Login from './Login'
 import { Route } from 'react-router-dom'
 
@@ -17,17 +18,18 @@ class AppRouter extends Component {
     return (
         <div>
             <Route exact path='/' component={Login} />
-            <Route path='/login' component={Login} />
-            <Route path='/dashboard' component={Dashboard} />
-            <Route path='/leads' component={LeadsTable} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/leads' component={LeadsTable} />
             <Route path='/leads/:id' component={LeadsTable} />
-            <Route path='/new' component={Form} />
-            <Route path='/employeeleaderboard' component={EmployeeLeaderboard} />
-            <Route path='/referrerleaderboard' component={ReferrerLeaderboard} />
-            <Route path='/lodgements' component={LodgementsTable} />
-            <Route path='/approvals' component={ApprovalsTable} />
-            <Route path='/settlements' component={SettlementsTable} />
-            <Route path='/crm' component={CRM} />
+            <Route exact path='/new' component={FormNew} />
+            <Route path='/update/:status' component={FormUpdate} />
+            <Route exact path='/employeeleaderboard' component={EmployeeLeaderboard} />
+            <Route exact path='/referrerleaderboard' component={ReferrerLeaderboard} />
+            <Route exact path='/lodgements' component={LodgementsTable} />
+            <Route exact path='/approvals' component={ApprovalsTable} />
+            <Route exact path='/settlements' component={SettlementsTable} />
+            <Route exact path='/crm' component={CRM} />
         </div>
 
     );
