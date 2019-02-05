@@ -106,9 +106,24 @@ background-color: green;
     border-radius: 10px;
 }
 
-    .open-modal-btn:hover {
+.open-modal-btn:hover {
         background-color: #FF0000;
         /* background-color: rgb(145, 37, 37); */
         color: white;
         cursor: pointer;
+}
+
+.modaldata{
+        display: flex;
+        justify-content: space-around;
+        height: 100px
+}
+      
+.modalcontent{
+        height: 100px;
+        display: inline-block;
+        justify-content: space-around;
+        margin-top: 25px;
+        font-size: 22px;
+        font-style: bold;
       }

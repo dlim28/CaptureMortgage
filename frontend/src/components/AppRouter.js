@@ -8,11 +8,15 @@ import ApprovalsTable from './ApprovalsTable'
 import SettlementsTable from './SettlementsTable'
 import CRM from './CrmTable'
 import Form from './Form'
+import FormUpdate from './FormUpdate'
 import Login from './Login'
 import { Route } from 'react-router-dom'
+import axios from 'axios'
+import Modal from './Modal'
 
 
 class AppRouter extends Component {
+
   render() {
     return (
         <div>
@@ -22,6 +26,7 @@ class AppRouter extends Component {
             <Route path='/leads' component={LeadsTable} />
             <Route path='/leads/:id' component={LeadsTable} />
             <Route path='/new' component={Form} />
+            <Route path='/update' component={FormUpdate} />
             <Route path='/employeeleaderboard' component={EmployeeLeaderboard} />
             <Route path='/referrerleaderboard' component={ReferrerLeaderboard} />
             <Route path='/lodgements' component={LodgementsTable} />

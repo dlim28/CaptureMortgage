@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import '/Modal.css';
+import '../styles/Modal.css';
 // import Modal from './Modal';
 
 class ModalLogic extends Component{

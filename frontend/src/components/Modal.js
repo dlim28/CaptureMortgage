@@ -1,12 +1,12 @@
 import React from 'react';
-import '/Modal.css';
-import ModalLogic from '/ModalLogic'
+import '../styles/Modal.css';
+import ModalLogic from './ModalLogic'
 
 const Modal = (props) => {
 
     console.log("Modal loaded")
-    console.log(props.status)
-    
+    console.log(props)
+    if (props.customerData) {
     return (
         
         <div>
@@ -24,13 +24,13 @@ const Modal = (props) => {
                                         <div>Name:</div>
                                         <div className="modalcontent">Status:</div>
                                     </div>
-                                    <div className="modalcontent">
-                                    <ModalLogic status={props.customerName}/>
-                                        <div className="modalcontent"> 
-                                        <ModalLogic status={props.status}/>                                      
+                                    <div>
+                                            {props.customerData.customerName}
+                                        <div> 
+                                            {props.customerData.status}                                     
                                     </div>
                                 </div>
-                                </div>
+                            </div>
 
 
                 <div className="modal-footer">
@@ -39,7 +39,10 @@ const Modal = (props) => {
                 </div>
             </div>
         </div>
-    )
+    )}
+    else {
+        return <div>loading</div>
+    }
 }
 
 export default Modal;
