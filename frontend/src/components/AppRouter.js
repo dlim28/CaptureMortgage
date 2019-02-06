@@ -8,7 +8,6 @@ import ApprovalsTable from './ApprovalsTable'
 import SettlementsTable from './SettlementsTable'
 import CRM from './CrmTable'
 import FormNew from './FormNew'
-import FormUpdate from './FormUpdate'
 import Login from './Login'
 import { Route } from 'react-router-dom'
 
@@ -23,7 +22,6 @@ class AppRouter extends Component {
             <Route exact path='/leads' component={LeadsTable} />
             <Route path='/leads/:id' component={LeadsTable} />
             <Route exact path='/new' component={FormNew} />
-            <Route path='/update/:status' component={FormUpdate} />
             <Route exact path='/employeeleaderboard' component={EmployeeLeaderboard} />
             <Route exact path='/referrerleaderboard' component={ReferrerLeaderboard} />
             <Route exact path='/lodgements' component={LodgementsTable} />

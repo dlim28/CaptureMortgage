@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
+import FormUpdate from './FormUpdate'
 
 
 class LeadsTable extends Component {
-    state = { leads: [] }
+    state = { 
+        leads: [],
+        update: false,
+        updatePerson: null
+    }
+
+    handleUpdateClick(lead) {
+        this.setState({
+            update: true,
+            updatePerson: lead
+            
+        });
+    }
 
     fetchData() {
+        const config = { headers: {
+            token: sessionStorage.getItem('token')
+          }}
         // console.log('fetching data')
-        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/all')
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/all', config)
         .then(resp => {
             console.log(resp.data)
             this.setState({ leads: resp.data })
@@ -23,7 +39,7 @@ class LeadsTable extends Component {
 
     render() {
         const { leads } = this.state;
-
+        if (this.state.update === false) {
         return (
             <div>
 
@@ -48,10 +64,10 @@ class LeadsTable extends Component {
                         <tbody>
                             {leads.map((lead, i) => {
                                 return (
-                                <tr key={i}>
+                                <tr key={i} onClick={() => this.handleUpdateClick(lead)}>
                                     <td>{lead.id}</td>
                                     <td>{lead.dateOfLead}</td>
-                                    <td><a href={'/update/' + lead.id}>{lead.customerName}</a></td>
+                                    <td><a href={'#' + lead.id}>{lead.customerName}</a></td>
                                     <td>{lead.category}</td>
                                     <td>${Intl.NumberFormat().format(lead.amount)}</td>
                                     <td>{lead.referrer}</td>
@@ -65,7 +81,12 @@ class LeadsTable extends Component {
             </div>
                 
         );
+    } else {
+        return (
+            <FormUpdate customerData={this.state.updatePerson}/>
+        )
     }
+}
 }
 
 export default LeadsTable;

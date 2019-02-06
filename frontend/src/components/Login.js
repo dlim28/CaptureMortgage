@@ -16,7 +16,7 @@ class Login extends Component {
   submitForm = (e) => {
     e.preventDefault()
     const { username, password } = (this.state)
-    const url = "http://localhost:5000/auth/login";
+    const url = "http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/auth/login";
     const data = {
       username, 
       password
@@ -24,7 +24,9 @@ class Login extends Component {
     axios.post(url, data)
       .then(resp => {
         const { token } = resp.data
-        localStorage.setItem('token', token)
+        // console.log(resp.data)
+        console.log("token: ", token)
+        sessionStorage.setItem("token", token)
         this.setState({ message: 'Successful login', error: undefined })
       })
       .catch(error => {
@@ -37,7 +39,8 @@ class Login extends Component {
 
   render() {
     const { error, message } = this.state;
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
+    // console.log(token)
     if (!token) {
       return ( 
         <div className="LoginPage">

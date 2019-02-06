@@ -2,18 +2,35 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
-// axios.defaults.withCredentials = true
+import FormUpdate from './FormUpdate'
 
 class ApprovalsTable extends Component {
-  state = { approvals: [] }
+  state = { 
+    approvals: [],
+    update: false,
+    updatePerson: null
+  }
 
+  handleUpdateClick(approval) {
+    this.setState({
+        update: true,
+        updatePerson: approval
+    });
+  }
+
+  
   fetchData() {
+    const config = { headers: {
+      token: sessionStorage.getItem('token')
+    }}
     // console.log('fetching data')
-    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/approvals')
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/approvals', config)
       .then(resp => {
+          console.log(resp)
           console.log(resp.data)
           this.setState({ approvals: resp.data })
     })
+    .catch(err => console.log(err))
   }
 
   componentDidMount() {
@@ -23,7 +40,7 @@ class ApprovalsTable extends Component {
 
   render() {
     const { approvals } = this.state;
-
+    if (this.state.update === false) {
     return (
       <div>
         <div className="center">
@@ -48,13 +65,13 @@ class ApprovalsTable extends Component {
             <tbody>
               {approvals.map((approval, i) => {
                 return (
-                <tr key={i}>
+                <tr key={i} onClick={() => this.handleUpdateClick(approval)}>
                     <td>{approval.id}</td>
                     <td>{approval.statusDate}</td>
-                    <td><a href={'/update/' + approval.id}>{approval.customerName}</a></td>
+                    <td><a href={'#' + approval.id}>{approval.customerName}</a></td>
                     <td>{approval.category}</td>
                     <td>${Intl.NumberFormat().format(approval.amount)}</td>
-                    <td></td>
+                    <td>{approval.WIP}</td>
                     <td>{approval.lender}</td>
                     <td>{approval.employee}</td>
                 </tr>
@@ -65,6 +82,11 @@ class ApprovalsTable extends Component {
         </div>
       </div>
     );
+  } else {
+      return (
+        <FormUpdate customerData={this.state.updatePerson}/>
+      )
+    }
   }
 }
 

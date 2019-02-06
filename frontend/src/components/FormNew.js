@@ -33,13 +33,17 @@ class Form extends Component {
         console.log(this.state)
 
         const { statusDate, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee } = this.state
-        const url = "http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/new-lead"
+        const url = "http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/new-lead"
 
         const data = { statusDate, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee }
         
+        const config = { headers: {
+            token: sessionStorage.getItem('token')
+        }}
         // console.log(data)
         // console.log(statusDateDb)
-        axios.post(url, data)
+        axios.post(url, data, config)
+        
         .then(resp => {
             console.log(resp)
             this.setState({ message: 'New lead added', error: null})

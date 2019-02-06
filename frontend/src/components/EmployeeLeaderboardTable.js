@@ -7,8 +7,11 @@ class EmployeeLeaderboard extends Component {
     state = { leads: [] }
     
     fetchData() {
+        const config = { headers: {
+            token: sessionStorage.getItem('token')
+          }}
         // console.log('fetching data')
-        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/employee-leaderboard')
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/employee-leaderboard', config)
         .then(resp => {
             console.log(resp.data)
             this.setState({ leads: resp.data })

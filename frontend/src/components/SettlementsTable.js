@@ -2,13 +2,28 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
+import FormUpdate from './FormUpdate'
 
 class SettlementsTable extends Component {
-  state = { settlements: [] }
+  state = { 
+    settlements: [],
+    update: false,
+    updatePerson: null
+  }
+
+  handleUpdateClick(settlement) {
+    this.setState({
+        update: true,
+        updatePerson: settlement
+    });
+  }
 
   fetchData() {
+    const config = { headers: {
+      token: sessionStorage.getItem('token')
+    }}
     // console.log('fetching data')
-    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/settlements')
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/settlements', config)
         .then(resp => {
           console.log(resp.data)
           this.setState({ settlements: resp.data })
@@ -22,7 +37,7 @@ class SettlementsTable extends Component {
 
   render() {
     const { settlements } = this.state;
-
+    if (this.state.update === false) {
     return (
       <div>
 
@@ -45,10 +60,10 @@ class SettlementsTable extends Component {
             <tbody>
               {settlements.map((settlement, i) => {
                 return (
-                <tr key={i}>
+                <tr key={i} onClick={() => this.handleUpdateClick(settlement)}>
                     <td>{settlement.id}</td>
                     <td>{settlement.statusDate}</td>
-                    <td><a href={'/update/' + settlement.id}>{settlement.customerName}</a></td>
+                    <td><a hhref={'#' + settlement.id}>{settlement.customerName}</a></td>
                     <td>{settlement.category}</td>
                     <td>${Intl.NumberFormat().format(settlement.amount)}</td>
                     <td>{settlement.lender}</td>
@@ -61,7 +76,12 @@ class SettlementsTable extends Component {
           </table>
         </div>
       </div>
-    );
+      );
+    } else {
+      return (
+        <FormUpdate customerData={this.state.updatePerson}/>
+      )
+    }
   }
 }
 
