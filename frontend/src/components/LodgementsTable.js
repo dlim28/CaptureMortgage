@@ -6,15 +6,20 @@ import axios from 'axios';
 
 class LodgementsTable extends Component {
   state = { lodgements: [] }
-    
+
+  fetchData() {
+    // console.log('fetching data')
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/lodgements')
+    .then(resp => {
+        console.log(resp.data)
+        this.setState({ lodgements: resp.data })
+    })
+  }
+
   componentDidMount() {
-    console.log(new Date().getMonth())
-      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/lodgements')
-          .then(resp => {
-              console.log(resp.data)
-              this.setState({ lodgements: resp.data })
-          })
-      }
+      this.fetchData();
+      setInterval(this.fetchData, 15000);
+  }
 
   render() {
     const { lodgements } = this.state;

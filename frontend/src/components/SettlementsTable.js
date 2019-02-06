@@ -6,13 +6,19 @@ import axios from 'axios';
 class SettlementsTable extends Component {
   state = { settlements: [] }
 
-  componentDidMount() {
+  fetchData() {
+    // console.log('fetching data')
     axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/settlements')
         .then(resp => {
-            console.log(resp.data)
-            this.setState({ settlements: resp.data })
-        })
-    }
+          console.log(resp.data)
+          this.setState({ settlements: resp.data })
+    })
+  }
+
+  componentDidMount() {
+      this.fetchData();
+      setInterval(this.fetchData, 15000);
+  }
 
   render() {
     const { settlements } = this.state;

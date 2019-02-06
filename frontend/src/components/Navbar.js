@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/NavbarCM.css';
 import logo from '../assets/CMP_FullLogo.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import axios from 'axios';
 
 class Navbar extends Component {
@@ -9,15 +9,20 @@ class Navbar extends Component {
         navbars: [] 
     }
 
-    componentDidMount() {
-    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar')
+    fetchData() {
+        // console.log('fetching data')
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar')
         .then(resp => {
             console.log(resp.data)
             this.setState({ navbars: resp.data })
         })
     }
 
-    
+    componentDidMount() {
+        this.fetchData();
+        setInterval(this.fetchData, 15000);
+    }
+
     render() {
         const { navbars } = this.state;
 
@@ -35,7 +40,7 @@ class Navbar extends Component {
                     <nav className="navbar">
                         
                         <NavLink to="/dashboard" className="lined">DASHBOARD</NavLink>
-                        <a href="/leads" className="lined">
+                        <Link to="/leads" className="lined">
                             <div className="dropdown">
                                 <button className="dropbtn">LEADS<span> </span>
                                     <i className="fa fa-caret-down"></i>
@@ -46,12 +51,12 @@ class Navbar extends Component {
                                     <NavLink to="/referrerleaderboard">Referrer Leaderboard</NavLink>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                         <NavLink to="/lodgements" className="lined">LODGEMENTS</NavLink>
                         <NavLink to="/approvals" className="lined">APPROVALS</NavLink>
                         <NavLink to="/settlements" className="lined">SETTLEMENTS</NavLink>
                         <NavLink to="/crm" className="lined">CRM</NavLink>
-                        <NavLink to="/login" className="lined">LOGIN</NavLink>
+                        <NavLink to="/login" className="lined">LOGOUT{localStorage.clear()}</NavLink>
                     </nav>
                 </div>
         

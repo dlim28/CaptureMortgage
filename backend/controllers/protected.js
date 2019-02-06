@@ -6,25 +6,15 @@ const User = require('../models/user');
 
 const isAuthenticated = (req, res, next) => {
     const { token } = req.headers;
-    const decoded = jwt.verify ( token, 'cmp-key');
-    console.log(decoded)
-    next();
-
-    const { username, password } = req.body;
-    if (username) {
-        User.findOne({ username })
-            .then(doc => {
-                if (!doc) {
-                    return res.status(403).send('Bad username');
-                }
-            if (doc.password !== password) {
-                return res.status(403).send('Bad password');
-            }
-            next();
-        });
-    } else {
-        return res.status(403).send('Bad credentials')
+    if (!token) {
+        return res.status(403).send('Not authenticated')
     }
+    const decoded = jwt.verify (token, 'cmp-key', (err, decoded) => {
+        if (err) {
+            return res.status(403).send('Not authenticated')
+        }
+        next()
+    });
 }
 
 // Below routes run throguh isAuthenticated middleware

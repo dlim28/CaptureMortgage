@@ -5,14 +5,20 @@ import axios from 'axios';
 
 class EmployeeLeaderboard extends Component {
     state = { leads: [] }
-
-    componentDidMount() {
-      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/employee-leaderboard')
+    
+    fetchData() {
+        // console.log('fetching data')
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/employee-leaderboard')
         .then(resp => {
             console.log(resp.data)
             this.setState({ leads: resp.data })
         })
-      }
+    }
+
+    componentDidMount() {
+        this.fetchData();
+        setInterval(this.fetchData, 15000);
+    }
 
 
     render() {

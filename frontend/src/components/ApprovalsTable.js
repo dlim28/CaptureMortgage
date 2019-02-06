@@ -7,13 +7,19 @@ import axios from 'axios';
 class ApprovalsTable extends Component {
   state = { approvals: [] }
 
-  componentDidMount() {
+  fetchData() {
+    // console.log('fetching data')
     axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/approvals')
-        .then(resp => {
-            console.log(resp.data)
-            this.setState({ approvals: resp.data })
-        })
-    }
+      .then(resp => {
+          console.log(resp.data)
+          this.setState({ approvals: resp.data })
+    })
+  }
+
+  componentDidMount() {
+      this.fetchData();
+      setInterval(this.fetchData, 15000);
+  }
 
   render() {
     const { approvals } = this.state;

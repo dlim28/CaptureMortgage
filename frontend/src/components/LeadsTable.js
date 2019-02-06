@@ -2,23 +2,28 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
-// import ReactTable from "react-table";
 
 
 class LeadsTable extends Component {
     state = { leads: [] }
-    
-    componentDidMount() {
+
+    fetchData() {
+        // console.log('fetching data')
         axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/all')
-            .then(resp => {
-                console.log(resp.data)
-                this.setState({ leads: resp.data })
-            })
-        }
+        .then(resp => {
+            console.log(resp.data)
+            this.setState({ leads: resp.data })
+        })
+    }
+
+    componentDidMount() {
+        this.fetchData();
+        setInterval(this.fetchData, 15000);
+    }
 
     render() {
         const { leads } = this.state;
- 
+
         return (
             <div>
 

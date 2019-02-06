@@ -5,7 +5,7 @@ POST http://localhost:5000/leads/new-lead
 Content-Type: application/json
 
 {
-		"status": "2",
+		"status": "SETTLEMENTS",
 		"statusDate": "2019-11-26",
 		"referrer": "1",
 		"source": "2",
@@ -17,11 +17,11 @@ Content-Type: application/json
 		"employee": "Katherine"
 }
 ###
-GET http://localhost:5000/leads/select/253
+GET http://localhost:5000/leads/select/32
 ###
-PATCH http://localhost:5000/leads/253/edit
+PATCH http://localhost:5000/leads/32/edit
 Content-Type: application/json
 
 {
-	"customerName":"Benny"
+	"referrer":"Other"
 }

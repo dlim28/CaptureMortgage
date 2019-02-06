@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import '../styles/crm.css';
-
+import axios from 'axios';
 
 class CRM extends Component {
+  state = { crm: [] }
+
+  fetchData() {
+    // console.log('fetching data')
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/crm')
+    .then(resp => {
+        console.log(resp.data)
+        this.setState({ crm: resp.data })
+    })
+  }
+
+  componentDidMount() {
+      this.fetchData();
+      setInterval(this.fetchData, 15000);
+  }
+
   render() {
+    const { crm } = this.state;
+
     return (
       <div>
         <h1 className="header_crm header">CRM</h1>
@@ -22,34 +40,23 @@ class CRM extends Component {
           <thead>
             <tr className="table_header_crm">
               <th>NO.</th>
-              <th>Name</th>
+              <th>Customer Name</th>
               <th>Status</th>
               <th>Status Date</th>
               <th>Category</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>01/01/2019</td>
-              <td>Craig David</td>
-              <td>Home Loan</td>
-              <td>$200,000</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>01/01/2019</td>
-              <td>James Dean</td>
-              <td>Home Loan</td>
-              <td>$40,000</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>02/04/2018</td>
-              <td>Billy Joel</td>
-              <td>Home Loan</td>
-              <td>$475,000</td>
-            </tr>
+            {crm.map((mortgage, i) => {
+                return (
+                <tr key={i}>
+                    <td>{mortgage.id}</td>
+                    <td><a href={'/update/' + mortgage.id}>{mortgage.customerName}</a></td>
+                    <td class='capitalize'>{mortgage.status}</td>
+                    <td>{mortgage.statusDate}</td>
+                    <td>{mortgage.category}</td>
+                </tr>
+            )})}
           </tbody>
         </table>
       </div>
