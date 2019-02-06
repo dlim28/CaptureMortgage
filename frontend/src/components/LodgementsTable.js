@@ -1,167 +1,65 @@
 import React, { Component } from 'react';
-import "react-table/react-table.css";
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
-import ReactTable from "react-table";
+import axios from 'axios';
+
 
 class LodgementsTable extends Component {
+  state = { lodgements: [] }
+    
+  componentDidMount() {
+      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/lodgements')
+          .then(resp => {
+              console.log(resp.data)
+              this.setState({ lodgements: resp.data })
+          })
+      }
+
   render() {
-
-    const data = [{
-      id: 1,
-      lodgements: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      employee: 'Hank Hill'
-    },
-    {
-      id: 2,
-      lodgements: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      employee: 'Hank Mill'
-    },
-    {
-      id: 3,
-      lodgements: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      employee: 'Hank Till'
-    },
-    {
-      id: 4,
-      lodgements: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      employee: 'Hank Dill'
-    },
-    {
-      id: 5,
-      lodgements: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      employee: 'Hank Kill'
-    },
-    {
-      id: 6,
-      lodgements: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      employee: 'Hank Zill'
-    },
-    {
-    id: 7,
-    lodgements: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    employee: 'Hank Hill'
-  },
-  {
-    id: 8,
-    lodgements: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    employee: 'Hank Mill'
-  },
-  {
-    id: 9,
-    lodgements: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    employee: 'Hank Till'
-  },
-  {
-    id: 10,
-    lodgements: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    employee: 'Hank Dill'
-  },
-  {
-    id: 11,
-    lodgements: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    employee: 'Hank Kill'
-  }
- ]
-
-    const columns = [{
-      Header: 'ID',
-      accessor: 'id'
-    },
-    {
-      Header: 'Moved to Lodgements',
-      accessor: 'lodgements'
-    },
-    {
-      Header: 'Customer Name',
-      accessor: 'name'
-    },
-    {
-      Header: 'Category',
-      accessor: 'category'
-    },
-    {
-      Header: 'Amount',
-      accessor: 'amount'
-    },
-    {
-      Header: 'WIP',
-      accessor: 'wip'
-    },
-    {
-      Header: 'Employee',
-      accessor: 'employee'
-    }
-  ]
-
+    const { lodgements } = this.state;
+    
     return (
+      <div>
 
-          
+        <div class="lodgements center">
+          <h1 class="header_lodgements header">LODGEMENTS</h1>
+          <div class="CMP_lodgements">
+            <h3>CaptureMortgage+ Lodgements Board</h3><span> </span>
+            <h3><FiscalYear /></h3>
+          </div>
+          <table id="myTable">
+            <thead>
+              <tr class="lodgements-back">
+                <th>ID</th>
+                <th>Moved to Lodgements</th>
+                <th>Customer Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>WIP</th>
+                <th>Employee</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lodgements.map((lodgement, i) => {
+                  return (
+                    <tr key={i}>
+                      <td>{lodgement.id}</td>
+                      <td>{lodgement.statusDate}</td>
+                      <td><a href="#">{lodgement.customerName}</a></td>
+                      <td>{lodgement.category}</td>
+                      <td>${Intl.NumberFormat().format(lodgement.amount)}</td>
+                      <td></td>
+                      <td>{lodgement.employee}</td>
+                  </tr>
+              )})}
+            </tbody>
 
+          </table>
+        </div>
+      </div>
 
-          <div>
-
-<div class="lodgements header">
-    <h3>CaptureMortgage+ Lodgements Board</h3><span> </span>
-    <h3><FiscalYear /></h3>
-    </div>
-
-              <ReactTable
-                data={data}
-                columns={columns}
-                defaultPageSize = {10}
-                pageSizeOptions = {[10, 20, 50]}
-              />
-          </div>      
     )
-
   }
 }
 
 export default LodgementsTable;
-
-

@@ -1,182 +1,64 @@
 import React, { Component } from 'react';
-import "react-table/react-table.css";
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
-import ReactTable from "react-table";
+import axios from 'axios';
 
 class ApprovalsTable extends Component {
-  render() {
+  state = { approvals: [] }
 
-    const data = [{
-      id: 1,
-      approvals: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      lender: 'Bob Builder',
-      employee: 'Hank Hill'
-    },
-    {
-      id: 2,
-      approvals: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      lender: 'Bob Builder',
-      employee: 'Hank Mill'
-    },
-    {
-      id: 3,
-      approvals: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      lender: 'Bob Builder',
-      employee: 'Hank Till'
-    },
-    {
-      id: 4,
-      approvals: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      lender: 'Bob Builder',
-      employee: 'Hank Dill'
-    },
-    {
-      id: 5,
-      approvals: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      lender: 'Bob Builder',
-      employee: 'Hank Kill'
-    },
-    {
-      id: 6,
-      approvals: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      wip: '3 days',
-      lender: 'Bob Builder',
-      employee: 'Hank Zill'
-    },
-    {
-    id: 7,
-    approvals: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    lender: 'Bob Builder',
-    employee: 'Hank Hill'
-  },
-  {
-    id: 8,
-    approvals: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    lender: 'Bob Builder',
-    employee: 'Hank Mill'
-  },
-  {
-    id: 9,
-    approvals: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    lender: 'Bob Builder',
-    employee: 'Hank Till'
-  },
-  {
-    id: 10,
-    approvals: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    lender: 'Bob Builder',
-    employee: 'Hank Dill'
-  },
-  {
-    id: 11,
-    approvals: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    wip: '3 days',
-    lender: 'Bob Builder',
-    employee: 'Hank Kill'
-  }
- ]
-
-    const columns = [{
-      Header: 'ID',
-      accessor: 'id'
-    },
-    {
-      Header: 'Moved to Approvals',
-      accessor: 'approvals'
-    },
-    {
-      Header: 'Customer Name',
-      accessor: 'name'
-    },
-    {
-      Header: 'Category',
-      accessor: 'category'
-    },
-    {
-      Header: 'Amount',
-      accessor: 'amount'
-    },
-    {
-      Header: 'WIP',
-      accessor: 'wip'
-    },
-    {
-      Header: 'Lender',
-      accessor: 'lender'
-    },
-    {
-      Header: 'Employee',
-      accessor: 'employee'
+  componentDidMount() {
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/approvals')
+        .then(resp => {
+            console.log(resp.data)
+            this.setState({ approvals: resp.data })
+        })
     }
-  ]
+
+  render() {
+    const { approvals } = this.state;
 
     return (
+      <div>
+        <div class="center">
+          <h1 class="header approvals">APPROVALS</h1>
+          <div class="approvals">
+            <h3>CaptureMortgage+ Approvals Board</h3><span> </span>
+            <h3><FiscalYear /></h3>
+          </div>
+          <table id="myTable">
+            <thead>
+              <tr class="approvals-back">
+                <th>ID</th>
+                <th>Moved to Approvals</th>
+                <th>Customer Name</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>WIP</th>
+                <th>Lender</th>
+                <th>Employee</th>
+              </tr>
+            </thead>
+            <tbody>
+              {approvals.map((approval, i) => {
+                return (
+                <tr key={i}>
+                    <td>{approval.id}</td>
+                    <td>{approval.statusDate}</td>
+                    <td><a href="#">{approval.customerName}</a></td>
+                    <td>{approval.category}</td>
+                    <td>${Intl.NumberFormat().format(approval.amount)}</td>
+                    <td></td>
+                    <td>{approval.lender}</td>
+                    <td>{approval.employee}</td>
+                </tr>
+              )})}
+            </tbody>
 
-          
-
-
-          <div>
-
-<div class="approvals header">
-    <h3>CaptureMortgage+ Approvals Board</h3><span> </span>
-    <h3><FiscalYear /></h3>
-    </div>
-
-              <ReactTable
-                data={data}
-                columns={columns}
-                defaultPageSize = {10}
-                pageSizeOptions = {[10, 20, 50]}
-              />
-          </div>      
-    )
-
+          </table>
+        </div>
+      </div>
+    );
   }
 }
 
 export default ApprovalsTable;
-
-

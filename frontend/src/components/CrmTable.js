@@ -108,42 +108,36 @@ class CRM extends Component {
     }
   ]
 
-    return (
+    return (  
+    
+    <div>
 
-          
-
-
-          <div>
-
-<div>
-        <h1 class="header_crm header">CRM</h1>
-        <select class='input-box' name="Category" id="username">          
-          <option value="0">--select activity status--</option>
-          <option value="1">Active Customers</option> 
-          <option value="2">In-Active Customers</option>
-          <option value="3">All Customers</option>
-        </select> 
-              <br></br>
-        <input type="search" class="crm-search" data-table="order-table" placeholder="Search Name"></input>
-        <br></br>
+<h1 class="header_crm header">CRM</h1>
+      <select class='input-box' name="Category" id="username">          
+        <option value="0">--select activity status--</option>
+        <option value="1">Active Customers</option> 
+        <option value="2">In-Active Customers</option>
+        <option value="3">All Customers</option>
+      </select> 
+            <br></br>
+      <input type="search" class="crm-search" data-table="order-table" placeholder="Search Name"></input>
+      <br></br>
         <button className='search-button'>Search</button>
-        </div>
 
-              <ReactTable
-                data={data}
-                // filterable
-                // defaultFilterMethod={(filter, row) =>
-                // String(row[filter.id]) === filter.value}
-                columns={columns}
-                defaultPageSize = {10}
-                pageSizeOptions = {[10, 20, 50]}
-              />
-          </div>      
-    )
+<ReactTable
+  data={data}
+  // filterable
+  // defaultFilterMethod={(filter, row) =>
+  // String(row[filter.id]) === filter.value}
+  columns={columns}
+  defaultPageSize = {10}
+  pageSizeOptions = {[10, 20, 50]}
+/>
+</div>      
+)
 
-  }
+}
 }
 
+
 export default CRM;
-
-

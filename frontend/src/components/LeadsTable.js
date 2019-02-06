@@ -3,165 +3,87 @@ import "react-table/react-table.css";
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import ReactTable from "react-table";
+import axios from 'axios';
 
 class LeadsTable extends Component {
+
+  state = { leads: [] }
+    
+  componentDidMount() {
+      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/all')
+          .then(resp => {
+              console.log(resp.data)
+              this.setState({ leads: resp.data })
+          })
+      }
+
   render() {
 
-    const data = [{
-      id: 1,
-      leads: '02/02/2019',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      referrer: 'LP Staff',
-      employee: 'Hank Hill'
-    },
-    {
-      id: 2,
-      leads: '02/02/2019',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      referrer: 'LP Staff',
-      employee: 'Hank Mill'
-    },
-    {
-      id: 3,
-      leads: '02/02/2019',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      referrer: 'LP Staff',
-      employee: 'Hank Till'
-    },
-    {
-      id: 4,
-      leads: '02/02/2019',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      referrer: 'LP Staff',
-      employee: 'Hank Dill'
-    },
-    {
-      id: 5,
-      leads: '02/02/2019',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      referrer: 'LP Staff',
-      employee: 'Hank Kill'
-    },
-    {
-      id: 6,
-      leads: '',
-      name: 'Roy Agasthyan',
-      category: 'Home Lone',
-      amount: 2000,
-      referrer: 'LP Staff',
-      employee: 'Hank Zill'
-    },
-    {
-    id: 7,
-    leads: '02/02/2019',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    referrer: 'LP Staff',
-    employee: 'Hank Hill'
-  },
-  {
-    id: 8,
-    leads: '',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    referrer: 'LP Staff',
-    employee: 'Hank Mill'
-  },
-  {
-    id: 9,
-    leads: '02/02/2019',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    referrer: 'LP Staff',
-    employee: 'Hank Till'
-  },
-  {
-    id: 10,
-    leads: '02/02/2019',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    referrer: 'LP Staff',
-    employee: 'Hank Dill'
-  },
-  {
-    id: 11,
-    leads: '02/02/2019',
-    name: 'Roy Agasthyan',
-    category: 'Home Lone',
-    amount: 2000,
-    referrer: 'LP Staff',
-    employee: 'Hank Kill'
-  }
- ]
+    const { leads } = this.state;
 
-    const columns = [{
-      Header: 'ID',
-      accessor: 'id'
-    },
-    {
-      Header: 'Entered as Lead',
-      accessor: 'leads'
-    },
-    {
-      Header: 'Customer Name',
-      accessor: 'name'
-    },
-    {
-      Header: 'Category',
-      accessor: 'category'
-    },
-    {
-      Header: 'Amount',
-      accessor: 'amount'
-    },
-    {
-      Header: 'Referrer',
-      accessor: 'referrer'
-    },
-    {
-      Header: 'Employee',
-      accessor: 'employee'
-    }
-  ]
+console.log(leads)
 
+    const data = [
+      {
+        id: leads.id,
+        leads: leads.dateOfLead,
+        name: leads.customerName,
+        category: leads.category,
+        amount: Intl.NumberFormat().format(leads.amount),
+        referrer: leads.referrer,
+        employee: leads.employee
+      }
+   ]
+  console.log(data)
+  
+      const columns = [{
+        Header: 'ID',
+        accessor: 'id'
+      },
+      {
+        Header: 'Entered as Lead',
+        accessor: 'leads'
+      },
+      {
+        Header: 'Customer Name',
+        accessor: 'name'
+      },
+      {
+        Header: 'Category',
+        accessor: 'category'
+      },
+      {
+        Header: 'Amount',
+        accessor: 'amount'
+      },
+      {
+        Header: 'Referrer',
+        accessor: 'referrer'
+      },
+      {
+        Header: 'Employee',
+        accessor: 'employee'
+      }
+    ]
+  
     return (
+        <div>
 
-          
-
-
-          <div>
-
-<div class="leads header">
-    <h3>CaptureMortgage+ Leads Board</h3><span> </span>
-    <h3><FiscalYear /></h3>
-    </div>
-
-              <ReactTable
-                data={data}
-                columns={columns}
-                defaultPageSize = {10}
-                pageSizeOptions = {[10, 20, 50]}
-              />
-          </div>      
-    )
-
-  }
-}
-
-export default LeadsTable;
-
-
+        <div class="leads header">
+            <h3>CaptureMortgage+ Leads Board</h3><span> </span>
+            <h3><FiscalYear /></h3>
+            </div>
+        
+                      <ReactTable
+                        data={data}
+                        columns={columns}
+                        defaultPageSize = {10}
+                        pageSizeOptions = {[10, 20, 50]}
+                      />
+                  </div>      
+            )
+        
+          }
+        }
+        
+        export default LeadsTable;
