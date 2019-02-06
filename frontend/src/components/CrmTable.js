@@ -2,9 +2,22 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import '../styles/crm.css';
 import axios from 'axios';
+import FormUpdate from './FormUpdate'
 
 class CRM extends Component {
-  state = { crm: [] }
+  state = { 
+    crm: [],
+    update: false,
+    updatePerson: null
+  }
+
+  handleUpdateClick(lodgement) {
+    this.setState({
+        update: true,
+        updatePerson: lodgement
+    });
+    // console.log(this.state)
+  }
 
   fetchData() {
     const config = { headers: {
@@ -25,7 +38,7 @@ class CRM extends Component {
 
   render() {
     const { crm } = this.state;
-
+    if (this.state.update === false) {
     return (
       <div>
         <h1 className="header_crm header">CRM</h1>
@@ -56,15 +69,20 @@ class CRM extends Component {
                     <td>{mortgage.id}</td>
                     <td><a href={'/update/' + mortgage.id}>{mortgage.customerName}</a></td>
                     <td class='capitalize'>{mortgage.status}</td>
-                    <td>{mortgage.statusDate}</td>
+                    <td>{mortgage.statusDate.slice(0, 10)}</td>
                     <td>{mortgage.category}</td>
                 </tr>
             )})}
           </tbody>
         </table>
       </div>
-    );
+    )
+  } else {
+    return (
+      <FormUpdate customerData={this.state.updatePerson}/>
+    )
   }
+}
 }
 
 export default CRM;

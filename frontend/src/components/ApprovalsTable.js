@@ -67,7 +67,7 @@ class ApprovalsTable extends Component {
                 return (
                 <tr key={i} onClick={() => this.handleUpdateClick(approval)}>
                     <td>{approval.id}</td>
-                    <td>{approval.statusDate}</td>
+                    <td>{approval.statusDate.slice(0, 10)}</td>
                     <td><a href={'#' + approval.id}>{approval.customerName}</a></td>
                     <td>{approval.category}</td>
                     <td>${Intl.NumberFormat().format(approval.amount)}</td>

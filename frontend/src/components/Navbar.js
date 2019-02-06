@@ -16,7 +16,7 @@ class Navbar extends Component {
         // console.log('fetching data')
         axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/navbar', config)
         .then(resp => {
-            console.log(resp.data)
+            // console.log(resp.data)
             this.setState({ navbars: resp.data })
         })
     }

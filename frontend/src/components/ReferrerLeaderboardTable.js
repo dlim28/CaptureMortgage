@@ -127,5 +127,3 @@ class ReferrerLeaderboard extends Component {
 }
 
 export default ReferrerLeaderboard;
-
-

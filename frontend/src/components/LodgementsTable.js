@@ -65,7 +65,7 @@ class LodgementsTable extends Component {
                   return (
                     <tr key={i} onClick={() => this.handleUpdateClick(lodgement)}>
                       <td>{lodgement.id}</td>
-                      <td>{lodgement.statusDate}</td>
+                      <td>{lodgement.statusDate.slice(0, 10)}</td>
                       <td><a href={'#' + lodgement.id}>{lodgement.customerName}</a></td>
                       <td>{lodgement.category}</td>
                       <td>${Intl.NumberFormat().format(lodgement.amount)}</td>
