@@ -7,7 +7,11 @@ class ReferrerLeaderboard extends Component {
     state = { leads: [] }
 
     fetchData() {
-        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/referrer-leaderboard')
+        const config = { headers: {
+            token: sessionStorage.getItem('token')
+          }}
+
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/referrer-leaderboard', config)
         .then(resp => {
             console.log(resp.data)
             this.setState({ leads: resp.data })

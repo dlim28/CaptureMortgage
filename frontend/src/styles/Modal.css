@@ -1,0 +1,130 @@
+.modal-wrapper {
+    background: white;
+    border: 1px solid #d0cccc;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    transition: all .8s;
+    width: 50%;
+    align-content: center;
+    position: fixed;
+    overflow: auto;
+    z-index: 9999;
+    margin: 25%;
+
+}
+
+.modal-header {
+    background: black;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px 20px;
+    text-align: right;
+}
+
+.modal-header h3 {
+    color: white;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-body {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.modal-footer {
+    height: 35px;
+    padding: 15px;
+    align-content: center;
+}
+
+.close-modal-btn {
+    color: white;
+    cursor: pointer;
+    float: right;
+    font-size: 30px;
+    margin: 0;
+}
+
+.close-modal-btn:hover {
+    color: black;
+}
+
+.btn-cancel, .btn-continue {
+    background: coral;
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+}
+
+.btn-cancel {
+    background-color: rgb(18, 77, 136);
+    float: right;
+    padding: 6px;
+    border: white;
+    border-style: solid;
+    border-width: .3px;
+    border-radius: 10px;
+    font-size: 20px;
+    font: inherit;
+}
+.btn-cancel:hover {
+background-color: green;
+}
+
+.btn-continue {
+    background-color:rgb(18, 77, 136);
+    padding: 6px 50px;
+    float: left;
+    border: white;
+    border-style: solid;
+    border-width: .3px;
+    border-radius: 10px;
+    font-size: 20px;
+    font: inherit;
+}
+.btn-continue:hover{
+    background-color: red;
+}
+
+.back-drop {
+    background-color: rgba(48, 49, 48, 0.42);
+    height: 100%;
+    position: fixed;
+    transition: all 1.3s;
+    width: 100%;
+    z-index: 999;
+}
+
+.open-modal-btn {
+    background-color: rgb(18, 77, 136);
+    padding: 1px 50px;
+    color:white;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.open-modal-btn:hover {
+        background-color: #FF0000;
+        /* background-color: rgb(145, 37, 37); */
+        color: white;
+        cursor: pointer;
+}
+
+.modaldata{
+        display: flex;
+        justify-content: space-around;
+        height: auto;
+}
+      
+.modalcontent{
+        height: 100px;
+        display: inline-block;
+        justify-content: space-around;
+        margin-top: 25px;
+        padding-bottom: 25px;
+        font-size: 22px;
+        font-style: bold;
+      }

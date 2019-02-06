@@ -2,14 +2,30 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
+import FormUpdate from './FormUpdate'
 
 
 class LodgementsTable extends Component {
-  state = { lodgements: [] }
+  state = { 
+    lodgements: [],
+    update: false,
+    updatePerson: null
+  }
+
+  handleUpdateClick(lodgement) {
+    this.setState({
+        update: true,
+        updatePerson: lodgement
+    });
+    // console.log(this.state)
+  }
 
   fetchData() {
+    const config = { headers: {
+      token: sessionStorage.getItem('token')
+    }}
     // console.log('fetching data')
-    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/lodgements')
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/lodgements', config)
     .then(resp => {
         console.log(resp.data)
         this.setState({ lodgements: resp.data })
@@ -23,10 +39,9 @@ class LodgementsTable extends Component {
 
   render() {
     const { lodgements } = this.state;
-    
+    if (this.state.update === false) {
     return (
       <div>
-
         <div className="lodgements center">
           <h1 className="header_lodgements header">LODGEMENTS</h1>
           <div className="CMP_lodgements">
@@ -48,13 +63,13 @@ class LodgementsTable extends Component {
             <tbody>
               {lodgements.map((lodgement, i) => {
                   return (
-                    <tr key={i}>
+                    <tr key={i} onClick={() => this.handleUpdateClick(lodgement)}>
                       <td>{lodgement.id}</td>
                       <td>{lodgement.statusDate}</td>
-                      <td><a href={'/update/' + lodgement.id}>{lodgement.customerName}</a></td>
+                      <td><a href={'#' + lodgement.id}>{lodgement.customerName}</a></td>
                       <td>{lodgement.category}</td>
                       <td>${Intl.NumberFormat().format(lodgement.amount)}</td>
-                      <td></td>
+                      <td>{lodgement.WIP}</td>
                       <td>{lodgement.employee}</td>
                   </tr>
               )})}
@@ -65,7 +80,12 @@ class LodgementsTable extends Component {
       </div>
 
     )
+  } else {
+    return (
+      <FormUpdate customerData={this.state.updatePerson}/>
+    )
   }
+}
 }
 
 export default LodgementsTable;

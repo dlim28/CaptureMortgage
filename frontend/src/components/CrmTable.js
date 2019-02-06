@@ -7,8 +7,11 @@ class CRM extends Component {
   state = { crm: [] }
 
   fetchData() {
+    const config = { headers: {
+      token: sessionStorage.getItem('token')
+    }}
     // console.log('fetching data')
-    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/crm')
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/crm', config)
     .then(resp => {
         console.log(resp.data)
         this.setState({ crm: resp.data })

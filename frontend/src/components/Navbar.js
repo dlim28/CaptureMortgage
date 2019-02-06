@@ -10,8 +10,11 @@ class Navbar extends Component {
     }
 
     fetchData() {
+        const config = { headers: {
+            token: sessionStorage.getItem('token')
+        }}
         // console.log('fetching data')
-        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar')
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/navbar', config)
         .then(resp => {
             console.log(resp.data)
             this.setState({ navbars: resp.data })
@@ -21,6 +24,10 @@ class Navbar extends Component {
     componentDidMount() {
         this.fetchData();
         setInterval(this.fetchData, 15000);
+    }
+
+    clearSessionStorage() {
+        sessionStorage.clear()
     }
 
     render() {
@@ -56,7 +63,7 @@ class Navbar extends Component {
                         <NavLink to="/approvals" className="lined">APPROVALS</NavLink>
                         <NavLink to="/settlements" className="lined">SETTLEMENTS</NavLink>
                         <NavLink to="/crm" className="lined">CRM</NavLink>
-                        <NavLink to="/login" className="lined">LOGOUT{localStorage.clear()}</NavLink>
+                        <NavLink to="/login" className="lined" onClick={this.clearSessionStorage}>LOGOUT</NavLink>
                     </nav>
                 </div>
         

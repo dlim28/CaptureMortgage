@@ -8,7 +8,7 @@ const generateToken = (user) => {
     const token = jwt.sign(
         { username: user.username },
         ('cmp-key'), 
-        { expiresIn: '1h' }
+        { expiresIn: '5h' }
     );
     console.log(user);
     return token;
