@@ -67,10 +67,6 @@ class LeadsTable extends Component {
                                     
                                 )})}
                             </tbody>
-                            <button  
-                                    className="updateButton"  > 
-                                        Update Status
-                                </button>
                         </table>
                     </div>
 

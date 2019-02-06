@@ -39,7 +39,8 @@ const Modal = (props) => {
                 </div>
             </div>
         </div>
-    )}
+    )
+}
     else {
         return <div>loading</div>
     }

@@ -3,9 +3,6 @@ import '../styles/Form.css';
 import axios from 'axios';
 import Modal from './Modal'
 
-const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")
-
-
 class FormUpdate extends Component {
     
     state = {
@@ -23,16 +20,16 @@ class FormUpdate extends Component {
         employee: null,
         isShowing: false,
         customers: null
-
     } 
-        componentDidMount(){
-        const customerData = `http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/select/1`
-        axios.get(customerData)
-        .then(res => {
-            this.setState({customers: res.data})
-            console.log(res.data.status)
-        })
-        }
+
+    // componentDidMount(){
+    //     const customerData = `http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/select/1`
+    //     axios.get(customerData)
+    //     .then(res => {
+    //         this.setState({customers: res.data})
+    //         console.log(res.data.status)
+    //     })
+    // }
 
     openModalHandler = (e) => {
         e.preventDefault();
@@ -76,7 +73,7 @@ class FormUpdate extends Component {
     
     render() {
         const { error, message } = this.state
-        if (this.state.customers) {
+        if (this.props.customerData) {
             return (
                 <div class='form-grid'>
 
@@ -197,10 +194,10 @@ class FormUpdate extends Component {
                 </div>
             
             );
-                                }
-                                else {
-                                    return null
-                                }
+            }
+            else {
+                return "WTF"
+            }
         
     }
     }

@@ -2,9 +2,24 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
+import FormUpdate from './FormUpdate'
 
 class ApprovalsTable extends Component {
-  state = { approvals: [] }
+  state = { 
+    
+    approvals: [],
+    update: false,
+    updatePerson: null
+    }
+
+    handleUpdateClick(approval) {
+        this.setState({
+            update: true,
+            updatePerson: approval
+            
+        });
+    }
+   
 
   componentDidMount() {
     axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/approvals')
@@ -15,8 +30,10 @@ class ApprovalsTable extends Component {
     }
 
   render() {
-    const { approvals } = this.state;
 
+    
+    const { approvals } = this.state;
+if (this.state.update ===false) {
     return (
       <div>
         <div class="center">
@@ -41,7 +58,7 @@ class ApprovalsTable extends Component {
             <tbody>
               {approvals.map((approval, i) => {
                 return (
-                <tr key={i}>
+                <tr key={i} onClick={() => this.handleUpdateClick(approval)}>
                     <td>{approval.id}</td>
                     <td>{approval.statusDate}</td>
                     <td><a href="#">{approval.customerName}</a></td>
@@ -58,6 +75,12 @@ class ApprovalsTable extends Component {
         </div>
       </div>
     );
+  }
+else {
+      return (
+         <FormUpdate customerData={this.state.updatePerson}/>
+      )
+    }
   }
 }
 
