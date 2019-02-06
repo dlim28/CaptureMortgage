@@ -3,7 +3,6 @@ import '../styles/Form.css';
 import axios from 'axios';
 import Modal from './Modal'
 
-const Status = "LEAD"
 const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")
 
 
@@ -84,9 +83,7 @@ class FormUpdate extends Component {
                 <Modal
                     show={this.state.isShowing}
                     close={this.closeModalHandler}
-                    customerStatus={this.state.customerStatus}
-                    status={this.state.status}
-                    customerData={this.state.customers}
+                    customerData={this.props.customerData}
                 />
 
                     <form className='form' >
@@ -108,7 +105,7 @@ class FormUpdate extends Component {
                                 <div className='flexformcontent'>
 
                                     <div className = 'statusblue'>
-                                        { Status } 
+                                        {this.props.customerData.status } 
                                     </div>
 
                                     <div className = 'statusblue'>

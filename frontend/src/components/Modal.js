@@ -24,7 +24,7 @@ const Modal = (props) => {
                                         <div>Name:</div>
                                         <div className="modalcontent">Status:</div>
                                     </div>
-                                    <div>
+                                    <div className="modalcontent">
                                             {props.customerData.customerName}
                                         <div> 
                                             {props.customerData.status}                                     

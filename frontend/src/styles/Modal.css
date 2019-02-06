@@ -116,7 +116,7 @@ background-color: green;
 .modaldata{
         display: flex;
         justify-content: space-around;
-        height: 100px
+        height: auto;
 }
       
 .modalcontent{
@@ -124,6 +124,7 @@ background-color: green;
         display: inline-block;
         justify-content: space-around;
         margin-top: 25px;
+        padding-bottom: 25px;
         font-size: 22px;
         font-style: bold;
       }
