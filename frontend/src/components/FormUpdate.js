@@ -109,11 +109,11 @@ class FormUpdate extends Component {
                                     </div>
 
                                     <div className = 'statusblue'>
-                                        { Dates }
+                                    {this.props.customerData.statusDate} 
                                     </div>
 
                                     <select className='inputbox' name="Referrer" id="referrer" onChange={this.handleInputChange}>
-                                        <option value="">--select--</option>
+                                    <option selected="selected" value="">{this.props.customerData.referrer}</option>
                                         <option value="LP Staff">LP Staff</option>
                                         <option value="SP Staff">SP Staff</option>
                                         <option value="Marketing Campaigns">Marketing Campaigns</option>
@@ -123,14 +123,14 @@ class FormUpdate extends Component {
                                     </select>
 
                                     <select className='inputbox' name="Source" id="source" onChange={this.handleInputChange}>
-                                        <option value="">--select--</option>
+                                    <option selected="selected" value="">{this.props.customerData.source}</option>
                                         <option value="Email">Email</option>
                                         <option value="Phone Call">Phone Call</option>
                                         <option value="App">App</option> 
                                     </select>
 
                                     <select className='inputbox' name="Category" id="category" onChange={this.handleInputChange}>
-                                        <option value="">--select--</option>
+                                    <option selected="selected" value="">{this.props.customerData.category}</option>
                                         <option value="Re-finance">Re-finance</option>
                                         <option value="Commercial">Commercial</option>
                                         <option value="Investment">Investment</option>
@@ -138,14 +138,14 @@ class FormUpdate extends Component {
                                         <option value="Construction">Construction</option>
                                     </select>
 
-                                    <input name="CustomerName" className='inputbox'  type="text" id="customerName" onChange={this.handleInputChange}></input>
+                                    <input value= {this.props.customerData.customerName}  name="CustomerName" className='inputbox'  type="text" id="customerName" onChange={this.handleInputChange}></input>
 
-                                    <input name="Amount" className='inputbox' type="number" id="amount" min="1" onChange={this.handleInputChange}></input>
+                                    <input value= {this.props.customerData.amount} name="Amount" className='inputbox' type="number" id="amount" min="1" onChange={this.handleInputChange}></input>
 
-                                    <input name="DateOfLead" className='inputbox' type="date" id="dateOfLead" onChange={this.handleInputChange}></input>
+                                    <input value= {this.props.customerData.dateOfLead}  name="DateOfLead" className='inputbox' type="date" id="dateOfLead" onChange={this.handleInputChange}></input>
 
                                     <select className='inputbox' name="Lender" id="lender" onChange={this.handleInputChange}>
-                                        <option value="">--select--</option>
+                                    <option selected="selected" value="">{this.props.customerData.lender}</option>
                                         <option value="ANZ">ANZ</option>
                                         <option value="Bank First">Bank First</option>
                                         <option value="Bank of Melbourne">Bank of Melbourne</option>
@@ -167,8 +167,8 @@ class FormUpdate extends Component {
                                     </select>
 
                                     <select className='inputbox' name="Employee" id="employee" onChange={this.handleInputChange}>
-                                        <option value="">--select--</option>
-                                        <option value="Katherin">Katherine</option>
+                                        <option selected="selected" value="">{this.props.customerData.employee}</option>
+                                        <option value="Katherine">Katherine</option>
                                         <option value="Johann">Johann</option>
                                         <option value="Johnny">Johnny</option>
                                         <option value="David">David</option>
