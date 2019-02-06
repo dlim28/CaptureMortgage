@@ -6,6 +6,7 @@ const Status = "LEAD"
 const Dates = Date().replace("GMT+1100 (Australian Eastern Daylight Time)", "")
 const statusDateDb = new Date().setTime(0,0,0,0)
 console.log(statusDateDb)
+// pointless change
 
 class FormUpdate extends Component {
     state = {
