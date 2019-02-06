@@ -3,14 +3,15 @@ import '../styles/Form.css';
 import axios from 'axios';
 
 const Status = "LEAD"
-const Dates = Date(2018).replace("GMT+1100 (Australian Eastern Daylight Time)", "")
-
+const Dates = Date().replace("GMT+1100 (Australian Eastern Daylight Time)", "")
+const statusDateDb = new Date().setTime(0,0,0,0)
+console.log(statusDateDb)
 
 class Form extends Component {
     state = {
-        createdAt: null,
+        statusDate: new Date(),
         customerName: null,
-        status: null,
+        status: "lead",
         referrer: null,
         source: null,
         category: null,
@@ -25,26 +26,33 @@ class Form extends Component {
     handleInputChange = (e) => {
         const { value, id } = e.currentTarget;
         this.setState({ [id]: value } )
-        console.log(e)
     }
 
     submitForm = (e) => {
         e.preventDefault()
         console.log(this.state)
 
-        const { createdAt, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee } = this.state
-        const url = "http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/new-lead"
+        const { statusDate, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee } = this.state
+        const url = "http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/new-lead"
 
-        const data = { createdAt, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee }
-        axios.post(url, data)
+        const data = { statusDate, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee }
+        
+        const config = { headers: {
+            token: sessionStorage.getItem('token')
+        }}
+        // console.log(data)
+        // console.log(statusDateDb)
+        axios.post(url, data, config)
+        
         .then(resp => {
             console.log(resp)
-            this.setState({ message: 'New Lead added', error: null })
+            this.setState({ message: 'New lead added', error: null})
+            this.props.history.push('/leads')
         })
         .catch(err => {
             console.log(err.response)
                 if (err.response === 403) {
-                this.setState({ error: 'Lead was not saved, please try again', message: null })
+                this.setState({ error: 'Lead was not saved, please try again', message: null})
             }
         })
     }
@@ -53,9 +61,9 @@ class Form extends Component {
         const { error, message } = this.state
 
         return (
-            <div class='form-grid'>
+            <div className='form-grid'>
 
-                <form className='form' >
+                <div className='form' >
                     <div className='customerdetailsheading'>CUSTOMER DETAILS</div>
                         <div className='flex-form'>
                             <div className='flexformtitles'>
@@ -65,7 +73,6 @@ class Form extends Component {
                                 <div>Source*:</div>
                                 <div>Category*:</div>
                                 <div>Customer Name*:</div>
-
                                 <div>Amount:</div>
                                 <div>Date Of Lead:</div>
                                 <div>Lender:</div>
@@ -74,11 +81,11 @@ class Form extends Component {
                             <div className='flexformcontent'>
 
                                 <div className = 'statusblue'>
-                                    { Status } 
+                                    {Status} 
                                 </div>
 
                                 <div className = 'statusblue'>
-                                    { Dates }
+                                    {Dates}
                                 </div>
 
                                 <select className='inputbox' name="Referrer" id="referrer" onChange={this.handleInputChange}>
@@ -109,7 +116,7 @@ class Form extends Component {
 
                                 <input name="CustomerName" className='inputbox'  type="text" id="customerName" onChange={this.handleInputChange}></input>
 
-                                <input name="Amount" className='inputbox' type="number" id="amount" min="1" onChange={this.handleInputChange}></input>
+                                <input name="Amount" className='inputbox' type="number" id="amount" onChange={this.handleInputChange}></input>
 
                                 <input name="DateOfLead" className='inputbox' type="date" id="dateOfLead" onChange={this.handleInputChange}></input>
 
@@ -148,15 +155,18 @@ class Form extends Component {
                         </div>
 
                         <div className='buttonflex'>
+                            <button className='cancelbutton'>
+                                CANCEL
+                            </button>
                             <button onClick={this.submitForm} className='savebutton'>
-                                    SAVE
+                                SAVE
                             </button>
 
-                            <button className='cancelbutton'>
-                                    CANCEL
-                            </button>
+                            { message && <p>{ message }</p> }
+                            { error && <p>{ error }</p> }
+
                         </div>
-                </form>
+                </div>
             </div>
         
         );

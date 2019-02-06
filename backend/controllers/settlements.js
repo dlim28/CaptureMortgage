@@ -23,4 +23,12 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req,res) => {
+    const { id } = req.params;
+    mortgage.findOne({ id })
+    .then((resp) => {
+        res.send(resp);
+    })
+})
+
 module.exports = router;
