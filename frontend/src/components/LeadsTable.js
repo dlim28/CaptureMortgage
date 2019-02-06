@@ -66,7 +66,7 @@ class LeadsTable extends Component {
                                 return (
                                 <tr key={i} onClick={() => this.handleUpdateClick(lead)}>
                                     <td>{lead.id}</td>
-                                    <td>{lead.dateOfLead}</td>
+                                    <td>{lead.dateOfLead.slice(0, 10)}</td>
                                     <td><a href={'#' + lead.id}>{lead.customerName}</a></td>
                                     <td>{lead.category}</td>
                                     <td>${Intl.NumberFormat().format(lead.amount)}</td>

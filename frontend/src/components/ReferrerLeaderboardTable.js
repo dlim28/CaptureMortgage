@@ -24,14 +24,6 @@ class ReferrerLeaderboard extends Component {
     }
 
     createMonths = (leads) => {
-        // console.log(leads)
-        // const arrLeads = Object.values(leads)
-        // console.log(arrLeads)
-        // let newObj = {}
-        // let newArr = []
-        // arrLeads.forEach((obj, index) => {
-        //     console.log(obj)  
-        // })
         Object.keys(leads).forEach((year) => {
             // console.log(leads[key])
             // leads.currentYear['Month1'].month = "January"
@@ -107,8 +99,8 @@ class ReferrerLeaderboard extends Component {
                         </thead>
                         <tbody>
                             {
-                               Object.keys(data).map((key) => {
-                               return (
+                            Object.keys(data).map((key) => {
+                            return (
                                     Object.keys(data[key]).map((key2, j) => {
                                     console.log(key, data[key][key2])
                                     return(
@@ -126,9 +118,9 @@ class ReferrerLeaderboard extends Component {
                                         
                                     )
                                 })
-                               )
-                            })
-                            }
+                            )
+                        })
+                        }
                         </tbody>
 
                     </table>

@@ -11,10 +11,10 @@ class CRM extends Component {
     updatePerson: null
   }
 
-  handleUpdateClick(lodgement) {
+  handleUpdateClick(crm) {
     this.setState({
         update: true,
-        updatePerson: lodgement
+        updatePerson: crm
     });
     // console.log(this.state)
   }
@@ -23,7 +23,7 @@ class CRM extends Component {
     const config = { headers: {
       token: sessionStorage.getItem('token')
     }}
-    // console.log('fetching data')
+    console.log('fetching data')
     axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/crm', config)
     .then(resp => {
         console.log(resp.data)
@@ -65,9 +65,9 @@ class CRM extends Component {
           <tbody>
             {crm.map((mortgage, i) => {
                 return (
-                <tr key={i}>
+                <tr key={i} onClick={() => this.handleUpdateClick(crm)}>
                     <td>{mortgage.id}</td>
-                    <td><a href={'/update/' + mortgage.id}>{mortgage.customerName}</a></td>
+                    <td><a href={'#' + mortgage.id}>{mortgage.customerName}</a></td>
                     <td class='capitalize'>{mortgage.status}</td>
                     <td>{mortgage.statusDate.slice(0, 10)}</td>
                     <td>{mortgage.category}</td>
