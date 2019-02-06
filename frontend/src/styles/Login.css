@@ -36,14 +36,14 @@ html {
   }
   
   .LoginHeader {
-   margin-top: 50px;
-   margin-bottom: 50px;
-   font-size: 35px;
-   color: grey;
-   text-align: center;
-   font-weight: 300;
-   grid-column: 2;
-   z-index: 100;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 35px;
+    color: grey;
+    text-align: center;
+    font-weight: 300;
+    grid-column: 2;
+    z-index: 100;
   }
 
   .loginInput {
@@ -52,7 +52,7 @@ html {
   }
 
   .loginbutton{
-    background-color: rgb(18, 77, 136);
+    background-color: #0e0e0e;
     padding: 6px 50px;
     color:white;
     font-size: 16px;
@@ -84,24 +84,24 @@ html {
   }
   
   .logo-text {
-      text-align: center;
-      font-size: 40px;
-      display: inline-flex;
-      grid-row: 2;
-      grid-column: 2;
-      padding-top: 30px
+    text-align: center;
+    font-size: 40px;
+    display: inline-flex;
+    grid-row: 2;
+    grid-column: 2;
+    padding-top: 30px
   }
 
   .captureplus {
-      color: #f37021;
-      font-weight: 300;
-      padding-top: 35px
+    color: #f37021;
+    font-weight: 300;
+    padding-top: 35px
   }
 
   .mortgage {
-      color: #fff;
-      font-weight: 300;
-      padding-top: 35px
+    color: #fff;
+    font-weight: 300;
+    padding-top: 35px
   }
 
   .logo-img {
@@ -112,8 +112,8 @@ html {
   }
 
   .crmSys {
-      grid-column: 2;
-      grid-row: 3;
-      text-align: center;
-      font-weight: 300
+    grid-column: 2;
+    grid-row: 3;
+    text-align: center;
+    font-weight: 300
   }

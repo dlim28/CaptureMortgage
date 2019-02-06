@@ -10,6 +10,8 @@ backend/.env
 frontend/node_modules
 frontend.pnp
 frontend/.pnp.js
+frontend/styles/LoginMMP.css
+frontend/styles/NavbarMMP.css
 
 # testing
 frontend/coverage
