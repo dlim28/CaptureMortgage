@@ -23,7 +23,7 @@ class LeadsTable extends Component {
     fetchData() {
         const config = { headers: {
             token: sessionStorage.getItem('token')
-          }}
+        }}
         // console.log('fetching data')
         axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/all', config)
         .then(resp => {
@@ -66,7 +66,7 @@ class LeadsTable extends Component {
                                 return (
                                 <tr key={i} onClick={() => this.handleUpdateClick(lead)}>
                                     <td>{lead.id}</td>
-                                    <td>{lead.dateOfLead}</td>
+                                    <td>{lead.dateOfLead.slice(0, 10)}</td>
                                     <td><a href={'#' + lead.id}>{lead.customerName}</a></td>
                                     <td>{lead.category}</td>
                                     <td>${Intl.NumberFormat().format(lead.amount)}</td>

@@ -4,7 +4,6 @@ import axios from 'axios';
 import Modal from './Modal'
 
 class FormUpdate extends Component {
-    
     state = {
         statusDate: new Date(),
         customerName: null,

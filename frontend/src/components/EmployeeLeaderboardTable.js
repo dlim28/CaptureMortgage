@@ -52,7 +52,7 @@ class EmployeeLeaderboard extends Component {
                             return (
                                 <tr key={i}>
                                 <td>{lead.id}</td>
-                                <td>{lead.dateOfLead}</td>
+                                <td>{lead.dateOfLead.slice(0, 10)}</td>
                                 <td><a href={'/update/' + lead.id}>{lead.customerName}</a></td>
                                 <td>{lead.category}</td>
                                 <td>${Intl.NumberFormat().format(lead.amount)}</td>

@@ -4,8 +4,6 @@ import axios from 'axios';
 
 const Status = "LEAD"
 const Dates = Date().replace("GMT+1100 (Australian Eastern Daylight Time)", "")
-const statusDateDb = new Date().setTime(0,0,0,0)
-console.log(statusDateDb)
 
 class Form extends Component {
     state = {
@@ -40,10 +38,8 @@ class Form extends Component {
         const config = { headers: {
             token: sessionStorage.getItem('token')
         }}
-        // console.log(data)
-        // console.log(statusDateDb)
+
         axios.post(url, data, config)
-        
         .then(resp => {
             console.log(resp)
             this.setState({ message: 'New lead added', error: null})

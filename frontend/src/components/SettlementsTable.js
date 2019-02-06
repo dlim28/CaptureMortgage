@@ -62,8 +62,8 @@ class SettlementsTable extends Component {
                 return (
                 <tr key={i} onClick={() => this.handleUpdateClick(settlement)}>
                     <td>{settlement.id}</td>
-                    <td>{settlement.statusDate}</td>
-                    <td><a hhref={'#' + settlement.id}>{settlement.customerName}</a></td>
+                    <td>{settlement.statusDate.slice(0, 10)}</td>
+                    <td><a href={'#' + settlement.id}>{settlement.customerName}</a></td>
                     <td>{settlement.category}</td>
                     <td>${Intl.NumberFormat().format(settlement.amount)}</td>
                     <td>{settlement.lender}</td>
