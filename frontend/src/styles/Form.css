@@ -21,7 +21,7 @@ input {
 
 .inputbox{
   display: flex;
-  width:500px;
+  width:auto;
   height: 20px;
   font-size: 14px;
   text-align: center;
@@ -36,6 +36,7 @@ input {
 
 .statusblue{
   color: #0066CC;
+  text-transform: uppercase;
 
 }
 
