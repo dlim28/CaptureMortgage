@@ -23,7 +23,7 @@ class LeadsTable extends Component {
     fetchData() {
         const config = { headers: {
             token: sessionStorage.getItem('token')
-          }}
+        }}
         // console.log('fetching data')
         axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/all', config)
         .then(resp => {
