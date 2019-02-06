@@ -6,14 +6,20 @@ import axios from 'axios';
 
 class LodgementsTable extends Component {
   state = { lodgements: [] }
-    
+
+  fetchData() {
+    // console.log('fetching data')
+    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/lodgements')
+    .then(resp => {
+        console.log(resp.data)
+        this.setState({ lodgements: resp.data })
+    })
+  }
+
   componentDidMount() {
-      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/lodgements')
-          .then(resp => {
-              console.log(resp.data)
-              this.setState({ lodgements: resp.data })
-          })
-      }
+      this.fetchData();
+      setInterval(this.fetchData, 15000);
+  }
 
   render() {
     const { lodgements } = this.state;
@@ -21,15 +27,15 @@ class LodgementsTable extends Component {
     return (
       <div>
 
-        <div class="lodgements center">
-          <h1 class="header_lodgements header">LODGEMENTS</h1>
-          <div class="CMP_lodgements">
+        <div className="lodgements center">
+          <h1 className="header_lodgements header">LODGEMENTS</h1>
+          <div className="CMP_lodgements">
             <h3>CaptureMortgage+ Lodgements Board</h3><span> </span>
             <h3><FiscalYear /></h3>
           </div>
           <table id="myTable">
             <thead>
-              <tr class="lodgements-back">
+              <tr className="lodgements-back">
                 <th>ID</th>
                 <th>Moved to Lodgements</th>
                 <th>Customer Name</th>
@@ -45,7 +51,7 @@ class LodgementsTable extends Component {
                     <tr key={i}>
                       <td>{lodgement.id}</td>
                       <td>{lodgement.statusDate}</td>
-                      <td><a href="#">{lodgement.customerName}</a></td>
+                      <td><a href={'/update/' + lodgement.id}>{lodgement.customerName}</a></td>
                       <td>{lodgement.category}</td>
                       <td>${Intl.NumberFormat().format(lodgement.amount)}</td>
                       <td></td>

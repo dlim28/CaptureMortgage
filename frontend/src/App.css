@@ -14,3 +14,7 @@ body {
   margin-top: 270px;
   margin-bottom: 100px;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}

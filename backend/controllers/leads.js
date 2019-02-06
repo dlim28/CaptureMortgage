@@ -4,7 +4,7 @@ const mortgage = require('../models/mortgage');
 
 //Get all mortgages
 router.get('/', (req, res) => {
-       res.send("Welcome to the leads homepage");
+    res.send("Welcome to the leads homepage");
 })
 
 router.get('/all',(req, res) => {
@@ -20,7 +20,6 @@ router.get('/select/:id', (req, res) => {
     .then((resp) => {
         res.send(resp);
     })
-    console.log("Finished id route")
 })
 
 router.get('/overview', (req, res) => {
@@ -314,7 +313,24 @@ router.patch('/:id/edit', (req, res) => {
     for (const key in changes) {
         if (changes.hasOwnProperty(key)) {
             if (key === "status") {
-                
+                const statusDate = new Date();
+                const currentDay = statusDate.getDate();
+                const currentMonth = statusDate.getMonth() + 1;
+                const currentYear = statusDate.getFullYear();
+                changes.statusDate = `${currentDay}/0${currentMonth}/${currentYear}`
+
+                mortgage.findOneAndUpdate({id}, changes)
+                // .lean()
+                .then(doc => {
+                    doc.history.push(setHistory(doc.history,changes,doc))
+                    doc.save()
+                .then(resp => {
+                    res.send(resp)
+                    })
+                })
+                .catch(err => {
+                    return err;
+                })
             }
             else
             {
@@ -323,7 +339,7 @@ router.patch('/:id/edit', (req, res) => {
                     doc.history.push(setHistory(doc.history,changes,doc))
                     doc.save()
                 .then(resp => {
-                    res.send("Successful")
+                    res.send(resp)
                     })
                 })
                 .catch(err => {
@@ -335,14 +351,11 @@ router.patch('/:id/edit', (req, res) => {
 })
 
 function setHistory(historyArray, reqBody = null, originalObj = null) {
-
     let historyChanges = {};
-
     const timestamp = new Date();
     const timestampDay = timestamp.getDate();
     const timestampMonth = timestamp.getMonth();
     const timestampYear = timestamp.getFullYear();
-
     
 
     if(historyArray.length <= 0) {

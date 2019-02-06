@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
-// import ReactTable from "react-table";
 
 
 class LeadsTable extends Component {
     state = { leads: [] }
-    
-    componentDidMount() {
+
+    fetchData() {
+        // console.log('fetching data')
         axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/all')
-            .then(resp => {
-                console.log(resp.data)
-                this.setState({ leads: resp.data })
-            })
-        }
+        .then(resp => {
+            console.log(resp.data)
+            this.setState({ leads: resp.data })
+        })
+    }
+
+    componentDidMount() {
+        this.fetchData();
+        setInterval(this.fetchData, 15000);
+    }
 
     render() {
         const { leads } = this.state;
@@ -22,15 +27,15 @@ class LeadsTable extends Component {
         return (
             <div>
 
-                <div class="center">
-                    <h1 class="header leads">LEADS</h1>
-                    <div class="leads">
+                <div className="center">
+                    <h1 className="header leads">LEADS</h1>
+                    <div className="leads">
                         <h3>CaptureMortgage+ Leads Board</h3><span> </span>
                         <h3><FiscalYear /></h3>
                     </div>
                     <table id="myTable">
                             <thead>
-                            <tr class="leads-back">
+                            <tr className="leads-back">
                                 <th>ID</th>
                                 <th>Entered as Lead</th>
                                 <th>Customer Name</th>
@@ -46,7 +51,7 @@ class LeadsTable extends Component {
                                 <tr key={i}>
                                     <td>{lead.id}</td>
                                     <td>{lead.dateOfLead}</td>
-                                    <td><a href="#">{lead.customerName}</a></td>
+                                    <td><a href={'/update/' + lead.id}>{lead.customerName}</a></td>
                                     <td>{lead.category}</td>
                                     <td>${Intl.NumberFormat().format(lead.amount)}</td>
                                     <td>{lead.referrer}</td>

@@ -21,6 +21,5 @@ class FiscalYear extends Component {
             </div>
             );
         }
-    }
-  
-  export default FiscalYear;
+    } 
+export default FiscalYear;

@@ -6,13 +6,19 @@ import axios from 'axios';
 class SettlementsTable extends Component {
   state = { settlements: [] }
 
-  componentDidMount() {
+  fetchData() {
+    // console.log('fetching data')
     axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/settlements')
         .then(resp => {
-            console.log(resp.data)
-            this.setState({ settlements: resp.data })
-        })
-    }
+          console.log(resp.data)
+          this.setState({ settlements: resp.data })
+    })
+  }
+
+  componentDidMount() {
+      this.fetchData();
+      setInterval(this.fetchData, 15000);
+  }
 
   render() {
     const { settlements } = this.state;
@@ -20,14 +26,14 @@ class SettlementsTable extends Component {
     return (
       <div>
 
-        <div class="center">
-          <h1 class="header settlements">SETTLEMENTS</h1>
-          <div class="settlements">
+        <div className="center">
+          <h1 className="header settlements">SETTLEMENTS</h1>
+          <div className="settlements">
             <h3>CaptureMortgage+ Settlements Board</h3><span> </span>
             <h3><FiscalYear /></h3>
           </div>
           <table id="myTable">
-            <tr class="settlements-back">
+            <tr className="settlements-back">
               <th>No.</th>
               <th>Moved to Settlements</th>
               <th>Customer Name</th>
@@ -42,7 +48,7 @@ class SettlementsTable extends Component {
                 <tr key={i}>
                     <td>{settlement.id}</td>
                     <td>{settlement.statusDate}</td>
-                    <td><a href="javascript:alert('Change Status?')">{settlement.customerName}</a></td>
+                    <td><a href={'/update/' + settlement.id}>{settlement.customerName}</a></td>
                     <td>{settlement.category}</td>
                     <td>${Intl.NumberFormat().format(settlement.amount)}</td>
                     <td>{settlement.lender}</td>

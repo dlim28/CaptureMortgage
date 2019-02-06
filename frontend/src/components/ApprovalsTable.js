@@ -2,32 +2,39 @@ import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import FiscalYear from './FiscalYear';
 import axios from 'axios';
+// axios.defaults.withCredentials = true
 
 class ApprovalsTable extends Component {
   state = { approvals: [] }
 
-  componentDidMount() {
+  fetchData() {
+    // console.log('fetching data')
     axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/approvals')
-        .then(resp => {
-            console.log(resp.data)
-            this.setState({ approvals: resp.data })
-        })
-    }
+      .then(resp => {
+          console.log(resp.data)
+          this.setState({ approvals: resp.data })
+    })
+  }
+
+  componentDidMount() {
+      this.fetchData();
+      setInterval(this.fetchData, 15000);
+  }
 
   render() {
     const { approvals } = this.state;
 
     return (
       <div>
-        <div class="center">
-          <h1 class="header approvals">APPROVALS</h1>
-          <div class="approvals">
+        <div className="center">
+          <h1 className="header approvals">APPROVALS</h1>
+          <div className="approvals">
             <h3>CaptureMortgage+ Approvals Board</h3><span> </span>
             <h3><FiscalYear /></h3>
           </div>
           <table id="myTable">
             <thead>
-              <tr class="approvals-back">
+              <tr className="approvals-back">
                 <th>ID</th>
                 <th>Moved to Approvals</th>
                 <th>Customer Name</th>
@@ -44,7 +51,7 @@ class ApprovalsTable extends Component {
                 <tr key={i}>
                     <td>{approval.id}</td>
                     <td>{approval.statusDate}</td>
-                    <td><a href="#">{approval.customerName}</a></td>
+                    <td><a href={'/update/' + approval.id}>{approval.customerName}</a></td>
                     <td>{approval.category}</td>
                     <td>${Intl.NumberFormat().format(approval.amount)}</td>
                     <td></td>

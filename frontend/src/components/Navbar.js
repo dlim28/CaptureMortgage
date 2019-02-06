@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/NavbarCM.css';
 import logo from '../assets/CMP_FullLogo.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import axios from 'axios';
 
 class Navbar extends Component {
@@ -9,55 +9,60 @@ class Navbar extends Component {
         navbars: [] 
     }
 
-    componentDidMount() {
-    axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar')
+    fetchData() {
+        // console.log('fetching data')
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/navbar')
         .then(resp => {
             console.log(resp.data)
             this.setState({ navbars: resp.data })
         })
     }
 
-    
+    componentDidMount() {
+        this.fetchData();
+        setInterval(this.fetchData, 15000);
+    }
+
     render() {
         const { navbars } = this.state;
 
         return (
             
-            <div class="nav-container">
+            <div className="nav-container">
 
-                <div class="logo-box">
-                    <div class="logo-img-box">
+                <div className="logo-box">
+                    <div className="logo-img-box">
                         <img src={logo} alt={"logo"}/>
                     </div>
                 </div>
 
-                <div class="nav-box">
-                    <nav class="navbar">
+                <div className="nav-box">
+                    <nav className="navbar">
                         
-                        <NavLink to="/dashboard" class="lined">DASHBOARD</NavLink>
-                        <a href="/leads" class="lined">
-                            <div class="dropdown">
-                                <button class="dropbtn">LEADS<span> </span>
-                                    <i class="fa fa-caret-down"></i>
+                        <NavLink to="/dashboard" className="lined">DASHBOARD</NavLink>
+                        <Link to="/leads" className="lined">
+                            <div className="dropdown">
+                                <button className="dropbtn">LEADS<span> </span>
+                                    <i className="fa fa-caret-down"></i>
                                 </button>
-                                <div class="dropdown-content">
+                                <div className="dropdown-content">
                                     <NavLink to="/new">New Lead</NavLink>
                                     <NavLink to="/employeeleaderboard">Employee Leaderboard</NavLink>
                                     <NavLink to="/referrerleaderboard">Referrer Leaderboard</NavLink>
                                 </div>
                             </div>
-                        </a>
-                        <NavLink to="/lodgements" class="lined">LODGEMENTS</NavLink>
-                        <NavLink to="/approvals" class="lined">APPROVALS</NavLink>
-                        <NavLink to="/settlements" class="lined">SETTLEMENTS</NavLink>
-                        <NavLink to="/crm" class="lined">CRM</NavLink>
-                        <NavLink to="/login" class="lined">LOGIN</NavLink>
+                        </Link>
+                        <NavLink to="/lodgements" className="lined">LODGEMENTS</NavLink>
+                        <NavLink to="/approvals" className="lined">APPROVALS</NavLink>
+                        <NavLink to="/settlements" className="lined">SETTLEMENTS</NavLink>
+                        <NavLink to="/crm" className="lined">CRM</NavLink>
+                        <NavLink to="/login" className="lined">LOGOUT{localStorage.clear()}</NavLink>
                     </nav>
                 </div>
         
-                <div class="nav-table">
+                <div className="nav-table">
                     <table>
-                        <thead class="table-header">
+                        <thead className="table-header">
                             <tr>
                                 <th></th>
                                 <th>Current Month</th>
@@ -66,11 +71,11 @@ class Navbar extends Component {
                                 <th>Total YTD $</th>
                             </tr>
                         </thead>
-                        <tbody class="table-content">
+                        <tbody className="table-content">
                             {navbars.map((navbar, i) => {
                                 return (
                                     <tr key={i}>
-                                        <td class="firstcolumn">{navbar.statusName}s</td>
+                                        <td className="firstcolumn">{navbar.statusName}s</td>
                                         <td>{navbar.totalRecordsForMonth}</td>
                                         <td>${Intl.NumberFormat().format(navbar.totalAmountForMonth)}</td>
                                         <td>{navbar.totalRecordsYTD}</td>

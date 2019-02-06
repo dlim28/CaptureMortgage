@@ -5,14 +5,20 @@ import axios from 'axios';
 
 class EmployeeLeaderboard extends Component {
     state = { leads: [] }
-
-    componentDidMount() {
-      axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/employee-leaderboard')
+    
+    fetchData() {
+        // console.log('fetching data')
+        axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/employee-leaderboard')
         .then(resp => {
             console.log(resp.data)
             this.setState({ leads: resp.data })
         })
-      }
+    }
+
+    componentDidMount() {
+        this.fetchData();
+        setInterval(this.fetchData, 15000);
+    }
 
 
     render() {
@@ -20,15 +26,15 @@ class EmployeeLeaderboard extends Component {
 
         return (
             <div>
-                <div class="center">
-                    <h1 class="header leads">EMPLOYEE LEADERBOARD</h1>
-                    <div class="leads">
+                <div className="center">
+                    <h1 className="header leads">EMPLOYEE LEADERBOARD</h1>
+                    <div className="leads">
                         <h3>CaptureMortgage+ Leaderboard by Employee</h3><span> </span>
                         <h3><FiscalYear /></h3>
                     </div>
                     <table id="myTable">
                         <thead>
-                            <tr class="leads-back">
+                            <tr className="leads-back">
                                 <th>ID</th>
                                 <th>Entered as Lead</th>
                                 <th>Customer Name</th>
@@ -44,7 +50,7 @@ class EmployeeLeaderboard extends Component {
                                 <tr key={i}>
                                 <td>{lead.id}</td>
                                 <td>{lead.dateOfLead}</td>
-                                <td><a href="#">{lead.customerName}</a></td>
+                                <td><a href={'/update/' + lead.id}>{lead.customerName}</a></td>
                                 <td>{lead.category}</td>
                                 <td>${Intl.NumberFormat().format(lead.amount)}</td>
                                 <td>{lead.referrer}</td>
