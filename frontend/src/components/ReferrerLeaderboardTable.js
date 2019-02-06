@@ -13,7 +13,7 @@ class ReferrerLeaderboard extends Component {
 
         axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/referrer-leaderboard', config)
         .then(resp => {
-            console.log(resp.data)
+            // console.log(resp.data)
             this.setState({ leads: resp.data })
         })
     }
@@ -24,7 +24,7 @@ class ReferrerLeaderboard extends Component {
     }
 
     createMonths = (leads) => {
-        console.log(leads)
+        // console.log(leads)
         // const arrLeads = Object.values(leads)
         // console.log(arrLeads)
         // let newObj = {}
@@ -32,52 +32,56 @@ class ReferrerLeaderboard extends Component {
         // arrLeads.forEach((obj, index) => {
         //     console.log(obj)  
         // })
-        Object.keys(leads).forEach((key) => {
-            // console.log(key, leads[key])
-            if (key === 'Month 0') {
-                leads[key].month = 'January'
-            }
-            if (key === 'Month 1') {
-                leads[key].month = 'Febuary'
-            }
-            if (key === 'Month 2') {
-                leads[key].month = 'March'
-            }
-            if (key === 'Month 3') {
-                leads[key].month = 'April'
-            }
-            if (key === 'Month 4') {
-                leads[key].month = 'May'
-            }
-            if (key === 'Month 5') {
-                leads[key].month = 'June'
-            }
-            if (key === 'Month 6') {
-                leads[key].month = 'July'
-            }
-            if (key === 'Month 7') {
-                leads[key].month = 'August'
-            }
-            if (key === 'Month 8') {
-                leads[key].month = 'September'
-            }
-            if (key === 'Month 9') {
-                leads[key].month = 'October'
-            }
-            if (key === 'Month 10') {
-                leads[key].month = 'November'
-            }
-            if (key === 'Month 11') {
-                leads[key].month = 'December'
-            }
+        Object.keys(leads).forEach((year) => {
+            // console.log(leads[key])
+            // leads.currentYear['Month1'].month = "January"
+            // console.log(leads.currentYear['Month1'])
+            Object.keys(leads[year]).forEach((month) => {
+                if (month === 'Month0') {
+                    leads[year][month].month = 'January'
+                }
+                if (month === 'Month1') {
+                    leads[year][month].month = 'Febuary'
+                }
+                if (month === 'Month2') {
+                    leads[year][month].month = 'March'
+                }
+                if (month === 'Month3') {
+                    leads[year][month].month = 'April'
+                }
+                if (month === 'Month4') {
+                    leads[year][month].month = 'May'
+                }
+                if (month === 'Month5') {
+                    leads[year][month].month = 'June'
+                }
+                if (month === 'Month6') {
+                    leads[year][month].month = 'July'
+                }
+                if (month === 'Month7') {
+                    leads[year][month].month = 'August'
+                }
+                if (month === 'Month8') {
+                    leads[year][month].month = 'September'
+                }
+                if (month === 'Month9') {
+                    leads[year][month].month = 'October'
+                }
+                if (month === 'Month10') {
+                    leads[year][month].month = 'November'
+                }
+                if (month === 'Month11') {
+                    leads[year][month].month = 'December'
+                }
+            })
         })
+        // console.log(leads)
         return leads
     }
 
     render() {
         const { leads } = this.state;
         const data = this.createMonths(leads)
-        // console.log(data["Month 0"])
         return (
             <div>
 
@@ -102,21 +106,29 @@ class ReferrerLeaderboard extends Component {
                                 </tr>
                         </thead>
                         <tbody>
-                            {Object.keys(data).map((key, i) => {
-                                // console.log(data[key])
-                                return (
-                                <tr key={i}>
-                                    <td>{data[key].month}</td>
-                                    <td>{leads[key].referrerid0}</td>
-                                    <td>{leads[key].referrerid1}</td>
-                                    <td>{leads[key].referrerid2}</td>
-                                    <td>{leads[key].referrerid3}</td>
-                                    <td>{leads[key].referrerid4}</td>
-                                    <td>{leads[key].referrerid5}</td>
-                                    <td>{leads[key].referrerid0 + leads[key].referrerid1 + leads[key].referrerid2 + leads[key].referrerid3 + leads[key].referrerid4 + leads[key].referrerid5}</td>
-                                    <td></td>
-                                </tr>
-                            )})}
+                            {
+                               Object.keys(data).map((key) => {
+                               return (
+                                    Object.keys(data[key]).map((key2, j) => {
+                                    console.log(key, data[key][key2])
+                                    return(
+                                        <tr key={j}>
+                                            <td>{data[key][key2].month}</td>
+                                            <td>{data[key][key2].referrerid0}</td>
+                                            <td>{data[key][key2].referrerid1}</td>
+                                            <td>{data[key][key2].referrerid2}</td>
+                                            <td>{data[key][key2].referrerid3}</td>
+                                            <td>{data[key][key2].referrerid4}</td>
+                                            <td>{data[key][key2].referrerid5}</td>
+                                            <td>{data[key][key2].totalLeads}</td>
+                                            <td>{data[key][key2]['%']}</td>
+                                        </tr>
+                                        
+                                    )
+                                })
+                               )
+                            })
+                            }
                         </tbody>
 
                     </table>
