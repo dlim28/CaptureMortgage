@@ -1,0 +1,156 @@
+body tr:nth-child(even){
+  background-color: #F1F1F1;
+}
+  
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 90%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+  margin-left: 5vw;
+
+}
+
+#myTable th, #myTable td {
+  text-align: center; /* Left-align text */
+  padding: 5px; /* Add padding */
+  border-left: solid 1px #ddd;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd; 
+}
+
+#myTable td {
+  color: #000;
+}
+
+.header {
+  font-size: 70px;
+  margin-bottom: -10px;
+  margin-top: 45vh;
+  font-weight: 400;
+  text-align: center;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+}
+
+h3 {
+  display: inline-block;
+  font-size: 28px;
+  line-height: 50px;
+  font-weight: 300;
+  text-align: center
+}
+
+.second-header {
+  font-weight: 300;
+  font-size: 30px;
+  margin-top: -30px
+}
+
+.center {
+  text-align: center;
+  margin-top: -90px
+}
+
+.leads {
+  color: #0066CC;
+}
+
+.leads-back {
+  background-color: #0066CC;
+  color: #fff;
+}
+
+.lodgements {
+  color: #66CCCC;;
+}
+
+.lodgements-back {
+  background-color: #66CCCC;;
+  color: #fff;
+}
+
+.approvals {
+  color: #F19D38;
+}
+
+.approvals-back {
+  background-color: #F19D38;
+  color: #fff;
+}
+
+.settlements {
+  color: #43963F;
+}
+
+.settlements-back {
+  background-color: #43963F;
+  color: #fff;
+}
+
+/* Dashboard Refresh Cycle Animation */
+@-webkit-keyframes fade-in {
+  from {
+      opacity:1;
+      top:0px;
+  }
+  to {
+      opacity:0;
+      top:-5px;
+  }
+}
+
+@-webkit-keyframes fade-out {
+  from {
+      opacity:0;
+      top:0px;
+  }
+  to {
+      opacity:1;
+      top:-5px;
+  }
+}
+
+/* .animate-one {
+  display:inline;
+  position:relative;
+  top:0px;
+  -webkit-animation:fade-in 2s infinite;
+  -webkit-animation-delay: 5s;
+  -webkit-animation:fade-out 2s infinite;
+} */
+/* 
+.animate-two {
+  opacity:0;
+  display:inline;
+  position:relative;
+  margin-left:-56px;
+  -webkit-animation-delay: 2.5s;
+  -webkit-animation:fade-in 2s infinite;
+  -webkit-animation:fade-out 2s infinite;
+}
+
+.animate-three {
+  opacity:0;
+  display:inline;
+  position:relative;
+  margin-left:-56px;
+  -webkit-animation-delay: 2.5s;
+  -webkit-animation:fade-in 2s infinite;
+  -webkit-animation:fade-out 2s infinite;
+}
+
+.animate-four {
+  opacity:0;
+  display:inline;
+  position:relative;
+  margin-left:-56px;
+  -webkit-animation-delay: 2.5s;
+  -webkit-animation:fade-in 2s infinite;
+  -webkit-animation:fade-out 2s infinite;
+}
+
+
+ */

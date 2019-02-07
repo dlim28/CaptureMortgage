@@ -1,0 +1,23 @@
+{
+  "name": "cmp-backend",
+  "version": "1.0.0",
+  "description": "The backend to CaptureMortgagePlus",
+  "main": "api.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon api.js"
+  },
+  "author": "Team 4",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "jest": "^23.6.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.5",
+    "nodemon": "^1.18.9"
+  }
+}

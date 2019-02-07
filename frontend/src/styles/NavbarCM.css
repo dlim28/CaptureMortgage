@@ -1,0 +1,220 @@
+.nav-container {
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  grid-template-rows: 2fr 0.5fr 4fr;
+  background-color: #0e0e0e;
+  width: 100vw;
+  height: 230px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  /* border: thick solid blue; */
+}
+
+/*===================================================================*/
+/* Logo CSS */
+
+.logo-box {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+
+  /* border: thick solid yellow; */
+}
+
+.logo-img-box {
+  /* grid-column: 1; */
+  /* grid-row: 1; */
+  /* display: flex; */
+  /* justify-content: center;
+  position: absolute;
+  padding-left: 15px;
+  border: thick solid pink;
+  height: 100px; */
+}
+
+.logo-img-box img {
+  width: 330px;
+  /* position: absolute; */
+  display: flex;
+  margin-top: -115px;
+
+  /* height: 80px */
+}
+
+.logo-box .logo-text {
+  grid-column: 2;
+  grid-row: 1;
+  /* display: flex; */
+  /* align-items: flex-end; */
+  border: thick solid purple;
+}
+
+.logo-box .logo-subtext {
+  grid-column: 2;
+  grid-row: 2;
+  color: #fff;
+  font-weight: 100;
+  border: thick solid white;
+}
+
+.logo-box .white {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.logo-box .orange {
+  color: #f37021;
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.logo-box .small {
+  font-size: 17px;
+  font-weight: 300;
+}
+
+/*===================================================================*/
+/* Navbar Links CSS */
+
+.nav-box {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5px;
+  /* border: thick solid lightsalmon; */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  overflow: hidden;
+  height: 80px;
+}
+
+.navbar a {
+  text-align: right;
+  color: white;
+  text-align: center;
+  padding: 1.8em 1.2em;
+  text-decoration: none;
+  font-size: 13px
+}
+
+.dropdown {
+  overflow: hidden;
+  z-index: 30;
+}
+
+.dropdown .dropbtn {
+  font-size: 13px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  margin: 0;
+  text-align: center;
+  z-index: 20;
+}
+
+.dropdown {
+  overflow: hidden;
+}
+
+/* .dropbtn { */
+  /* min-width: 122px; */
+/* } */
+
+.nav-box a:hover,
+.dropdown:hover .dropbtn {
+  color: #f37021;
+  transition: 0.1s;
+  /* height: 10px; */
+}
+
+.navbar .lined:hover {
+  transition: 0.2s;
+  border-top: 8px solid #f37021;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 140px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  font-size: 15px;
+  z-index: 20;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #fff;
+  height: 16px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/*===================================================================*/
+/* Overview Table CSS */
+
+.nav-table {
+  grid-column: 1 / 3;
+  grid-row: 2 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* border: thick solid green; */
+}
+
+.nav-table table {
+  width: 800px;
+  height: 140px;
+  text-align: center;
+  font-size: 17px;
+  width: 780px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.nav-table th {
+  font-weight: 500;
+}
+
+.table-content tr:hover {
+  color: #f37021;
+}
+
+.nav-table td {
+  background-color: #0e0e0e;
+  width: 140px;
+}
+
+.nav-table .firstcolumn {
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.table-header {
+  font-size: 12px;
+  font-weight: lighter;
+}
