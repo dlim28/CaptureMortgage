@@ -1,11 +1,11 @@
-# Capture Mortgage+ - CRM System
+# Capture Mortgage+ CRM System
 
 **Github:** https://github.com/dlim28/CaptureMortgage
 
 **Deployment:** http://cmpfrontend-env.mpxq6chsga.us-east-2.elasticbeanstalk.com/
 
 ## Project Description
-> The project is to build a functional CRM to assist the mortgage division of CMP (Capture Mortgage Plus)
+> The project is to build a functional Customer Relationship Management(CRM) to assist the mortgage division of CMP (Capture Mortgage Plus)
 ### Purpose
 ```
 The purpose of the application is to assist the employees of Capture Mortgage Plus to track the application of a mortgage from their many customers.
