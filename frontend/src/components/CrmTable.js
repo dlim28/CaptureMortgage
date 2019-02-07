@@ -5,6 +5,7 @@ import axios from 'axios';
 import FormUpdate from './FormUpdate'
 
 class CRM extends Component {
+
   state = { 
     crm: [],
     update: false,
@@ -19,7 +20,7 @@ class CRM extends Component {
     // console.log(this.state)
   }
 
-  fetchData() {
+  fetchData = () => {
     const config = { headers: {
       token: sessionStorage.getItem('token')
     }}
@@ -29,12 +30,25 @@ class CRM extends Component {
         console.log(resp.data)
         this.setState({ crm: resp.data })
     })
+    .catch(err => console.log(err))
   }
 
   componentDidMount() {
-      this.fetchData();
-      setInterval(this.fetchData, 15000);
+    this.fetchData();
+    this.setState({refresh: setInterval(this.fetchData, 15000)});
   }
+
+  componentWillUnmount() {
+    clearInterval(this.state.refresh)
+  }
+
+  displayDate(date) {
+    if (date !== null) {
+        return date.slice(0, 10)
+    } else {
+        return null
+    }
+}
 
   render() {
     const { crm } = this.state;
@@ -67,9 +81,9 @@ class CRM extends Component {
                 return (
                 <tr key={i} onClick={() => this.handleUpdateClick(crm)}>
                     <td>{mortgage.id}</td>
-                    <td><a href={'#' + mortgage.id}>{mortgage.customerName}</a></td>
+                    <td><a className= 'customerMO' href={'#' + mortgage.id}>{mortgage.customerName}</a></td>
                     <td class='capitalize'>{mortgage.status}</td>
-                    <td>{mortgage.statusDate.slice(0, 10)}</td>
+                    <td>{this.displayDate(mortgage.statusDate)}</td>
                     <td>{mortgage.category}</td>
                 </tr>
             )})}

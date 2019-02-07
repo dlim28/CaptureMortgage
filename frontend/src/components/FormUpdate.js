@@ -110,7 +110,7 @@ class FormUpdate extends Component {
                                     </div>
 
                                     <div className = 'statusblue'>
-                                    {this.props.customerData.statusDate} 
+                                    {this.props.customerData.statusDate.slice(0,10)} 
                                     </div>
 
                                     <select className='inputbox' name="Referrer" id="referrer" onChange={this.handleInputChange}>
@@ -205,7 +205,7 @@ class FormUpdate extends Component {
             );
             }
             else {
-                return "WTF"
+                return "Loading"
             }
         
     }

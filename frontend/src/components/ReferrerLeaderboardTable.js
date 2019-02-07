@@ -4,23 +4,29 @@ import FiscalYear from './FiscalYear';
 import axios from 'axios';
 
 class ReferrerLeaderboard extends Component {
+
     state = { leads: [] }
 
-    fetchData() {
+    fetchData = () => {
         const config = { headers: {
             token: sessionStorage.getItem('token')
-          }}
+        }}
 
         axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/referrer-leaderboard', config)
         .then(resp => {
             // console.log(resp.data)
             this.setState({ leads: resp.data })
         })
+        .catch(err => console.log(err))
     }
 
     componentDidMount() {
         this.fetchData();
-        setInterval(this.fetchData, 15000);
+        this.setState({refresh: setInterval(this.fetchData, 15000)});
+    }
+    
+    componentWillUnmount() {
+        clearInterval(this.state.refresh)
     }
 
     createMonths = (leads) => {

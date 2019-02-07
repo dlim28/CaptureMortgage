@@ -5,6 +5,7 @@ import axios from 'axios';
 import FormUpdate from './FormUpdate'
 
 class ApprovalsTable extends Component {
+
   state = { 
     approvals: [],
     update: false,
@@ -19,7 +20,7 @@ class ApprovalsTable extends Component {
   }
 
   
-  fetchData() {
+  fetchData = () => {
     const config = { headers: {
       token: sessionStorage.getItem('token')
     }}
@@ -34,8 +35,20 @@ class ApprovalsTable extends Component {
   }
 
   componentDidMount() {
-      this.fetchData();
-      setInterval(this.fetchData, 15000);
+    this.fetchData();
+    this.setState({refresh: setInterval(this.fetchData, 15000)});
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.refresh)
+  }
+
+  displayDate(date) {
+    if (date !== null) {
+        return date.slice(0, 10)
+    } else {
+        return null
+    }
   }
 
   render() {
@@ -67,8 +80,8 @@ class ApprovalsTable extends Component {
                 return (
                 <tr key={i} onClick={() => this.handleUpdateClick(approval)}>
                     <td>{approval.id}</td>
-                    <td>{approval.statusDate.slice(0, 10)}</td>
-                    <td><a href={'#' + approval.id}>{approval.customerName}</a></td>
+                    <td>{this.displayDate(approval.statusDate)}</td>
+                    <td><a className= 'customerMO' href={'#' + approval.id}>{approval.customerName}</a></td>
                     <td>{approval.category}</td>
                     <td>${Intl.NumberFormat().format(approval.amount)}</td>
                     <td>{approval.WIP}</td>
