@@ -8,6 +8,7 @@ body tr:nth-child(even){
   border: 1px solid #ddd; /* Add a grey border */
   font-size: 18px; /* Increase font-size */
   margin-left: 5vw;
+  overflow: scroll;
 
 }
 
@@ -28,7 +29,7 @@ body tr:nth-child(even){
 .header {
   font-size: 70px;
   margin-bottom: -15px;
-  margin-top: 30vh;
+  margin-top: 240px;
   margin-top: 320px;
   font-weight: 400;
 }

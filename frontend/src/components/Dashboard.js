@@ -5,7 +5,8 @@ import LeadsTable from './LeadsTable'
 import LodgementsTable from './LodgementsTable'
 import ApprovalsTable from './ApprovalsTable'
 import SettlementsTable from './SettlementsTable'
-import HistoryTable from './HistoryTable'
+
+
 
 
 class Dashboard extends Component {
@@ -37,6 +38,7 @@ class Dashboard extends Component {
       <>
         <div className= 'clearbox'>
           <div className="all-tables animate">
+
             <div className="mySlides fade dashboard">
               <LeadsTable />
             </div>
