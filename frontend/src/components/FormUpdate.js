@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import '../styles/Form.css';
 import axios from 'axios';
 import Modal from './Modal'
+// import { Redirect } from 'react-router-dom';
 
 class FormUpdate extends Component {
     state = {
-        statusDate: new Date(),
+        statusDate: null,
         customerName: null,
         status: null,
         referrer: null,
@@ -52,9 +53,10 @@ class FormUpdate extends Component {
     submitForm = (e) => {
         e.preventDefault()
         console.log(this.state)
+        console.log(this.props.customerData.status)
 
         const { statusDate, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee } = this.state
-        const url = "http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/:id/edit"
+        const url = `http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/${this.props.customerData.id}/edit`
 
         const data = { statusDate, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee }
 
@@ -62,10 +64,20 @@ class FormUpdate extends Component {
             token: sessionStorage.getItem('token')
         }}
 
-        axios.post(url, data, config)
+        let changes = {}
+        Object.keys(data).map((key) => {
+            console.log(key, data[key])
+            if (data[key] !== null) {
+                changes[key] = data[key]
+            }
+        })
+        
+        axios.patch(url, changes, config)
         .then(resp => {
             console.log(resp)
             this.setState({ message: 'Update saved', error: null })
+
+            
         })
         .catch(err => {
             console.log(err.response)
