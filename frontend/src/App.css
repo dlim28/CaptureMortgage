@@ -7,11 +7,10 @@
 
 body {
   background: #fff;
-
 }
 
 .clearbox {
-  z-index: 9990;
+  z-index: 99;
   text-decoration: none;
 }
 

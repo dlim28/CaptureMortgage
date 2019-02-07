@@ -5,4 +5,4 @@ router.use('/', require('./public'))
 router.use('/protected', require('./protected'))
 router.use('/auth', require('./auth'))
 
-module.exports = router;   
+module.exports = router;  

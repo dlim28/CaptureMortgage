@@ -21,6 +21,7 @@ class Login extends Component {
       username, 
       password
     }
+
     axios.post(url, data)
       .then(resp => {
         const { token } = resp.data
@@ -35,6 +36,8 @@ class Login extends Component {
           this.setState({ error: 'Incorrect username or password. Please try again.', message: undefined })
         }
       })
+
+      
   }
 
   render() {

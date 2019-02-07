@@ -3,7 +3,7 @@ import '../styles/Form.css';
 import axios from 'axios';
 
 const Status = "LEAD"
-const Dates = Date().slice(0, 10)
+const Dates = Date()
 
 class Form extends Component {
     state = {
@@ -110,9 +110,9 @@ class Form extends Component {
                                     <option value="Construction">Construction</option>
                                 </select>
 
-                                <input name="CustomerName" className='inputbox'  type="text" id="customerName" onChange={this.handleInputChange}></input>
+                                <input name="CustomerName" className='inputbox'  required="required" type="text" id="customerName" onChange={this.handleInputChange}></input>
 
-                                <input name="Amount" className='inputbox' type="number" id="amount" onChange={this.handleInputChange}></input>
+                                <input name="Amount" className='inputbox' required="required" type="number" id="amount" onChange={this.handleInputChange}></input>
 
                                 <input name="DateOfLead" className='inputbox' type="date" id="dateOfLead" onChange={this.handleInputChange}></input>
 
@@ -140,7 +140,7 @@ class Form extends Component {
 
                                 <select className='inputbox' name="Employee" id="employee" onChange={this.handleInputChange}>
                                     <option value="">--select--</option>
-                                    <option value="Katherin">Katherine</option>
+                                    <option value="Katherine">Katherine</option>
                                     <option value="Johann">Johann</option>
                                     <option value="Johnny">Johnny</option>
                                     <option value="David">David</option>

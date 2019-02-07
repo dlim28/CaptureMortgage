@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../styles/Form.css';
 import axios from 'axios';
 import Modal from './Modal'
-// import { Redirect } from 'react-router-dom';
 
 class FormUpdate extends Component {
     state = {
@@ -21,15 +20,6 @@ class FormUpdate extends Component {
         isShowing: false,
         customers: null
     } 
-
-    // componentDidMount(){
-    //     const customerData = `http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/leads/select/1`
-    //     axios.get(customerData)
-    //     .then(res => {
-    //         this.setState({customers: res.data})
-    //         console.log(res.data.status)
-    //     })
-    // }
 
     openModalHandler = (e) => {
         e.preventDefault();
@@ -53,7 +43,6 @@ class FormUpdate extends Component {
     submitForm = (e) => {
         e.preventDefault()
         console.log(this.state)
-        console.log(this.props.customerData.status)
 
         const { statusDate, customerName, status, referrer, source, category, lender, history, dateOfLead, isActive, amount, employee } = this.state
         const url = `http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/${this.props.customerData.id}/edit`
@@ -71,13 +60,11 @@ class FormUpdate extends Component {
                 changes[key] = data[key]
             }
         })
-        
+        console.log(changes)
         axios.patch(url, changes, config)
         .then(resp => {
             console.log(resp)
             this.setState({ message: 'Update saved', error: null })
-
-            
         })
         .catch(err => {
             console.log(err.response)
@@ -122,7 +109,7 @@ class FormUpdate extends Component {
                                     </div>
 
                                     <div className = 'statusblue'>
-                                    {this.props.customerData.statusDate.slice(0,10)} 
+                                        {this.props.customerData.statusDate} 
                                     </div>
 
                                     <select className='inputbox' name="Referrer" id="referrer" onChange={this.handleInputChange}>
@@ -151,9 +138,9 @@ class FormUpdate extends Component {
                                         <option value="Construction">Construction</option>
                                     </select>
 
-                                    <input value= {this.props.customerData.customerName}  name="CustomerName" className='inputbox'  type="text" id="customerName" onChange={this.handleInputChange}></input>
+                                    <input value= {this.props.customerData.customerName}  name="CustomerName" className='inputbox'  type="text" required="required" id="customerName" onChange={this.handleInputChange}></input>
 
-                                    <input value= {this.props.customerData.amount} name="Amount" className='inputbox' type="number" id="amount" min="1" onChange={this.handleInputChange}></input>
+                                    <input value= {this.props.customerData.amount} name="Amount" className='inputbox' type="number" required="required" id="amount" min="1" onChange={this.handleInputChange}></input>
 
                                     <input value= {this.props.customerData.dateOfLead}  name="DateOfLead" className='inputbox' type="date" id="dateOfLead" onChange={this.handleInputChange}></input>
 

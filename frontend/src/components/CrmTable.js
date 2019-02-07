@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/globalTableStyles.css';
 import "react-table/react-table.css";
-import '../styles/crm.css';
 import ReactTable from "react-table";
 import axios from 'axios';
 import matchSorter from 'match-sorter'
@@ -21,14 +20,6 @@ class CRM extends Component {
               this.setState({ crm: resp.data })
           })
       }
-      
-  displayDate(date) {
-    if (date !== null) {
-        return date.slice(0, 10)
-    } else {
-        return null
-    }
-  }
 
   render() {
 
@@ -66,16 +57,6 @@ class CRM extends Component {
                     filterAll: true
       },
       {
-        Header: 'Status Date',
-        accessor: 'date',
-                filterMethod: (filter, row) =>
-                    row[filter.id].startsWith(filter.value) &&
-                    row[filter.id].endsWith(filter.value),
-                    filterMethod: (filter, rows) =>
-                    matchSorter(rows, filter.value, { keys: ["date"] }),
-                    filterAll: true
-      },
-      {
         Header: 'Category',
         accessor: 'category',
                 filterMethod: (filter, row) =>
@@ -89,10 +70,10 @@ class CRM extends Component {
 
     return (  
 
-    <div>
-    <div>
-        <h1 class="header_crm header">CRM</h1>
-    </div>
+    <div className="crm">
+      <div>
+          <h1 className="header_crm header">CRM</h1>
+      </div>
 
     {this.state.crm.map((element, i) => {
             if (element !== undefined) {
@@ -100,8 +81,7 @@ class CRM extends Component {
               obj = {
                 no:element.id,
                 name:element.customerName,
-                status:element.status,
-                date:element.statusDate.slice(0, 10),
+                status:element.status.toUpperCase(),
                 category:element.category
               }
 

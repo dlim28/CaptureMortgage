@@ -9,7 +9,7 @@ const isAuthenticated = (req, res, next) => {
     if (!token) {
         return res.status(403).send('Not authenticated')
     }
-    const decoded = jwt.verify (token, 'cmp-key', (err, decoded) => {
+    const decoded = jwt.verify (token, process.env.JWT_TOKEN, (err, decoded) => {
         if (err) {
             return res.status(403).send('Not authenticated')
         }
@@ -30,6 +30,7 @@ router.use('/leads', require('./leads.js'));
 router.use('/lodgements', require('./lodgements.js'))
 router.use('/approvals', require('./approvals.js'))
 router.use('/settlements', require('./settlements.js'))
+router.use('/crm', require('./crm'))
 
 // GET navbar dashboard data
 router.use('/navbar', require('./navbar.js'))
