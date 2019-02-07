@@ -89,11 +89,19 @@ class CRM extends Component {
     const columns = [{
       Header: 'NO.',
       accessor: 'no'
-    },
-    {
-      Header: 'Name',
-      accessor: 'name'
-    },
+    },            
+      {
+        Header: "Name",
+        columns: [
+          {
+            Header: "Name",
+            accessor: "name",
+            filterMethod: (filter, row) =>
+              row[filter.id].startsWith(filter.value) &&
+              row[filter.id].endsWith(filter.value)
+          },
+        ]
+      },
     {
       Header: 'Status',
       accessor: 'status'
@@ -126,9 +134,9 @@ class CRM extends Component {
 
 <ReactTable
   data={data}
-  // filterable
-  // defaultFilterMethod={(filter, row) =>
-  // String(row[filter.id]) === filter.value}
+  filterable
+  defaultFilterMethod={(filter, row) =>
+  String(row[filter.id]) === filter.value}
   columns={columns}
   defaultPageSize = {10}
   pageSizeOptions = {[10, 20, 50]}

@@ -2,9 +2,9 @@
 
 **Github:** https://github.com/dlim28/CaptureMortgage
 
-**Deployment:** *A link (URL) to your published App*
+**Deployment:** http://cmpfrontend-env.mpxq6chsga.us-east-2.elasticbeanstalk.com/
 
-    Our Project is a CRM (Customer Relationship Management) system for *Capture Mortgage+, CM+ is a mortgage business. The company provides a service to its customers by approving them for mortgages. Before we were asked to take on this project CM+ was keeping track of all of their clients with pen and paper. This system was inefficient for a company with so many clients that needed to be organized and that are constantly moved between different status's.  
+    Our Project is a CRM (Customer Relationship Management) system for *Capture Mortgage+, CM+ is a mortgage business. The company provides a service to its customers by approving them for mortgages. Before we were asked to take on this project CM+ was keeping track of all of their clients with pen and paper. This system was inefficient for a company with so many clients that needed to be organized and that are constantly moved between different status's. The purpose of this web-based portal is to create a centralized repository of entire CM+ customer base and record the status of their mortgage application process.
 
 CM+ is a mortgage business. The company provides a service to its customers by approving them for mortgages. The process workflow for the mortgage application process is as per below: 
 
@@ -128,6 +128,12 @@ ___
 
 # Using the CM+ CRM System
 
+the crm system is very easy to use. Once the user has logged in they can click on the 'New Lead' tab under the 'LEADS' board. 
+
+Enter your new lead and the leads table will be populated with it as well as the dashboard. The new client can be moved inbetween different statuses withing the mortgage process by clicking on the name of the client and pressing update status on the bottom of the form.
+
+The system is designed to be easy and straight to the point. 
+
 # Designs and Planning
 
 **figma:**
@@ -165,34 +171,39 @@ Our initial meeting with the client to discuss the project
 
 
 # Short Answer questions
-
 ## a. What are the most important aspects of quality software?
 
-There are 2 main features that a good software must have. It needs to do it's just correctly and solve the problem that it was developed to do. If you're problem is x, than the software must be able to solve x or at the very minimum make x more manageable. 
+There are 2 main features that a good software must have. It needs to do it's just correctly and solve the problem that it was developed to do. If you're problem is (x), than the software must be able to solve (x) or at the very minimum make (x) more manageable.
 
 The second aspect is that it needs to be user friendly. A lot of the population don't know the ins and outs of software, so the app needs to be able to be used and enjoyed by everyone. Straight to the point and sleek.
+
+As an added bonus the code should be dry and easy to read for any developers that want to inspect the inner workings of the software.
 
 ## b. What libraries are being used in the app and why?
 
 - react
 - axios
 - react-dom
-- react-js-pagination
+- react-js-pagination - for pagination
 - react-router-dom
 - react-scripts
-- react-table
-- nodemon
+- react-table - for react tables
+- nodemon: to auto run and reset the server
 - express
 - mongoose
 - jest
 - dotenv
 - cors
 
-
 ## c. A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
 
+It all depends on what the website needs. Every business requires different features and data on their website. An, effective back and forth with the client to know exactly what they want and expect will save a lot of headache in the future. Sitting down with them and brainstorming what both parties could do for each other.
 
+Good communication within the group is also key, a team should be able to know everyone's strong points and weak points. Then tasks can be divided up from there. 
 
 ## d. Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
 
+We needed to know how to use react and many of it's components, as well as pulling data from JSON objects to get them to display. A general knowledge of which npm's to use to overcome some hurdles was also very useful for this project.  
+
 ## e. Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
+
