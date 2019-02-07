@@ -79,12 +79,18 @@ class LeadsTable extends Component {
                 }
 
                 data.push(obj)
-            } else {
-                
+            } 
+            else {
             }
         })}
         
-        <ReactTable data={data} columns={columns} defaultPageSize = {10} pageSizeOptions = {[10, 20, 50]}/>
+        <ReactTable 
+        data={data} 
+        columns={columns} 
+        defaultPageSize = {10} 
+        pageSizeOptions = {[10, 20, 50]}
+
+            />
                          
         </div>      
         )

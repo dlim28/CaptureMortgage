@@ -14,11 +14,6 @@ class ApprovalsTable extends Component {
         })
     }
 
-  componentDidMount() {
-      this.fetchData();
-      setInterval(this.fetchData, 15000);
-  }
-
   render() {
     const { approvals } = this.state;
 
