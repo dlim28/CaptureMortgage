@@ -7,7 +7,7 @@ const User = require('../models/user');
 const generateToken = (user) => {
     const token = jwt.sign(
         { username: user.username },
-        ('cmp-key'), 
+        (process.env.JWT_TOKEN), 
         { expiresIn: '5h' }
     );
     console.log(user);
@@ -27,7 +27,10 @@ router.post('/login', (req, res) => {
             }
             const token = generateToken(doc);
             return res.send({ token })
-        });
+        })
+        .catch(err => {
+            return err
+        })
     } else {
         return res.status(403).send('Incorrect login or password, please try again')
     }

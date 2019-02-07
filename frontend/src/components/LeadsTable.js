@@ -17,7 +17,6 @@ class LeadsTable extends Component {
         this.setState({
             update: true,
             updatePerson: lead
-            
         });
     }
 

@@ -19,7 +19,7 @@ input {
   max-width: 500px;
 }
 
-.inputbox{
+.inputbox {
   display: flex;
   width:500px;
   height: 20px;
@@ -27,28 +27,28 @@ input {
   text-align: center;
 }
 
-.customerdetailsheading{
+.customerdetailsheading {
   margin-top: 20px;
   font-size: 42px;
   color: rgb(153, 153, 153);
   text-align: center;
 }
 
-.statusblue{
+.statusblue {
   color: #0066CC;
 
 }
 
-.inLine h4{
+.inLine h4 {
   margin: 0px;
 }
 
-.flex-form{
+.flex-form {
   display: flex;
   justify-content: center;
 }
 
-.flexformtitles{
+.flexformtitles {
   display: flex;
   flex-direction: column;
   margin: 20px;
@@ -57,7 +57,7 @@ input {
   text-align: left;
 }
 
-.flexformcontent{
+.flexformcontent {
   display:flex;
   flex-direction: column;
   margin: 20px;
@@ -66,11 +66,11 @@ input {
 }
 
 
-.button{
+.button {
   align-items: right;
 }
 
-.savebutton{
+.savebutton {
   margin-left: 20px;
   background-color: rgb(18, 77, 136);
   padding: 6px 60px;
@@ -78,12 +78,13 @@ input {
   font-size: 20px;
   border-radius: 10px;
 }
+
 .savebutton:hover {
   background-color: #009900;
-  /* background-color: rgb(13, 114, 13); Green */
   color: white;
   cursor: pointer;
 }
+
 .cancelbutton{
   background-color: rgb(18, 77, 136);
   padding: 6px 50px;
@@ -91,12 +92,13 @@ input {
   font-size: 20px;
   border-radius: 10px;
 }
+
 .cancelbutton:hover {
   background-color: #FF0000;
-  /* background-color: rgb(145, 37, 37); */
   color: white;
   cursor: pointer;
 }
+
 .buttonflex{
   display:flex;
   justify-content: space-around;

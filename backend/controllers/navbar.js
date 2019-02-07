@@ -52,6 +52,9 @@ router.get('/', (req,res) => {
     Promise.all(returnArr).then(data => {
         res.send(data)
     })
+    .catch(err => {
+        return err
+    })
 })
 
 router.get('/:status', (req, res) => {
@@ -67,6 +70,9 @@ router.get('/:status', (req, res) => {
             returnObj.totalRecordsForMonth = Object.keys(resultObject).length
             returnObj.totalAmountForMonth = totalAmount
         })
+        .catch(err => {
+            return err
+        })
 
         getTotalMortgagesYTD(status)
         .then(resultObjectYTD => {
@@ -78,7 +84,16 @@ router.get('/:status', (req, res) => {
                 console.log(returnObj)
                 res.send(returnObj)
             })
+            .catch(err => {
+                return err
+            })
         })
+        .catch(err => {
+            return err
+        })
+    })
+    .catch(err => {
+        return err
     })
 })
 
@@ -95,6 +110,9 @@ function getData(status)
                     returnObj.totalRecordsForMonth = Object.keys(resultObject).length
                     returnObj.totalAmountForMonth = totalAmount
                 })
+                .catch(err => {
+                    return err
+                })
 
                 getTotalMortgagesYTD(status)
                 .then(resultObjectYTD => {
@@ -105,7 +123,16 @@ function getData(status)
                         returnObj.totalAmountYTD = totalAmountYTD
                         resolve(returnObj)
                     })
+                    .catch(err => {
+                        return err
+                    })
                 })
+                .catch(err => {
+                    return err
+                })
+            })
+            .catch(err => {
+                return err
             })
         }
     )
@@ -124,8 +151,8 @@ async function getTotalMortgages(status) {
                 $and:
                 [
                     {
-                        dateOfLead:{$gte: `01/${currentMonth + 1}/${currentYear}`,
-                        $lte: `${currentDay}/${currentMonth + 1}/${currentYear}`},
+                        dateOfLead:{$gte: new Date(`${currentYear}-${currentMonth + 1}-01`),
+                        $lte: new Date(`${currentYear}-${currentMonth + 1}-${currentDay}`)},
                         status:status
                     }
                 ]
@@ -158,15 +185,14 @@ async function getTotalAmount(recordsQueriedObject) {
 async function getTotalMortgagesYTD(status) {
     //30th June EOFY
     const currentDate = new Date();
-    // const currentMonth = currentDate.getMonth(); //Month starts at 0 - January
     const currentYear = currentDate.getFullYear(); 
 
     let result = await mortgage.find(
             { 
                 $and:
                 [
-                    {"dateOfLead":{"$gte": `01-07-${currentYear - 1}`, "$lte":`30-06-${currentYear}`}},
-                    {"status":status}
+                    {dateOfLead:{$gte: new Date(`${currentYear - 1}-07-01`), $lte:`${currentYear}-06-30`}},
+                    {status:status}
                 ]
             }
         )

@@ -29,7 +29,6 @@ body tr:nth-child(even){
 .header {
   font-size: 70px;
   margin-bottom: -15px;
-  margin-top: 240px;
   margin-top: 320px;
   font-weight: 400;
 }
@@ -47,6 +46,8 @@ h3 {
 }
 
 .center {
+  width: 85vw;
+  margin: auto;
   text-align: center;
   margin-top: -90px
 }
@@ -87,11 +88,26 @@ h3 {
   color: #fff;
 }
 
+.crm {
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+}
+
+.header_crm {
+  text-align:left;
+  color: rgb(153, 153, 153);
+  margin-left: 5vw;
+  font-size: 70px;
+  margin-top: 230px;
+  margin-bottom: 20px;
+}
+
 .mySlides {
   display:inline;
   position:relative;
   top:0px;
-  z-index: -999;
+  z-index: -99;
 }
 
 /* Dashboard Refresh Cycle Animation */
@@ -113,17 +129,17 @@ h3 {
   to {opacity: 1}
 }
 
-  .mySlides {
-    z-index: -999;
-  }
+.mySlides {
+  z-index: -999;
+}
 
-  .customerMO:hover {
-    color:orange;
-    text-decoration: underline;
-  }
+.customerMO:hover {
+  color:orange;
+  text-decoration: underline;
+}
 
-  .customerMO {
-    color:black;
-  }
+.customerMO {
+  color:black;
+}
 
 

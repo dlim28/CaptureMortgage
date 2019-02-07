@@ -1,27 +1,39 @@
-GET http://localhost:5000/navbar/0
+GET http://localhost:5000/protected/navbar
+Content-Type: application/json
+token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imphc21pbmUud29pc2NodWtAc2FmZWNvZGUuY29tLmF1IiwiaWF0IjoxNTQ5NDMyMzI5LCJleHAiOjE1NDk0NTAzMjl9.MiVWMqf0a9Rc9JqXju0tkEwzokITkhSblBXTHp5x92U"
+
+###
+
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+   "username": "jasmine.woischuk@safecode.com.au",
+   "password": "Welcome1"
+}
 ###
 
 POST http://localhost:5000/leads/new-lead
 Content-Type: application/json
 
 {
-		"status": "SETTLEMENTS",
-		"statusDate": "2019-11-26",
-		"referrer": "1",
-		"source": "2",
-		"category": "1",
-		"customerName": "Staph",
-		"amount": "4202133",
-		"dateOfLead": "2019-11-01",
-		"lender": "1",
-		"employee": "Katherine"
+		"status": "lead lost",
+		"statusDate": "2018-11-13",
+		"referrer": "BDM Staff",
+		"source": "App",
+		"category": "Re-finance",
+		"customerName": "Marguerite Parsons",
+		"amount": "34264",
+		"dateOfLead": "2018-11-03",
+		"lender": "Virgin Money",
+		"employee": "Johann"
 }
 ###
-GET http://localhost:5000/leads/select/32
+GET http://localhost:5000/leads/select/1
 ###
-PATCH http://localhost:5000/leads/32/edit
+PATCH http://localhost:5000/leads/52/edit
 Content-Type: application/json
 
 {
-	"referrer":"Other"
+	"status":"approval"
 }
