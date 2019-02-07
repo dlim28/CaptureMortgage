@@ -4,23 +4,37 @@ import FiscalYear from './FiscalYear';
 import axios from 'axios';
 
 class EmployeeLeaderboard extends Component {
+
     state = { leads: [] }
     
-    fetchData() {
+    fetchData = () => {
         const config = { headers: {
             token: sessionStorage.getItem('token')
-          }}
+        }}
         // console.log('fetching data')
         axios.get('http://cmp-backend.ap-southeast-2.elasticbeanstalk.com/protected/leads/employee-leaderboard', config)
         .then(resp => {
             console.log(resp.data)
             this.setState({ leads: resp.data })
         })
+        .catch(err => console.log(err))
     }
 
     componentDidMount() {
         this.fetchData();
-        setInterval(this.fetchData, 15000);
+        this.setState({refresh: setInterval(this.fetchData, 15000)});
+    }
+    
+    componentWillUnmount() {
+        clearInterval(this.state.refresh)
+    }
+
+    displayDate(date) {
+        if (date !== null) {
+            return date.slice(0, 10)
+        } else {
+            return null
+        }
     }
 
 
@@ -52,8 +66,8 @@ class EmployeeLeaderboard extends Component {
                             return (
                                 <tr key={i}>
                                 <td>{lead.id}</td>
-                                <td>{lead.dateOfLead.slice(0, 10)}</td>
-                                <td><a href={'/update/' + lead.id}>{lead.customerName}</a></td>
+                                <td>{this.displayDate(lead.dateOfLead)}</td>
+                                <td><a className= 'customerMO' href={'/update/' + lead.id}>{lead.customerName}</a></td>
                                 <td>{lead.category}</td>
                                 <td>${Intl.NumberFormat().format(lead.amount)}</td>
                                 <td>{lead.referrer}</td>

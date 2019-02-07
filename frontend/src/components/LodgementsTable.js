@@ -6,6 +6,7 @@ import FormUpdate from './FormUpdate'
 
 
 class LodgementsTable extends Component {
+
   state = { 
     lodgements: [],
     update: false,
@@ -20,7 +21,7 @@ class LodgementsTable extends Component {
     // console.log(this.state)
   }
 
-  fetchData() {
+  fetchData = () => {
     const config = { headers: {
       token: sessionStorage.getItem('token')
     }}
@@ -30,11 +31,24 @@ class LodgementsTable extends Component {
         console.log(resp.data)
         this.setState({ lodgements: resp.data })
     })
+    .catch(err => console.log(err))
   }
 
   componentDidMount() {
-      this.fetchData();
-      setInterval(this.fetchData, 15000);
+    this.fetchData();
+    this.setState({refresh: setInterval(this.fetchData, 15000)});
+  }
+
+  componentWillUnmount() {
+      clearInterval(this.state.refresh)
+  }
+
+  displayDate(date) {
+    if (date !== null) {
+        return date.slice(0, 10)
+    } else {
+        return null
+    }
   }
 
   render() {
@@ -65,8 +79,8 @@ class LodgementsTable extends Component {
                   return (
                     <tr key={i} onClick={() => this.handleUpdateClick(lodgement)}>
                       <td>{lodgement.id}</td>
-                      <td>{lodgement.statusDate.slice(0, 10)}</td>
-                      <td><a href={'#' + lodgement.id}>{lodgement.customerName}</a></td>
+                      <td>{this.displayDate(lodgement.statusDate)}</td>
+                      <td><a className= 'customerMO' href={'#' + lodgement.id}>{lodgement.customerName}</a></td>
                       <td>{lodgement.category}</td>
                       <td>${Intl.NumberFormat().format(lodgement.amount)}</td>
                       <td>{lodgement.WIP}</td>

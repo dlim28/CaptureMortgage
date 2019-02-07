@@ -86,67 +86,43 @@ h3 {
   color: #fff;
 }
 
-/* Dashboard Refresh Cycle Animation */
-@-webkit-keyframes fade-in {
-  from {
-      opacity:1;
-      top:0px;
-  }
-  to {
-      opacity:0;
-      top:-5px;
-  }
-}
-
-@-webkit-keyframes fade-out {
-  from {
-      opacity:0;
-      top:0px;
-  }
-  to {
-      opacity:1;
-      top:-5px;
-  }
-}
-
-/* .animate-one {
+.mySlides {
   display:inline;
   position:relative;
   top:0px;
-  -webkit-animation:fade-in 2s infinite;
-  -webkit-animation-delay: 5s;
-  -webkit-animation:fade-out 2s infinite;
-} */
-/* 
-.animate-two {
-  opacity:0;
-  display:inline;
-  position:relative;
-  margin-left:-56px;
-  -webkit-animation-delay: 2.5s;
-  -webkit-animation:fade-in 2s infinite;
-  -webkit-animation:fade-out 2s infinite;
+  z-index: -999;
 }
 
-.animate-three {
-  opacity:0;
-  display:inline;
-  position:relative;
-  margin-left:-56px;
-  -webkit-animation-delay: 2.5s;
-  -webkit-animation:fade-in 2s infinite;
-  -webkit-animation:fade-out 2s infinite;
+/* Dashboard Refresh Cycle Animation */
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-.animate-four {
-  opacity:0;
-  display:inline;
-  position:relative;
-  margin-left:-56px;
-  -webkit-animation-delay: 2.5s;
-  -webkit-animation:fade-in 2s infinite;
-  -webkit-animation:fade-out 2s infinite;
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
 
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
 
- */
+  .mySlides {
+    z-index: -999;
+  }
+
+  .customerMO:hover {
+    color:orange;
+    text-decoration: underline;
+  }
+
+  .customerMO {
+    color:black;
+  }
+
+

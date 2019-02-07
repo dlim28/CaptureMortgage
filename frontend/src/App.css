@@ -10,6 +10,18 @@ body {
 
 }
 
+.clearbox {
+  z-index: 9990;
+  text-decoration: none;
+}
+
+.mySlides, .fade, .dashboard a {
+  cursor: none;
+  pointer-events: none;
+  text-decoration: none;
+  color:black;
+}
+
 .all-tables {
   margin-top: 270px;
   margin-bottom: 100px;

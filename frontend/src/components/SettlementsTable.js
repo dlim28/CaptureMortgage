@@ -5,10 +5,11 @@ import axios from 'axios';
 import FormUpdate from './FormUpdate'
 
 class SettlementsTable extends Component {
+
   state = { 
     settlements: [],
     update: false,
-    updatePerson: null
+    updatePerson: null,
   }
 
   handleUpdateClick(settlement) {
@@ -18,7 +19,7 @@ class SettlementsTable extends Component {
     });
   }
 
-  fetchData() {
+  fetchData = () => {
     const config = { headers: {
       token: sessionStorage.getItem('token')
     }}
@@ -28,11 +29,27 @@ class SettlementsTable extends Component {
           console.log(resp.data)
           this.setState({ settlements: resp.data })
     })
+    .catch(err => console.log(err))
   }
 
   componentDidMount() {
+    // save setInterval to a variable
+    // set timeout to state
+    // remove interval from state in componentWillUnmount
       this.fetchData();
-      setInterval(this.fetchData, 15000);
+      this.setState({refresh: setInterval(this.fetchData, 15000)});
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.refresh)
+  }
+
+  displayDate(date) {
+    if (date !== null) {
+        return date.slice(0, 10)
+    } else {
+        return null
+    }
   }
 
   render() {
@@ -62,8 +79,8 @@ class SettlementsTable extends Component {
                 return (
                 <tr key={i} onClick={() => this.handleUpdateClick(settlement)}>
                     <td>{settlement.id}</td>
-                    <td>{settlement.statusDate.slice(0, 10)}</td>
-                    <td><a href={'#' + settlement.id}>{settlement.customerName}</a></td>
+                    <td>{this.displayDate(settlement.statusDate)}</td>
+                    <td><a className= 'customerMO' href={'#' + settlement.id}>{settlement.customerName}</a></td>
                     <td>{settlement.category}</td>
                     <td>${Intl.NumberFormat().format(settlement.amount)}</td>
                     <td>{settlement.lender}</td>

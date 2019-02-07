@@ -5,11 +5,12 @@ import { NavLink, Link } from 'react-router-dom'
 import axios from 'axios';
 
 class Navbar extends Component {
+
     state = { 
         navbars: [] 
     }
 
-    fetchData() {
+    fetchData = () => {
         const config = { headers: {
             token: sessionStorage.getItem('token')
         }}
@@ -19,11 +20,16 @@ class Navbar extends Component {
             // console.log(resp.data)
             this.setState({ navbars: resp.data })
         })
+        .catch(err => console.log(err))
     }
 
     componentDidMount() {
         this.fetchData();
-        setInterval(this.fetchData, 15000);
+        this.setState({refresh: setInterval(this.fetchData, 15000)});
+    }
+    
+    componentWillUnmount() {
+        clearInterval(this.state.refresh)
     }
 
     clearSessionStorage() {

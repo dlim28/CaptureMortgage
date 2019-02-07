@@ -78,14 +78,12 @@ input {
   font-size: 20px;
   border-radius: 10px;
 }
-
 .savebutton:hover {
   background-color: #009900;
   /* background-color: rgb(13, 114, 13); Green */
   color: white;
   cursor: pointer;
 }
-
 .cancelbutton{
   background-color: rgb(18, 77, 136);
   padding: 6px 50px;
@@ -93,15 +91,16 @@ input {
   font-size: 20px;
   border-radius: 10px;
 }
-
 .cancelbutton:hover {
   background-color: #FF0000;
   /* background-color: rgb(145, 37, 37); */
   color: white;
   cursor: pointer;
 }
-
 .buttonflex{
   display:flex;
-  justify-content: flex-end;
+  justify-content: space-around;
+  width: auto;
+  align-items: right;
+  padding-left: 160px;
 }

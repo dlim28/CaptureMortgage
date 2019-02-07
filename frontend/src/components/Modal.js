@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styles/Modal.css';
-import ModalLogic from './ModalLogic'
 
 const Modal = (props) => {
 
@@ -20,17 +19,15 @@ const Modal = (props) => {
                     <span className="close-modal-btn" onClick={props.close}>×</span>
                 </div>
                 <div className="modaldata">
-                                    <div className="modalcontent">
-                                        <div>Name:</div>
-                                        <div className="modalcontent">Status:</div>
-                                    </div>
-                                    <div className="modalcontent">
-                                            {props.customerData.customerName}
-                                        <div> 
-                                            {props.customerData.status}                                     
+                <div className="modalcontent">
+                                            <div>Name:</div>
+                                            <div className="modalcontent">Status:</div>
+                                        </div>
+                                        <div className="modalcontent">
+                                        <div>{props.customerData.customerName}</div>
+                                        <div className="modalstatus">{props.customerData.status}</div>
                                     </div>
                                 </div>
-                            </div>
 
 
                 <div className="modal-footer">
@@ -61,10 +58,8 @@ const Modal = (props) => {
                                             <div className="modalcontent">Status:</div>
                                         </div>
                                         <div className="modalcontent">
-                                                {props.customerData.customerName}
-                                            <div> 
-                                                {props.customerData.status}                                     
-                                        </div>
+                                        <div>{props.customerData.customerName}</div>
+                                        <div className="modalstatus">{props.customerData.status}</div>
                                     </div>
                                 </div>
     
@@ -93,17 +88,15 @@ const Modal = (props) => {
                         <span className="close-modal-btn" onClick={props.close}>×</span>
                     </div>
                     <div className="modaldata">
-                            <div className="modalcontent">
-                                <div>Name:</div>
-                                <div className="modalcontent">Status:</div>
-                            </div>
-                            <div className="modalcontent uppercase">
-                                    {props.customerData.customerName}
-                                <div> 
-                                        {props.customerData.status}                                     
+                    <div className="modalcontent">
+                                            <div>Name:</div>
+                                            <div className="modalcontent">Status:</div>
+                                        </div>
+                                        <div className="modalcontent">
+                                        <div>{props.customerData.customerName}</div>
+                                        <div className="modalstatus">{props.customerData.status}</div>
+                                    </div>
                                 </div>
-                            </div>
-                    </div>
     
     
                     <div className="modal-footer">

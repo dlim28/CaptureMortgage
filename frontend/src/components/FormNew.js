@@ -3,7 +3,7 @@ import '../styles/Form.css';
 import axios from 'axios';
 
 const Status = "LEAD"
-const Dates = Date().replace("GMT+1100 (Australian Eastern Daylight Time)", "")
+const Dates = Date().slice(0, 10)
 
 class Form extends Component {
     state = {

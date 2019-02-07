@@ -30,6 +30,7 @@
 .modal-body {
     padding: 10px 15px;
     text-align: center;
+    align-content: center;
 }
 
 .modal-footer {
@@ -100,14 +101,14 @@ background-color: green;
 
 .open-modal-btn {
     background-color: rgb(18, 77, 136);
-    padding: 1px 50px;
+    padding: 1px 30px;
     color:white;
     font-size: 20px;
     border-radius: 10px;
 }
 
 .open-modal-btn:hover {
-        background-color: #FF0000;
+        background-color:green;
         /* background-color: rgb(145, 37, 37); */
         color: white;
         cursor: pointer;
@@ -117,14 +118,27 @@ background-color: green;
         display: flex;
         justify-content: space-around;
         height: auto;
+        align-content: center;
+        width: 720px;
 }
-      
+
 .modalcontent{
         height: 100px;
         display: inline-block;
-        justify-content: space-around;
+        justify-content: space-between;
         margin-top: 25px;
         padding-bottom: 25px;
         font-size: 22px;
         font-style: bold;
-      }
+}
+.modalstatus{
+    color: rgb(18, 77, 136);
+    height: 100px;
+        display: inline-block;
+        justify-content: space-between;
+        margin-top: 25px;
+        padding-bottom: 25px;
+        font-size: 22px;
+        font-style: bold;
+        text-transform: uppercase;
+}
