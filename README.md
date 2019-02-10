@@ -2,7 +2,7 @@
 
 **Github:** https://github.com/dlim28/CaptureMortgage
 
-**Deployment:** http://cmpfrontend-env.mpxq6chsga.us-east-2.elasticbeanstalk.com/
+**Deployment:** https://capture-mortgage-plus.herokuapp.com/
 
 ## Project Description
 > The project is to build a functional Customer Relationship Management(CRM) to assist the mortgage division of CMP (Capture Mortgage Plus)
