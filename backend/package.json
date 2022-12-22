@@ -17,6 +17,6 @@
     "jest": "^23.6.0",
     "mongoose": "^5.7.5",
     "nodemon": "^1.18.9",
-    "jsonwebtoken": "^8.4.0"
+    "jsonwebtoken": "^9.0.0"
   }
 }
